@@ -62,7 +62,7 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
             <div>
                 <ul style="list-style-type:none">
                     <li>
-                        <a href="{% url 'registrar_curriculum' %}">Registrar Currículum</a>
+                        <a href="{% url 'registrar_curriculum' %}">Submit a Resume</a>
                     </li>
                     <br>
                     <li>
@@ -70,7 +70,7 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_contrato' %}">Generar Contratos</a>
+                        <a href="{% url 'registrar_contrato' %}">Generate Contracts</a>
                     </li>
                     <br>
                     <li>
@@ -82,7 +82,7 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_sancion' %}">Registrar Sanción</a>
+                        <a href="{% url 'registrar_sancion' %}">Register a Sanction</a>
                     </li>
                     <br>
                     <li>
@@ -139,15 +139,29 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
 
         <!-- Si no inicias sesión, esto te aparecerá -->
         {% else %}
+<!--            <p>-->
+<!--                Bienvenido al sistema de administración de recursos humanos de la empresa.-->
+<!--            </p>-->
             <p>
-                Bienvenido al sistema de administración de recursos humanos de la empresa.
+                Welcome to the company's human resource management system.
             </p>
+
+<!--            <p>-->
+<!--                Por favor, <a href=" url 'registrar' ">regístrese</a> para poder usar el sitio web.-->
+<!--            </p>-->
+
             <p>
-                Por favor, <a href="{% url 'registrar' %}">regístrese</a> para poder usar el sitio web.
+                Please, <a href="{% url 'registrar' %}">sign up</a> to be able to use the website.
             </p>
+
+<!--            <p>-->
+<!--                Si ya posee una cuenta, por favor, <a href=" url 'iniciar_sesion' ">inicie sesión</a> para utilizar la aplicación-->
+<!--                web.-->
+<!--            </p>-->
+
             <p>
-                Si ya posee una cuenta, por favor, <a href="{% url 'iniciar_sesion' %}">inicie sesión</a> para utilizar la aplicación
-                web.
+                If you already have an account, please,  <a href="{% url 'iniciar_sesion' %}">log in</a> to use the
+                web app.
             </p>
         {% endif %}
     </div>
