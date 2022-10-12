@@ -74,7 +74,7 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'lista_dias_asistencia' %}">Registrar Asistencia</a>
+                        <a href="{% url 'lista_dias_asistencia' %}">Register Attendance</a>
                     </li>
                     <br>
                     <li>
@@ -86,11 +86,11 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_descuentos' %}">Registrar Descuentos</a>
+                        <a href="{% url 'registrar_descuentos' %}">Register Discounts</a>
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_ingresos_extras' %}">Registrar Ingresos Extras</a>
+                        <a href="{% url 'registrar_ingresos_extras' %}">Register Supplemental Income</a>
                     </li>
                     <br>
                     <li>
@@ -98,39 +98,43 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'lista_legajos' %}">Legajo del funcionario</a>
+                        <a href="{% url 'lista_legajos' %}">Register an Employee's Dossier</a>
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_planillas_ministerio_trabajo' %}">Generar Planillas del Ministerio de Trabajo</a>
+                        <a href="{% url 'registrar_planillas_ministerio_trabajo' %}">
+                            Generate Department of Labor's Forms
+                        </a>
                     </li>
                     <br>
                     <li>
                         <a href="{% url 'registrar_ips' %}">Generar Planilla del IPS</a>
                     </li>
                     <br>
+                    <!-- This will show all the info about the employee's payroll -->
                     <li>
-                        <a href="{% url 'lista_liquidacion_salarios' %}">Gestionar Liquidación de Salarios</a>
+                        <a href="{% url 'lista_liquidacion_salarios' %}">Manage Payroll</a>
                     </li>
                     <br>
+                    <!-- This is when an employee leaves the company (due to quitting or being fired) -->
                     <li>
                         <a href="{% url 'lista_liquidacion_personal' %}">Liquidación del Personal</a>
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_aguinaldos' %}">Generar Planilla Aguinaldos</a>
+                        <a href="{% url 'registrar_aguinaldos' %}">Generate Christmas Bonus' Forms</a>
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_bonificacion_familiar' %}">Generar Bonificación Familiar</a>
+                        <a href="{% url 'registrar_bonificacion_familiar' %}">Register a Large Family Bonus</a>
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'lista_vacaciones' %}">Mantener Vacaciones</a>
+                        <a href="{% url 'lista_vacaciones' %}">Register a Vacation</a>
                     </li>
                     <br>
                     <li>
-                        <a href="{% url 'registrar_informe_web' %}">Elaborar Informes Web</a>
+                        <a href="{% url 'registrar_informe_web' %}">Generate Web Reports</a>
                     </li>
                 </ul>
 
