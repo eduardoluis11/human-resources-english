@@ -5,13 +5,16 @@
 <!-- Aquí empezaré a escribir todo el HTML de la página para registrarse -->
 {% block body %}
 
-    <h1>Iniciar Sesión</h1>
+    <h1>Log In</h1>
     <br>
     <br>
 
     <div>
+<!--        <p>-->
+<!--            Introduzca su nombre de usuario y contraseña para entrar y poder usar nuestro sistema de recursos humanos.-->
+<!--        </p>-->
         <p>
-            Introduzca su nombre de usuario y contraseña para entrar y poder usar nuestro sistema de recursos humanos.
+            Type your username and password to log in and use our human resources system.
         </p>
     </div>
 
@@ -27,23 +30,23 @@
         <form action="{% url 'iniciar_sesion' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
-                <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Nombre de Usuario"
+                <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Username"
                 required>
             </div>
             <br>
             <div class="form-group">
-                <input class="form-control" type="password" name="contrasena" placeholder="Contraseña" required>
+                <input class="form-control" type="password" name="contrasena" placeholder="Password" required>
             </div>
             <br>
 
             <!-- Botón para enviar formulario -->
-            <input class="btn btn-primary" type="submit" value="Iniciar Sesión">
+            <input class="btn btn-primary" type="submit" value="Log In">
         </form>
     </div>
     <br>
 
     <p>
-        ¿No tienes una cuenta? <a href="{% url 'registrar' %}">Regístrate aquí.</a>
+        Don't have an account? <a href="{% url 'registrar' %}">Sign up here.</a>
     </p>
 
 {% endblock %}

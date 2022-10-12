@@ -5,13 +5,16 @@
 <!-- Aquí empezaré a escribir todo el HTML de la página para registrarse -->
 {% block body %}
 
-    <h1>Registrarse</h1>
+    <h1>Sign Up</h1>
     <br>
     <br>
 
     <div>
+<!--        <p>-->
+<!--            Aquí podrá crearse una cuenta para poder usar nuestro sistema de recursos humanos.-->
+<!--        </p>-->
         <p>
-            Aquí podrá crearse una cuenta para poder usar nuestro sistema de recursos humanos.
+            Here, you will be able to create an account to use our human resources system.
         </p>
     </div>
 
@@ -34,32 +37,32 @@
         <form action="{% url 'registrar' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
-                <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Nombre de Usuario"
+                <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Username"
                 required>
             </div>
             <br>
             <div class="form-group">
-                <input class="form-control" type="email" name="email" placeholder="Correo Electrónico" required>
+                <input class="form-control" type="email" name="email" placeholder="Email" required>
             </div>
             <br>
             <div class="form-group">
-                <input class="form-control" type="password" name="contrasena" placeholder="Contraseña" required>
+                <input class="form-control" type="password" name="contrasena" placeholder="Password" required>
             </div>
             <br>
             <div class="form-group">
                 <input class="form-control" type="password" name="confirmar_contrasena"
-                       placeholder="Confirmar Contraseña" required>
+                       placeholder="Confirm Password" required>
             </div>
             <br>
 
             <!-- Botón para enviar formulario -->
-            <input class="btn btn-primary" type="submit" value="Registrarse">
+            <input class="btn btn-primary" type="submit" value="Sign Up">
         </form>
     </div>
     <br>
 
     <p>
-        Si ya tienes una cuenta, <a href="{% url 'iniciar_sesion' %}">inicia sesión aquí.</a>
+        If you already have an account, <a href="{% url 'iniciar_sesion' %}">log in here.</a>
     </p>
 
 {% endblock %}
