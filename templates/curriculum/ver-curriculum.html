@@ -8,7 +8,7 @@
 
     <!-- Esto pondrá el nombre del trabajador en el título del currículum -->
     {% for datos in curriculum_seleccionado %}
-        <h1>Currículum de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Resume</h1>
         <br>
         <br>
 
@@ -16,59 +16,61 @@
 
         Tengo que usar el atributo “download” de un <a> en HTML para poder descargar un archivo.
         -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Sexo</b></p>
+        <p><b>Sex</b></p>
         <p>{{datos.sexo}}</p>
 
-        <p><b>Fecha de nacimiento</b></p>
+        <p><b>Date of Birth</b></p>
         <p>{{datos.fecha_nacimiento}}</p>
 
-        <p><b>Domicilio</b></p>
+        <p><b>Address</b></p>
         <p>{{datos.domicilio}}</p>
 
-        <p><b>Correo Electrónico</b></p>
+        <p><b>Email</b></p>
         <p>{{datos.email}}</p>
 
-        <p><b>Teléfono</b></p>
+        <p><b>Phone Number</b></p>
         <p>{{datos.telefono}}</p>
 
-        <p><b>Nombre del cargo</b></p>
+        <p><b>Job Position</b></p>
         <p>{{datos.nombre_del_cargo}}</p>
 
-        <p><b>Experiencia Laboral</b></p>
+        <p><b>Work Experience</b></p>
         <p>{{datos.experiencia_laboral}}</p>
 
-        <p><b>Nivel de estudios</b></p>
+        <p><b>Education</b></p>
         <p>{{datos.nivel_de_estudios}}</p>
 
-        <p><b>Otros datos de interés</b></p>
+        <p><b>Additional Information</b></p>
         <p>{{datos.otros_datos_interes}}</p>
 
-        <p><b>Tiene auto propio</b></p>
+        <p><b>Do They Have Their Own Car?</b></p>
         <p>{{datos.tiene_auto_propio}}</p>
 
-        <p><b>Archivo con el Currículum en PDF</b></p>
+<!--        <p><b>Archivo con el Currículum en PDF</b></p>-->
+        <p><b>Resume as a PDF File</b></p>
         <a href="{{datos.pdf_con_curriculum.url}}" download>
-            Descargar Currículum
+            Download Resume
         </a>
         <br>
         <br>
 
-        <p><b>Fecha en la que se registró el currículum</b></p>
+<!--        <p><b>Fecha en la que se registró el currículum</b></p>-->
+        <p><b>Date In Which the Resume Was Submitted</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 
     <!-- Enlace para volver a la lista de justificaciones-->
     <a href="{% url 'lista_curriculums' %}" class="text-decoration-none">
-        Volver a la lista de currículums
+        Go Back To the List of Resumes
     </a>
 
 {% endblock %}

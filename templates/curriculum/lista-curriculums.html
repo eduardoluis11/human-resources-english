@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Currículums
+    List of Resumes
 {% endblock %}
 
 <!-- Lista de todos las Currículums de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Currículums</h1>
+    <h1>List of Resumes</h1>
     <br>
     <br>
 
@@ -19,7 +19,7 @@
 
     <!-- Enlace para agregar unos nuevos Currículums -->
     <a href="{% url 'registrar_curriculum' %}" class="text-decoration-none">
-        Agregar Nuevo Currículum
+        Add New Resume
     </a>
     <br>
     <br>
@@ -29,13 +29,13 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Cédula
+                ID Number
             </th>
             <th>
-                Currículum
+                Resume
             </th>
             <!-- Esto llama cada vacación registrada en la base de datos -->
             {% for curriculum in curriculums %}
