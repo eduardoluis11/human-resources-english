@@ -16,7 +16,7 @@
 
     <!-- Esto me imprimirá el nombre del título de la página de inicio en la pestaña del navegador (fuente: 
     https://docs.djangoproject.com/en/4.1/ref/templates/language/ .) -->
-    <title>{% block title %}Sistema de Recursos Humanos{% endblock %}</title>
+    <title>{% block title %}Human Resources System{% endblock %}</title>
 
     <!-- CSS de Bootstrap 5.2 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -37,14 +37,14 @@
     -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">Empresa</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Company</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
             </li>
             {% if user.is_authenticated %}  <!-- Si el usuario inicia sesión -->
 
@@ -116,10 +116,10 @@
 
             {% else %}  <!-- Si el usuario no ha iniciado sesión -->
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
+                  <a class="nav-link" href="{% url 'iniciar_sesion' %}">Log In</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'registrar' %}">Registrarse</a>
+                  <a class="nav-link" href="{% url 'registrar' %}">Sign Up</a>
                 </li>
             {% endif %}
           </ul>
@@ -142,11 +142,11 @@
                 <!-- Enlaces a "Acerca de" y "Contacto" -->
         <div class="col-md-4 d-flex align-items-center">
           <a href="#" class="mb-3 me-2 mb-md-0 text-muted lh-1">
-            Acerca De
+            About Us
           </a>
             <p class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">|</p>
           <a href="#" class="mb-3 me-2 mb-md-0 text-muted lh-1">
-            Contacto
+            Contact
           </a>
             <!-- Aviso de copyright. El script que agregué va a actualizar el año automáticamente cada año (fuente:
             https://kerstinmartin.com/blog/copyright-notice ). -->
@@ -185,13 +185,13 @@
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
           <li class="ms-3">
               <a class="text-muted" href="#">
-                Términos y Condiciones
+                Terms and Conditions
               </a>
           </li>
           <li class="ms-3">|</li>
           <li class="ms-3">
               <a class="text-muted" href="#">
-                Política de Privacidad
+                Privacy Policy
               </a>
           </li>
         </ul>
