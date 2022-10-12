@@ -71,3 +71,4 @@ media/
 
 # migrations folder
 app_rrhh/migrations
+/.idea/codigo.iml

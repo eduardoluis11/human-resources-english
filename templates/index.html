@@ -10,7 +10,8 @@ https://www.w3schools.com/django/django_tags_extends.php .) -->
 lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Home. -->
 {% block body %}
     <div>
-        <h1>Sistema de Recursos Humanos</h1>
+<!--        <h1>Sistema de Recursos Humanos</h1>-->
+        <h1>Human Resources System</h1>
     </div>
     <br>
     <br>
@@ -29,16 +30,29 @@ lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Ho
         <!-- Esto solo aparecerá si inicias sesión -->
         {% if user.is_authenticated %}
 
+<!--            <p>-->
+<!--                ¡Bienvenido, user.username!-->
+<!--            </p>-->
+
             <p>
-                ¡Bienvenido, {{user.username}}!
+                Welcome, {{user.username}}!
             </p>
             <p>
-                Aquí tendrás acceso a todas las funciones del sistema de recursos humanos de la empresa.
+                Here, you'll get access to all the features of the company's human resources system.
             </p>
+
+<!--            <p>-->
+<!--                Aquí tendrás acceso a todas las funciones del sistema de recursos humanos de la empresa.-->
+<!--            </p>-->
+
             <p>
-                Aquí podrás ver todas las funciones disponibles en este sistema. Haz clic en la función que desees para
-                empezar a usarla.
+                Here, you'll see all the available features on this system. Click on the functionality that you wish to
+                use to begin to use it.
             </p>
+<!--            <p>-->
+<!--                Aquí podrás ver todas las funciones disponibles en este sistema. Haz clic en la función que desees para-->
+<!--                empezar a usarla.-->
+<!--            </p>-->
 
             <!-- Aquí estarán todos los enlaces a las 18 funciones de recursos humanos de la web app.
 
