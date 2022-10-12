@@ -1,0 +1,50 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Contrato
+{% endblock %}
+
+<!-- Registrar una Contrato -->
+{% block body %}
+
+    <h1>Registrar Contrato</h1>
+    <br>
+    <br>
+
+    <p>
+        Registre el contrato de un trabajador.
+    </p>
+    <br>
+    <br>
+
+    <!-- Esto me llama el formulario de Django para registrar Contrato.
+
+    Agregaré "enctype" al formulario para que me permita subir imagenes.
+    -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h3>Datos Personales</h3>
+        {{formulario_datos_personales.as_p}}
+        <br>
+        <br>
+
+        <hr>
+
+        <h3>Datos del Contrato</h3>
+        {{formulario_datos_contrato.as_p}}
+        <br>
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="Registrar Contrato">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de planillas de Contrato -->
+        <a href="{% url 'lista_contratos' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+
+    </form>
+{% endblock %}

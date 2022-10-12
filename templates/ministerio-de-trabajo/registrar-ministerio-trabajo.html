@@ -1,0 +1,100 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Planillas del Ministerio de Trabajo
+{% endblock %}
+
+<!-- Registrar Planillas del Ministerio de Trabajo -->
+{% block body %}
+
+    <h1>Registrar Planillas del Ministerio de Trabajo</h1>
+    <br>
+    <br>
+
+    <p>
+        Registre las tres Planillas del Ministerio de Trabajo.
+    </p>
+    <br>
+    <br>
+
+    <!-- Esto me llama el formulario de Django para registrar Planillas del Ministerio de Trabajo.
+
+    -->
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Formulario de Empleados -->
+        <h3>Planilla de Empleados y Obreros</h3>
+        <br>
+        <br>
+        {{formulario_empleados.as_p}}
+
+        <hr>
+
+        <!-- Formulario de Sueldos -->
+        <h3>Planilla de Sueldos y Jornales</h3>
+        <br>
+        <br>
+        {{formulario_sueldos.as_p}}
+
+        <hr>
+
+        <!-- Formularios de Resumen General -->
+        <h3>Planilla de Resumen General de Personas Ocupadas</h3>
+        <br>
+        <br>
+
+        <!-- Orden 1 -->
+        <h5>Orden 1: Cantidad de Empleados</h5>
+        <br>
+        <br>
+        {{formulario_orden_1.as_p}}
+
+        <hr>
+
+        <!-- Orden 2 -->
+        <h5>Orden 2: Horas Trabajadas</h5>
+        <br>
+        <br>
+        {{formulario_orden_2.as_p}}
+
+        <hr>
+
+        <!-- Orden 3 -->
+        <h5>Orden 3: Sueldos o Jornales</h5>
+        <br>
+        <br>
+        {{formulario_orden_3.as_p}}
+
+        <hr>
+
+        <!-- Orden 4 -->
+        <h5>Orden 4: Cantidad de Ingresos</h5>
+        <br>
+        <br>
+        {{formulario_orden_4.as_p}}
+
+        <hr>
+
+        <!-- Orden 5 -->
+        <h5>Orden 5: Cantidad de Egresos</h5>
+        <br>
+        <br>
+        {{formulario_orden_5.as_p}}
+
+
+        <br>
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="Registrar Planillas">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de Planillas del Ministerio de Trabajo -->
+        <a href="{% url 'lista_ministerio_trabajo' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+
+    </form>
+{% endblock %}

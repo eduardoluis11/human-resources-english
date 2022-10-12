@@ -1,0 +1,38 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Permiso
+{% endblock %}
+
+<!-- Registrar un permiso -->
+{% block body %}
+
+    <h1>Registrar Permiso</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del trabajador y de su correspondiente permiso.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar permisos.
+
+    Agregaré "enctype" al formulario para que me permita subir imagenes.
+    -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Registrar Permiso">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de sanciones -->
+        <a href="{% url 'lista_permisos' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+
+    </form>
+{% endblock %}

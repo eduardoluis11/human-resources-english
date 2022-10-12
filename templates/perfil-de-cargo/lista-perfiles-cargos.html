@@ -1,0 +1,50 @@
+{% extends "disposicion.html" %}
+
+<!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
+{% block title %}
+    Lista de Perfiles de Cargos Buscados
+{% endblock %}
+
+<!-- Lista de todas las bonificaciones familiares para todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Perfiles de Cargos Buscados</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario regista una nueva bonificacion familiar -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar un nuevo cargo -->
+    <a href="{% url 'registrar_perfil_cargo' %}" class="text-decoration-none">Agregar Nuevo Perfil de Cargo</a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los cargos -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre del Perfil de Cargo
+            </th>
+            <th>
+                Detalles del Perfil de Cargo
+            </th>
+            <!-- Esto llama cada bonificacion registrada en la base de datos -->
+            {% for perfil in perfiles %}
+                <tr>
+                    <td>
+                        {{perfil.nombre_del_cargo}}
+                    </td>
+                    <td>
+                        <a href="{{perfil.id}}/ver-perfil-cargo" class="text-decoration-none">Ver detalles</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+
+{% endblock %}

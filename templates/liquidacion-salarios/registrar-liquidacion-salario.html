@@ -1,0 +1,38 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Liquidación de Salarios
+{% endblock %}
+
+<!-- Registrar una Liquidación de Salarios -->
+{% block body %}
+
+    <h1>Registrar Liquidación de Salarios</h1>
+    <br>
+    <br>
+
+    <p>
+        Aquí puedes registrar el pago del salario de un trabajador.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar Liquidación de Salarios.
+
+    Agregaré "enctype" al formulario para que me permita subir imagenes.
+    -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Calcular Liquidación">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de planillas de liquidacion de Salarios -->
+        <a href="{% url 'lista_liquidacion_salarios' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+
+    </form>
+{% endblock %}

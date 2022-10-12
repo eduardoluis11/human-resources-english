@@ -1,0 +1,62 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Liquidación de Salarios
+{% endblock %}
+
+<!-- Liquidación de Salarios del trabajador seleccionado en formato para imprimir (sin navbar ni footer). -->
+{% block body %}
+
+    <!-- Esto pondrá el nombre del trabajador en el título de la Liquidación de Salarios.
+
+    No pondré el enlace a la página anterior para que no se vea en la planilla a imprimir.
+
+    Tenia que poner “.url” al final de “datos.foto_firma_trabajador” para que me imprimiera la imagen -->
+    {% for datos in liquidacion_seleccionada %}
+        <h1>Liquidación de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos de la sanción seleccionada -->
+        <p><b>Nombre</b></p>
+        <p>{{datos.nombre}}</p>
+
+        <p><b>Apellidos</b></p>
+        <p>{{datos.apellidos}}</p>
+
+        <p><b>Cédula de identidad</b></p>
+        <p>{{datos.cedula}}</p>
+
+        <p><b>Salario mensual</b></p>
+        <p>{{datos.salario_mensual}} ₲</p>
+
+        <p><b>Ingresos Extras</b></p>
+        <p>{{datos.ingresos_extras}} ₲</p>
+
+        <p><b>Descuentos</b></p>
+        <p>{{datos.descuentos}} ₲</p>
+
+        <hr>
+        <br>
+        <br>
+
+        <!-- Total a liquidar -->
+        <h3>Salario total a liquidar</h3>
+        <br>
+        <p><b>{{datos.salario_total_a_liquidar}} ₲</b></p>
+
+        <br>
+        <br>
+
+        <p><b>Fecha de pago</b></p>
+        <p>{{datos.fecha_de_pago}}</p>
+
+        <p><b>Firma del encargado que le concedió la Liquidación al Trabajador</b></p>
+        <img src="{{datos.foto_firma_encargado_rrhh.url}}" height="100px">
+        <br>
+        <br>
+
+        <p><b>Fecha en la que se registró la Liquidación</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+{% endblock %}

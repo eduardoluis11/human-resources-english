@@ -1,0 +1,68 @@
+{% extends "disposicion.html" %}
+
+<!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
+{% block title %}
+    Lista de Sanciones
+{% endblock %}
+
+<!-- Lista de todas las sanciones para todos los empelados -->
+{% block body %}
+
+    <h1>Sanciones</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario regista una nueva sanción -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar una nueva sanción -->
+    <a href="{% url 'registrar_sancion' %}" class="text-decoration-none">Agregar Nueva Sanción</a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todas las sanciones -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Cédula
+            </th>
+            <th>
+                Sanción
+            </th>
+            <th>
+                Ver detalles / Borrar
+            </th>
+            <!-- Esto llama cada sancion registrada en la base de datos -->
+            {% for sancion in sanciones %}
+                <tr>
+                    <td>
+                        {{sancion.apellidos}}, {{sancion.nombre}}
+                    </td>
+                    <td>
+                        {{sancion.cedula}}
+                    </td>
+                    <td>
+                        {{sancion.sancion_a_aplicar}}
+                    </td>
+                    <td>
+                        <a href="{{sancion.id}}/ver-sancion" class="text-decoration-none">Ver detalles</a>
+                        /
+                        <a href="{{sancion.id}}/borrar-sancion" class="text-decoration-none">Borrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+
+
+
+
+
+{% endblock %}

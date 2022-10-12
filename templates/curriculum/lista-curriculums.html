@@ -1,0 +1,56 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Currículums
+{% endblock %}
+
+<!-- Lista de todos las Currículums de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Currículums</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos Currículums -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar unos nuevos Currículums -->
+    <a href="{% url 'registrar_curriculum' %}" class="text-decoration-none">
+        Agregar Nuevo Currículum
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los Currículums del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Cédula
+            </th>
+            <th>
+                Currículum
+            </th>
+            <!-- Esto llama cada vacación registrada en la base de datos -->
+            {% for curriculum in curriculums %}
+                <tr>
+                    <td>
+                        {{curriculum.apellidos}}, {{curriculum.nombre}}
+                    </td>
+                    <td>
+                        {{curriculum.cedula}}
+                    </td>
+                    <td>
+                        <a href="{{curriculum.id}}/ver-curriculum" class="text-decoration-none">Ver Currículum</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

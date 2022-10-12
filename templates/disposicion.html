@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+
+<html lang="es">
+<head>
+    <!-- Esta página tendrá el diseño de la mayor parte del sitio web. Aquí meteré la barra de navegación, el footer, y el Bootstrap. -->
+
+    <!-- El "load static" me cargara todo el codigo JS y CSS que quiera agregar que esté en la carpeta "static" (fuente:
+    https://docs.djangoproject.com/en/4.1/howto/static-files/ ). -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Esto me imprimirá el nombre del título de la página de inicio en la pestaña del navegador (fuente: 
+    https://docs.djangoproject.com/en/4.1/ref/templates/language/ .) -->
+    <title>{% block title %}Sistema de Recursos Humanos{% endblock %}</title>
+
+    <!-- CSS de Bootstrap 5.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Esto me va a cargar el CSS de la carpeta static (fuente:
+    https://www.digitalocean.com/community/tutorials/working-with-django-templates-static-files .) -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" />
+</head>
+
+<!-- Le agregué una ID especial al body para sobrescribir el CSS de Bootstrap, y así usar mi propio CSS. -->
+<body>
+
+    <!-- Navbar/barra de navegación de Bootstrap (fuente: https://getbootstrap.com/docs/5.2/components/navbar/ .)
+
+    Si el usuario inicia sesión, le saldrán 5 o 6 menús dropdown, los cuales tendrán enlaces a las 18 funciones
+    de esta web app. De lo contrario solo le saldrán los enlaces para registrarse o iniciar sesión. Varias de las
+    funciones se agruparán dentro de un menú desplegable o "dropdown".
+    -->
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">Empresa</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+            </li>
+            {% if user.is_authenticated %}  <!-- Si el usuario inicia sesión -->
+
+              <!-- 18 enlaces a todos las funciones de RRHH de esta web app -->
+              <li class="nav-item dropdown"> <!-- Funciones de "Pagos" -->
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Pagos
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'lista_liquidacion_salarios' %}">Liquidación de Salarios</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_liquidacion_personal' %}">Liquidación del Personal</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_bonificaciones_familiares' %}">
+                        Bonificaciones familiares
+                    </a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_aguinaldos' %}">Aguinaldos</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_ingresos_extras' %}">Ingresos extras</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_descuentos' %}">Descuentos</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown"> <!-- Funciones de "Asistencias" -->
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Asistencias
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'lista_vacaciones' %}">Vacaciones</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_permisos' %}">Permisos</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_justificaciones' %}">Justificaciones</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_dias_asistencia' %}">Asistencias</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown"> <!-- Funciones de "Legal" -->
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Legal
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'lista_legajos' %}">Legajo</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_ips' %}">IPS</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_ministerio_trabajo' %}">Planilla del Ministerio de Trabajo</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown"> <!-- Funciones de "Contratación" -->
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Contratación
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'lista_curriculums' %}">Currículum</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_perfiles_cargos' %}">Perfil de cargos</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_contratos' %}">Contratos</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown"> <!-- Funciones de "Otros" -->
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Otros
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'lista_sanciones' %}">Sanciones</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_informes' %}">Informes Web</a></li>
+                  </ul>
+              </li>
+              <!-- Fin de las 18 funciones -->
+
+
+              <li class="nav-item">
+                <span class="nav-link">Bienvenido, {{user.username}}</span> <!-- Imprime el nombre de usuario -->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a> <!-- Cierras sesión -->
+              </li>
+
+            {% else %}  <!-- Si el usuario no ha iniciado sesión -->
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'registrar' %}">Registrarse</a>
+                </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>
+
+    <!-- Esto meterá todo el código de las otras páginas HTML dentro del <body> de esta página. Fuente: 
+    https://docs.djangoproject.com/en/4.1/ref/templates/language/#template-inheritance -->
+    <div class="container-fluid">   <!-- Esto agrega márgenes responsive al los lados de la página -->
+        {% block body %}
+        {% endblock %}
+    </div>
+
+
+    <!-- Footer de Bootstrap (fuente: https://getbootstrap.com/docs/5.2/examples/footers/ .) Le voy a asignar
+     una ID especial al footer para sobreescribir el CSS de Bootstrap, y así usar mi propio CSS. -->
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top container-fluid">
+                <!-- Enlaces a "Acerca de" y "Contacto" -->
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="#" class="mb-3 me-2 mb-md-0 text-muted lh-1">
+            Acerca De
+          </a>
+            <p class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">|</p>
+          <a href="#" class="mb-3 me-2 mb-md-0 text-muted lh-1">
+            Contacto
+          </a>
+            <!-- Aviso de copyright. El script que agregué va a actualizar el año automáticamente cada año (fuente:
+            https://kerstinmartin.com/blog/copyright-notice ). -->
+          <span class="mb-3 mb-md-0 text-muted">
+              Copyright © <script>document.write(new Date().getFullYear())</script>
+          </span>
+        </div>
+
+
+<!--        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">-->
+<!--          <li class="ms-3">-->
+<!--              <a class="text-muted" href="#">-->
+<!--                Acerca De-->
+<!--              </a>-->
+<!--          </li>-->
+<!--          <li class="ms-3">|</li>-->
+<!--          <li class="ms-3">-->
+<!--              <a class="text-muted" href="#">-->
+<!--                Contacto-->
+<!--              </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+
+<!--        <div class="col-md-4 d-flex align-items-center">-->
+<!--          <a href="#" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">-->
+<!--            Acerca De-->
+<!--          </a>-->
+<!--            <p>|</p>-->
+<!--          <a href="#" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">-->
+<!--            Contacto-->
+<!--          </a>-->
+<!--          <span class="mb-3 mb-md-0 text-muted">© 2022</span>-->
+<!--        </div>-->
+
+        <!-- Enlaces a Terminos y condiciones, y política de privacidad -->
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+              <a class="text-muted" href="#">
+                Términos y Condiciones
+              </a>
+          </li>
+          <li class="ms-3">|</li>
+          <li class="ms-3">
+              <a class="text-muted" href="#">
+                Política de Privacidad
+              </a>
+          </li>
+        </ul>
+      </footer>
+
+    <!-- Mi código JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <!-- JS de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

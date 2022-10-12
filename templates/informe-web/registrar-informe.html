@@ -1,0 +1,42 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Informe Web
+{% endblock %}
+
+<!-- Registrar una Informe Web -->
+{% block body %}
+
+    <h1>Registrar Informe Web Anual</h1>
+    <br>
+    <br>
+
+    <p>
+        Registre el Informe Web anual de la empresa del año actual.
+    </p>
+    <br>
+    <br>
+
+    <!-- Esto me llama el formulario de Django para registrar Informe Web.
+
+    Agregaré "enctype" al formulario para que me permita subir imagenes.
+    -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+        <br>
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="Registrar Informe">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de planillas de Informe Web -->
+        <a href="{% url 'lista_informes' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+
+    </form>
+{% endblock %}

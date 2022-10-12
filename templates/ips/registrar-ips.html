@@ -1,0 +1,33 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Planilla IPS
+{% endblock %}
+
+<!-- Página para registrar el IPS de un empleado -->
+{% block body %}
+
+    <h1>Registrar Planilla IPS</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del trabajador y de su correspondiente planilla IPS.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar los IPS. -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Registrar IPS">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de planillas IPS -->
+        <a href="{% url 'lista_ips' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+    </form>
+{% endblock %}

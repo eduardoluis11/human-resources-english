@@ -1,0 +1,62 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Ingresos Extras
+{% endblock %}
+
+<!-- Lista de todos las ingresos extras  de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Ingresos Extras</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos ingresos extras -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar un nuevo ingresos extras -->
+    <a href="{% url 'registrar_ingresos_extras' %}" class="text-decoration-none">
+        Agregar Nuevos Ingresos Extras
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los ingresos extras del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre del Trabajador
+            </th>
+            <th>
+                Fecha en el que se le hará el Pago
+            </th>
+            <th>
+                Ingresos Extras a Agregar a su Salario
+            </th>
+            <th>
+                Ver Detalles
+            </th>
+            <!-- Esto llama cada ingreso extra registrado en la base de datos -->
+            {% for ingreso in ingresos_extras %}
+                <tr>
+                    <td>
+                        {{ingreso.apellidos}}, {{ingreso.nombre}}
+                    </td>
+                    <td>
+                        {{ingreso.fecha_aplicar_ingresos_extras}}
+                    </td>
+                    <td>
+                        {{ingreso.ingresos_extras_totales}} ₲
+                    </td>
+                    <td>
+                        <a href="{{ingreso.id}}/ver-ingreso-extra" class="text-decoration-none">Ver detalles</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

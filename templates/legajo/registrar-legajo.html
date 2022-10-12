@@ -1,0 +1,49 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Legajo
+{% endblock %}
+
+<!-- Registrar una Legajo -->
+{% block body %}
+
+    <h1>Registrar Legajo</h1>
+    <br>
+    <br>
+
+    <p>
+        Aquí puedes insertar los datos personales, jurídicos, y datos relacionados con la administración interna de la
+        empresa en el legajo de un trabajador.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar Legajo.
+
+    Agregaré "enctype" al formulario para que me permita subir imagenes.
+    -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h3>Datos Personales</h3>
+        {{formulario_datos_personales.as_p}}
+
+        <h3>Información Jurídica</h3>
+        {{formulario_informacion_juridica.as_p}}
+
+        <h3>Datos de la Administración Interna de la Empresa</h3>
+        {{formulario_empresa.as_p}}
+
+        <h3>Otros Datos de Interés</h3>
+        {{formulario_otros_datos.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Registrar Legajo">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de planillas de liquidacion de Salarios -->
+        <a href="{% url 'lista_legajos' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+
+    </form>
+{% endblock %}

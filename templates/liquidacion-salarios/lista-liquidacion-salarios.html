@@ -1,0 +1,67 @@
+{% extends "disposicion.html" %}
+
+<!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
+{% block title %}
+    Lista de Planillas de Liquidación de Salarios
+{% endblock %}
+
+<!-- Lista de todas las planillas de liquidacion de salarios para todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Planillas de Liquidación de Salarios</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra una nueva Liquidación de Salarios -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+    <!-- Enlace para agregar un nueva Liquidación de Salarios -->
+    <a href="{% url 'registrar_liquidacion_salario' %}" class="text-decoration-none">
+        Agregar Nueva Planilla de Liquidación
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todas las liquidaciones de Salarios.
+
+    Ahora, debo mostrar en la lista de planillas las planillas creadas. Mostrare los campos “nombre y apellidos”,
+    “cedula”, “salario a liquidar”, y “Ver Planilla para imprimir”.-->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Cédula
+            </th>
+            <th>
+                Salario a Pagar
+            </th>
+            <th>
+                Planilla de Liquidación Para Imprimir
+            </th>
+            <!-- Esto llama cada Liquidación de Salarios registrado en la base de datos -->
+            {% for liquidacion in liquidacion_de_salarios %}
+                <tr>
+                    <td>
+                        {{liquidacion.apellidos}}, {{liquidacion.nombre}}
+                    </td>
+                    <td>
+                        {{liquidacion.cedula}}
+                    </td>
+                    <td>
+                        {{liquidacion.salario_total_a_liquidar}} ₲
+                    </td>
+                    <td>
+                        <a href="{{liquidacion.id}}/ver-liquidacion-salario" class="text-decoration-none">
+                            Ver detalles en vista para imprimir
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Planillas del Ministerio de Trabajo
+{% endblock %}
+
+<!-- Lista de todos las Planilla del Ministerio de Trabajo de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Planillas del Ministerio de Trabajo</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unas nuevas Planillas del Ministerio de Trabajo -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar un nuevo Planilla del Ministerio de Trabajo -->
+    <a href="{% url 'registrar_planillas_ministerio_trabajo' %}" class="text-decoration-none">
+        Agregar Nueva Planilla
+    </a>
+    <br>
+    <br>
+
+    <!-- Tablas que muestran todas las Planilla del Ministerio de Trabajo del personal.
+
+     Hare 3 tablas: una para cada planilla. No hay otra forma de poner todo en una sola tabla, ya que meti los datos
+     en 3 modelos distintos, cuando “debi” meter todo en un solo modelo, o usar FKs o algo por el estilo. Ya no tengo
+     tiempo de arreglar esto, por lo que creare uan tabla por cada tipo de planilla.
+     -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Fecha de la Planilla
+            </th>
+            <th>
+                Planilla de Sueldos y Jornales
+            </th>
+<!--            <th>-->
+<!--                Planilla de Empleados y Obreros-->
+<!--            </th>-->
+<!--            <th>-->
+<!--                Planilla de Resumen General-->
+<!--            </th>-->
+<!--             Esto llama cada ingreso extra registrado en la base de datos-->
+            {% for sueldo in planillas_sueldos %}
+                <tr>
+                    <td>
+                        {{sueldo.timestamp}}
+                    </td>
+                    <td>
+                        <a href="{{sueldo.id}}/ver-planilla-sueldo-ministerio" class="text-decoration-none">Ver Planilla de Sueldos</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla de Empleados -->
+
+    <br>
+    <br>
+
+    <table> <!-- Tabla de Empleados -->
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Fecha de la Planilla
+            </th>
+            <th>
+                Planilla de Empleados y Obreros
+            </th>
+
+<!--             Esto llama cada empleado registrado en la base de datos-->
+            {% for empleado in planillas_empleados %}
+                <tr>
+                    <td>
+                        {{empleado.timestamp}}
+                    </td>
+                    <td>
+                        <a href="{{empleado.id}}/ver-planilla-empleado-ministerio" class="text-decoration-none">Ver Planilla de Empleados</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla de Empleados -->
+
+    <br>
+    <br>
+
+    <table> <!-- Tabla de Resumen -->
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Fecha de la Planilla
+            </th>
+            <th>
+                Planilla de Resumen General
+            </th>
+
+<!--             Esto llama cada empleado registrado en la base de datos-->
+            {% for resumen in planillas_resumen %}
+                <tr>
+                    <td>
+                        {{resumen.timestamp}}
+                    </td>
+                    <td>
+                        <a href="{{resumen.id}}/ver-planilla-resumen-ministerio" class="text-decoration-none">Ver Planilla de Resumen</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla de Resumen -->
+
+{% endblock %}

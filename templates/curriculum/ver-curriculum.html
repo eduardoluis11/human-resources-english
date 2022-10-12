@@ -1,0 +1,74 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Ver Currículum
+{% endblock %}
+
+{% block body %}
+
+    <!-- Esto pondrá el nombre del trabajador en el título del currículum -->
+    {% for datos in curriculum_seleccionado %}
+        <h1>Currículum de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos del Currículum seleccionado.
+
+        Tengo que usar el atributo “download” de un <a> en HTML para poder descargar un archivo.
+        -->
+        <p><b>Nombre</b></p>
+        <p>{{datos.nombre}}</p>
+
+        <p><b>Apellidos</b></p>
+        <p>{{datos.apellidos}}</p>
+
+        <p><b>Cédula de identidad</b></p>
+        <p>{{datos.cedula}}</p>
+
+        <p><b>Sexo</b></p>
+        <p>{{datos.sexo}}</p>
+
+        <p><b>Fecha de nacimiento</b></p>
+        <p>{{datos.fecha_nacimiento}}</p>
+
+        <p><b>Domicilio</b></p>
+        <p>{{datos.domicilio}}</p>
+
+        <p><b>Correo Electrónico</b></p>
+        <p>{{datos.email}}</p>
+
+        <p><b>Teléfono</b></p>
+        <p>{{datos.telefono}}</p>
+
+        <p><b>Nombre del cargo</b></p>
+        <p>{{datos.nombre_del_cargo}}</p>
+
+        <p><b>Experiencia Laboral</b></p>
+        <p>{{datos.experiencia_laboral}}</p>
+
+        <p><b>Nivel de estudios</b></p>
+        <p>{{datos.nivel_de_estudios}}</p>
+
+        <p><b>Otros datos de interés</b></p>
+        <p>{{datos.otros_datos_interes}}</p>
+
+        <p><b>Tiene auto propio</b></p>
+        <p>{{datos.tiene_auto_propio}}</p>
+
+        <p><b>Archivo con el Currículum en PDF</b></p>
+        <a href="{{datos.pdf_con_curriculum.url}}" download>
+            Descargar Currículum
+        </a>
+        <br>
+        <br>
+
+        <p><b>Fecha en la que se registró el currículum</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+
+    <!-- Enlace para volver a la lista de justificaciones-->
+    <a href="{% url 'lista_curriculums' %}" class="text-decoration-none">
+        Volver a la lista de currículums
+    </a>
+
+{% endblock %}

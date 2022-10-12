@@ -1,0 +1,50 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Fechas de Asistencia
+{% endblock %}
+
+<!-- Lista de todas las Fechas de Asistencia de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Fechas de Asistencia</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos Fechas de Asistencia -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar unas nuevas Fechas de Asistencia -->
+    <a href="{% url 'registrar_dia_asistencia' %}" class="text-decoration-none">
+        Agregar Nueva Fecha
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los Fechas de Asistencia del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Fecha
+            </th>
+            <th>
+                Ver Asistencias
+            </th>
+            <!-- Esto llama cada aguinaldo registrado en la base de datos -->
+            {% for fecha in fechas %}
+                <tr>
+                    <td>
+                        {{fecha.fecha_asistencias}}
+                    </td>
+                    <td>
+                        <a href="{{fecha.id}}/lista-asistencias" class="text-decoration-none">Ver Asistencias</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

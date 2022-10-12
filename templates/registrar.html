@@ -1,0 +1,65 @@
+{% extends "disposicion.html" %}
+
+{% load static %}
+
+<!-- Aquí empezaré a escribir todo el HTML de la página para registrarse -->
+{% block body %}
+
+    <h1>Registrarse</h1>
+    <br>
+    <br>
+
+    <div>
+        <p>
+            Aquí podrá crearse una cuenta para poder usar nuestro sistema de recursos humanos.
+        </p>
+    </div>
+
+    <!-- Esto me imprimirá un mensaje de error si un usuario ya está repetido -->
+    {% if mensaje %}
+        <div style="color: red">{{ mensaje }}</div>
+        <br>
+    {% endif %}
+
+    <!-- Formulario para registrarse. No lo voy a crear con un formulario de Django porque es muy complicado ocultar
+    los caracteres de una contraseña usando un formulario de Django.
+
+    El tag "url" va a llamar este mismo archivo (registrar.html) (fuente:
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/ .)
+
+    Debo poner el CSRF token para evitar ataques de cross site forgery al usar un formulario con POST (fuente:
+    https://docs.djangoproject.com/en/4.1/howto/csrf/ .)
+    -->
+    <div>
+        <form action="{% url 'registrar' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Nombre de Usuario"
+                required>
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Correo Electrónico" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" type="password" name="contrasena" placeholder="Contraseña" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" type="password" name="confirmar_contrasena"
+                       placeholder="Confirmar Contraseña" required>
+            </div>
+            <br>
+
+            <!-- Botón para enviar formulario -->
+            <input class="btn btn-primary" type="submit" value="Registrarse">
+        </form>
+    </div>
+    <br>
+
+    <p>
+        Si ya tienes una cuenta, <a href="{% url 'iniciar_sesion' %}">inicia sesión aquí.</a>
+    </p>
+
+{% endblock %}

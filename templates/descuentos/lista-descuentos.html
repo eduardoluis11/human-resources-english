@@ -1,0 +1,62 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Descuentos del Personal
+{% endblock %}
+
+<!-- Lista de todas las descuentoes de permisos de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Descuentos del Personal</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra una nueva descuentoes-->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar un nuevo descuento -->
+    <a href="{% url 'registrar_descuentos' %}" class="text-decoration-none">
+        Agregar Nuevo Descuento
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los descuentos de todo el personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre del Trabajador
+            </th>
+            <th>
+                Fecha en el que se le hará el Descuento
+            </th>
+            <th>
+                Monto que se le Descontará de su Salario
+            </th>
+            <th>
+                Ver Detalles
+            </th>
+            <!-- Esto llama cada descuento registrado en la base de datos -->
+            {% for descuento in descuentos %}
+                <tr>
+                    <td>
+                        {{descuento.apellidos}}, {{descuento.nombre}}
+                    </td>
+                    <td>
+                        {{descuento.fecha_aplicar_descuento}}
+                    </td>
+                    <td>
+                        {{descuento.descuentos_totales}} ₲
+                    </td>
+                    <td>
+                        <a href="{{descuento.id}}/ver-descuento" class="text-decoration-none">Ver detalles</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "disposicion.html" %}
+
+{% load static %}
+
+<!-- Aquí empezaré a escribir todo el HTML de la página para registrarse -->
+{% block body %}
+
+    <h1>Iniciar Sesión</h1>
+    <br>
+    <br>
+
+    <div>
+        <p>
+            Introduzca su nombre de usuario y contraseña para entrar y poder usar nuestro sistema de recursos humanos.
+        </p>
+    </div>
+
+    <!-- Esto me imprimirá un mensaje de error -->
+    {% if mensaje %}
+        <div style="color: red">{{ mensaje }}</div>
+        <br>
+    {% endif %}
+
+    <!-- Formulario para iniciar sesión.
+    -->
+    <div>
+        <form action="{% url 'iniciar_sesion' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Nombre de Usuario"
+                required>
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" type="password" name="contrasena" placeholder="Contraseña" required>
+            </div>
+            <br>
+
+            <!-- Botón para enviar formulario -->
+            <input class="btn btn-primary" type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
+    <br>
+
+    <p>
+        ¿No tienes una cuenta? <a href="{% url 'registrar' %}">Regístrate aquí.</a>
+    </p>
+
+{% endblock %}

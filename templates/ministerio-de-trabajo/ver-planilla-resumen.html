@@ -1,0 +1,233 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Ver Planilla de Resumen General de Personas Ocupadas
+{% endblock %}
+
+{% block body %}
+
+
+    <!-- Esto pondrá el año del informe en el título de Planilla de Resumen General de Personas Ocupadas -->
+    {% for datos in planilla_seleccionada %}
+        <h1>Planilla de Resumen General de Personas Ocupadas del {{datos.timestamp}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos de la Planilla de Resumen General de Personas Ocupadas seleccionada.
+        -->
+        <!-- Orden 1: Cantidad de empleados -->
+        <h3>Orden 1: Cantidad de empleados</h3>
+        <br>
+        <br>
+
+        <p><b>Número patronal</b></p>
+        <p>{{datos.numero_patronal_orden_1}}</p>
+
+        <p><b>Año</b></p>
+        <p>{{datos.anno_orden_1}}</p>
+
+        <p><b>Supervisores o jefes varones</b></p>
+        <p>{{datos.supervisores_o_jefes_varones_orden_1}}</p>
+
+        <p><b>Supervisores o jefes mujeres</b></p>
+        <p>{{datos.supervisores_o_jefes_mujeres_orden_1}}</p>
+
+        <p><b>Empleados varones</b></p>
+        <p>{{datos.empleados_varones_orden_1}}</p>
+
+        <p><b>Empleadas mujeres</b></p>
+        <p>{{datos.empleados_mujeres_orden_1}}</p>
+
+        <p><b>Obreros hombres</b></p>
+        <p>{{datos.obreros_hombres_orden_1}}</p>
+
+        <p><b>Obreras mujeres</b></p>
+        <p>{{datos.obreras_mujeres_orden_1}}</p>
+
+        <p><b>Menores varones</b></p>
+        <p>{{datos.menores_varones_orden_1}}</p>
+
+        <p><b>Menores mujeres</b></p>
+        <p>{{datos.menores_mujeres_orden_1}}</p>
+
+        <p><b>Orden</b></p>
+        <p>{{datos.orden_1}}</p>
+
+        <hr>
+        <br>
+        <br>
+
+        <!-- Orden 2: Horas trabajadas -->
+        <h3>Orden 2: Horas trabajadas</h3>
+        <br>
+        <br>
+
+        <p><b>Número patronal</b></p>
+        <p>{{datos.numero_patronal_orden_2}}</p>
+
+        <p><b>Año</b></p>
+        <p>{{datos.anno_orden_2}}</p>
+
+        <p><b>Supervisores o jefes varones</b></p>
+        <p>{{datos.supervisores_o_jefes_varones_orden_2}}</p>
+
+        <p><b>Supervisores o jefes mujeres</b></p>
+        <p>{{datos.supervisores_o_jefes_mujeres_orden_2}}</p>
+
+        <p><b>Empleados varones</b></p>
+        <p>{{datos.empleados_varones_orden_2}}</p>
+
+        <p><b>Empleadas mujeres</b></p>
+        <p>{{datos.empleados_mujeres_orden_2}}</p>
+
+        <p><b>Obreros hombres</b></p>
+        <p>{{datos.obreros_hombres_orden_2}}</p>
+
+        <p><b>Obreras mujeres</b></p>
+        <p>{{datos.obreras_mujeres_orden_2}}</p>
+
+        <p><b>Menores varones</b></p>
+        <p>{{datos.menores_varones_orden_2}}</p>
+
+        <p><b>Menores mujeres</b></p>
+        <p>{{datos.menores_mujeres_orden_2}}</p>
+
+        <p><b>Orden</b></p>
+        <p>{{datos.orden_2}}</p>
+
+        <hr>
+        <br>
+        <br>
+
+        <!-- Orden 3: Sueldos o jornales -->
+        <h3>Orden 3: Sueldos o jornales</h3>
+        <br>
+        <br>
+
+        <p><b>Número patronal</b></p>
+        <p>{{datos.numero_patronal_orden_3}}</p>
+
+        <p><b>Año</b></p>
+        <p>{{datos.anno_orden_3}}</p>
+
+        <p><b>Supervisores o jefes varones</b></p>
+        <p>{{datos.supervisores_o_jefes_varones_orden_3}}</p>
+
+        <p><b>Supervisores o jefes mujeres</b></p>
+        <p>{{datos.supervisores_o_jefes_mujeres_orden_3}}</p>
+
+        <p><b>Empleados varones</b></p>
+        <p>{{datos.empleados_varones_orden_3}}</p>
+
+        <p><b>Empleadas mujeres</b></p>
+        <p>{{datos.empleados_mujeres_orden_3}}</p>
+
+        <p><b>Obreros hombres</b></p>
+        <p>{{datos.obreros_hombres_orden_3}}</p>
+
+        <p><b>Obreras mujeres</b></p>
+        <p>{{datos.obreras_mujeres_orden_3}}</p>
+
+        <p><b>Menores varones</b></p>
+        <p>{{datos.menores_varones_orden_3}}</p>
+
+        <p><b>Menores mujeres</b></p>
+        <p>{{datos.menores_mujeres_orden_3}}</p>
+
+        <p><b>Orden</b></p>
+        <p>{{datos.orden_3}}</p>
+
+        <hr>
+        <br>
+        <br>
+
+        <!-- Orden 4: Cantidad de ingresos -->
+        <h3>Orden 4: Cantidad de ingresos</h3>
+        <br>
+        <br>
+
+        <p><b>Número patronal</b></p>
+        <p>{{datos.numero_patronal_orden_4}}</p>
+
+        <p><b>Año</b></p>
+        <p>{{datos.anno_orden_4}}</p>
+
+        <p><b>Supervisores o jefes varones</b></p>
+        <p>{{datos.supervisores_o_jefes_varones_orden_4}}</p>
+
+        <p><b>Supervisores o jefes mujeres</b></p>
+        <p>{{datos.supervisores_o_jefes_mujeres_orden_4}}</p>
+
+        <p><b>Empleados varones</b></p>
+        <p>{{datos.empleados_varones_orden_4}}</p>
+
+        <p><b>Empleadas mujeres</b></p>
+        <p>{{datos.empleados_mujeres_orden_4}}</p>
+
+        <p><b>Obreros hombres</b></p>
+        <p>{{datos.obreros_hombres_orden_4}}</p>
+
+        <p><b>Obreras mujeres</b></p>
+        <p>{{datos.obreras_mujeres_orden_4}}</p>
+
+        <p><b>Menores varones</b></p>
+        <p>{{datos.menores_varones_orden_4}}</p>
+
+        <p><b>Menores mujeres</b></p>
+        <p>{{datos.menores_mujeres_orden_4}}</p>
+
+        <p><b>Orden</b></p>
+        <p>{{datos.orden_4}}</p>
+
+        <hr>
+        <br>
+        <br>
+
+        <!-- Orden 5: Cantidad de egresos -->
+        <h3>Orden 5: Cantidad de egresos</h3>
+        <br>
+        <br>
+
+        <p><b>Número patronal</b></p>
+        <p>{{datos.numero_patronal_orden_5}}</p>
+
+        <p><b>Año</b></p>
+        <p>{{datos.anno_orden_5}}</p>
+
+        <p><b>Supervisores o jefes varones</b></p>
+        <p>{{datos.supervisores_o_jefes_varones_orden_5}}</p>
+
+        <p><b>Supervisores o jefes mujeres</b></p>
+        <p>{{datos.supervisores_o_jefes_mujeres_orden_5}}</p>
+
+        <p><b>Empleados varones</b></p>
+        <p>{{datos.empleados_varones_orden_5}}</p>
+
+        <p><b>Empleadas mujeres</b></p>
+        <p>{{datos.empleados_mujeres_orden_5}}</p>
+
+        <p><b>Obreros hombres</b></p>
+        <p>{{datos.obreros_hombres_orden_5}}</p>
+
+        <p><b>Obreras mujeres</b></p>
+        <p>{{datos.obreras_mujeres_orden_5}}</p>
+
+        <p><b>Menores varones</b></p>
+        <p>{{datos.menores_varones_orden_5}}</p>
+
+        <p><b>Menores mujeres</b></p>
+        <p>{{datos.menores_mujeres_orden_5}}</p>
+
+        <p><b>Orden</b></p>
+        <p>{{datos.orden_5}}</p>
+
+        <hr>
+        <br>
+        <br>
+
+
+
+        <p><b>Fecha en la que se registró la Planilla de Resumen General de Personas Ocupadas</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+{% endblock %}

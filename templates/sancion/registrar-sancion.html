@@ -1,0 +1,47 @@
+{% extends "disposicion.html" %}
+
+<!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
+{% block title %}
+    Registrar Una Sanción
+{% endblock %}
+
+<!-- Lista de todas las sanciones para todos los empelados -->
+{% block body %}
+
+    <h1>Registrar Una Sanción</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del trabajador y de su correspondiente sanción.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar sanciones.
+
+    Para que cada casilla aparezca una debajo de la otra, y para que haya algo de espacio entre cada casilla usaré
+    "as_p".
+
+    DEBUGGEO: agregaré "enctype" al formulario para que me permita subir imagenes. BORRAR despues.
+    -->
+<!--    <form method="post" enctype="multipart/form-data">-->
+    <form method="post">
+        {% csrf_token %}
+
+        {{formulario.as_p}}   <!-- Django form -->
+
+        <input class="btn btn-primary" type="submit" value="Registrar Sanción">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de sanciones -->
+        <a href="{% url 'lista_sanciones' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+        <!-- PARA DEBUGGEAR (borrar después): usaré esto para intentar subir una imagen a la carpeta "media" de Django
+        -->
+<!--        {{formulario_imagen.as_p}}-->
+    </form>
+
+
+{% endblock %}

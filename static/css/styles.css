@@ -1,0 +1,47 @@
+/* Esto le agregará un borde a cada sancion en la tabla de sanciones (fuente:
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_collapse .) */
+table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+    padding: 20px;
+}
+
+/* Esto agrega la linia divisoria a los titulos de las tablas */
+th {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-collapse: collapse;
+}
+
+/* Esto hace que las casillas de los formularios de django aparezcan debajo del título de las casillas */
+label {
+    width: 100%;
+}
+
+
+/* Esto va a mantener el footer en el fondo, es decir, en la parte de abajo de la pantalla, a pesar de que
+no haya mucho contenido en una página (fuente: https://moderncss.dev/keep-the-footer-at-the-bottom-flexbox-vs-grid/)
+
+Además, voy a asignar una ID para sobreescribir el CSS de Bootstrap, y así usar mi propio CSS (por ejemplo, para
+mantener el navbar en el fondo) (fuente: respuesta de smugglerFlynn en
+https://stackoverflow.com/questions/20721248/how-can-i-override-bootstrap-css-styles .)
+*/
+/*
+#body-sin-bootstrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /*
+
+  /* BORRAR DESPUES */
+  /* background-color: black; */
+  /*
+}
+
+#footer-sin-bootstrap {
+  margin-top: auto;
+}
+*/
+/* Fin del snippet que mantiene el footer en la parte de abajo de la pantalla */

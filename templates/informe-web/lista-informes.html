@@ -1,0 +1,50 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de informes web
+{% endblock %}
+
+<!-- Lista de todos las informe web de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de informes web anuales</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos informes web -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar un nuevo informe web -->
+    <a href="{% url 'registrar_informe_web' %}" class="text-decoration-none">
+        Agregar Nuevo Informe Web
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los informe web del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Año del Informe
+            </th>
+            <th>
+                Ver Detalles en Vista Para Imprimir
+            </th>
+            <!-- Esto llama cada ingreso extra registrado en la base de datos -->
+            {% for informe in informes %}
+                <tr>
+                    <td>
+                        {{informe.anno}}
+                    </td>
+                    <td>
+                        <a href="{{informe.id}}/ver-informe" class="text-decoration-none">Ver detalles en vista para imprimir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

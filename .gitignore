@@ -1,0 +1,73 @@
+# Source: https://gist.github.com/rasulkireev/1412ab0c3585ab8ffa50764e68f2d6d7
+
+# Database
+backup-dbs/
+media/
+*.sqlite3
+
+# Node modules
+node_modules/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor
+.vscode
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Django stuff:
+*.log
+db.sqlite3
+db.sqlite3-journal
+db.sqlite3.backup
+db.sqlite3.backup.old
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# JSON files from ESLint
+.eslintrc.js
+package.json
+package-lock.json
+
+# Pycharm's files and folders
+.gitignore.bak
+.idea/dbnavigator.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/.gitignore
+
+network/migrations/0003_follower.py
+network/migrations/0002_post.py
+.idea/network.iml
+network/migrations/0004_like.py
+
+# media folder, and its images
+media/
+
+# migrations folder
+app_rrhh/migrations

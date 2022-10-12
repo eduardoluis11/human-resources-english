@@ -1,0 +1,88 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Ver Contrato
+{% endblock %}
+
+{% block body %}
+
+    <!-- Esto pondrá el nombre del trabajador en el título del Contrato -->
+    {% for datos in contrato_seleccionado %}
+        <h1>Contrato de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos del Contrato seleccionado.
+
+        Tengo que usar el atributo “download” de un <a> en HTML para poder descargar un archivo.
+        -->
+
+        <!-- Datos personales -->
+        <h3>Datos Personales</h3>
+        <br>
+
+        <p><b>Nombre</b></p>
+        <p>{{datos.nombre}}</p>
+
+        <p><b>Apellidos</b></p>
+        <p>{{datos.apellidos}}</p>
+
+        <p><b>Cédula de identidad</b></p>
+        <p>{{datos.cedula}}</p>
+
+        <p><b>Sexo</b></p>
+        <p>{{datos.sexo}}</p>
+
+        <p><b>Fecha de nacimiento</b></p>
+        <p>{{datos.fecha_nacimiento}}</p>
+
+        <p><b>Domicilio</b></p>
+        <p>{{datos.domicilio}}</p>
+
+        <p><b>Correo Electrónico</b></p>
+        <p>{{datos.email}}</p>
+
+        <p><b>Teléfono</b></p>
+        <p>{{datos.telefono}}</p>
+
+        <p><b>Título o nivel máximo de estudios obtenidos</b></p>
+        <p>{{datos.nivel_maximo_de_educacion_obtenido}}</p>
+
+        <p><b>Número del IPS</b></p>
+        <p>{{datos.numero_ips}}</p>
+
+        <p><b>Número de Cuenta Bancaria</b></p>
+        <p>{{datos.numero_cuenta_bancaria}}</p>
+
+        <br>
+        <br>
+
+        <hr>
+
+        <!-- Datos del Contrato -->
+        <h3>Datos del Contrato</h3>
+        <br>
+
+        <p><b>Cargo</b></p>
+        <p>{{datos.cargo}}</p>
+
+        <p><b>Tipo de Jornada (Tiempo Completo o Tiempo Parcial)</b></p>
+        <p>{{datos.tiempo_completo_o_parcial}}</p>
+
+        <p><b>Cláusulas del Contrato</b></p>
+        <a href="{{datos.clausulas_del_contrato.url}}" download>
+            Descargar Cláusulas del Contrato
+        </a>
+        <br>
+        <br>
+
+        <p><b>Firma del trabajador</b></p>
+        <img src="{{datos.firma_trabajador.url}}" height="100px">
+
+        <p><b>Firma del encargado que le creó el contrato</b></p>
+        <img src="{{datos.firma_encargado_rrhh.url}}" height="100px">
+
+        <p><b>Fecha en la que se registró el Contrato</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+{% endblock %}

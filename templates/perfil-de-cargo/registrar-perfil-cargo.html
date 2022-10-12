@@ -1,0 +1,34 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Perfil de Cargo
+{% endblock %}
+
+<!-- Registrar un permiso -->
+{% block body %}
+
+    <h1>Registrar Perfil de Cargo</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del nuevo perfil de cargo que desea registrar.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar permisos. -->
+    <form method="post">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Registrar Perfil">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de sanciones -->
+        <a href="{% url 'lista_perfiles_cargos' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Planillas del IPS
+{% endblock %}
+
+<!-- Lista de todos las Planillas del IPS de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Planillas del IPS</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos Planillas del IPS -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar un nuevo Planillas del IPS -->
+    <a href="{% url 'registrar_ips' %}" class="text-decoration-none">
+        Agregar Nueva Planilla del IPS
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los Planillas del IPS del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Cédula
+            </th>
+            <th>
+                Ver Planilla en Vista Para Imprimir
+            </th>
+            <!-- Esto llama cada planilla registrada en la base de datos -->
+            {% for planilla in planillas %}
+                <tr>
+                    <td>
+                        {{planilla.apellidos}}, {{planilla.nombre}}
+                    </td>
+                    <td>
+                        {{planilla.cedula}}
+                    </td>
+                    <td>
+                        <a href="{{planilla.id}}/ver-planilla-ips" class="text-decoration-none">Ver Planilla</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

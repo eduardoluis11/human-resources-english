@@ -1,0 +1,34 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Una Justificación de Permiso
+{% endblock %}
+
+<!-- Página para registrar la bonificación familiar del mes actual de un empleado -->
+{% block body %}
+
+    <h1>Registrar Una Justificación de Permiso</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del trabajador y de su correspondiente justificación de permiso.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar la justificación. Recuerda agregar "enctype",
+    dado a que voy a subir archivos. -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Registrar Justificación">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de justificaciones -->
+        <a href="{% url 'lista_justificaciones' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+    </form>
+{% endblock %}

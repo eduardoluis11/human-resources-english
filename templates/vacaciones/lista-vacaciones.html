@@ -1,0 +1,62 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Vacaciones
+{% endblock %}
+
+<!-- Lista de todos las vacaciones  de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Vacaciones</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos vacaciones -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar unas nuevas vacaciones -->
+    <a href="{% url 'registrar_vacaciones' %}" class="text-decoration-none">
+        Agregar Nuevas Vacaciones
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los vacaciones del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Fecha de Inicio de Vacaciones
+            </th>
+            <th>
+                Fecha de Reincorporación Al Trabajo
+            </th>
+            <th>
+                Ver Detalles
+            </th>
+            <!-- Esto llama cada vacación registrada en la base de datos -->
+            {% for vacacion in vacaciones %}
+                <tr>
+                    <td>
+                        {{vacacion.apellidos}}, {{vacacion.nombre}}
+                    </td>
+                    <td>
+                        {{vacacion.fecha_inicio_vacaciones}}
+                    </td>
+                    <td>
+                        {{vacacion.fecha_fin_vacaciones}}
+                    </td>
+                    <td>
+                        <a href="{{vacacion.id}}/ver-vacacion" class="text-decoration-none">Ver detalles</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Permiso
+{% endblock %}
+
+<!-- Permiso del trabajador seleccionado en formato para imprimir (sin navbar ni footer). -->
+{% block body %}
+
+    <!-- Esto pondrá el nombre del trabajador en el título del permiso.
+
+    No pondré el enlace a la página anterior para que no se vea en la planilla a imprimir.
+
+    Tenia que poner “.url” al final de “datos.foto_firma_trabajador” para que me imprimiera la imagen -->
+    {% for datos in permiso_seleccionado %}
+        <h1>Permiso de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos de la sanción seleccionada -->
+        <p><b>Nombre</b></p>
+        <p>{{datos.nombre}}</p>
+
+        <p><b>Apellidos</b></p>
+        <p>{{datos.apellidos}}</p>
+
+        <p><b>Cédula de identidad</b></p>
+        <p>{{datos.cedula}}</p>
+
+        <p><b>Fecha de inicio de ausencia</b></p>
+        <p>{{datos.fecha_inicio_ausencia}}</p>
+
+        <p><b>Fecha de reincorporación</b></p>
+        <p>{{datos.fecha_reincorporacion}}</p>
+
+        <p><b>Motivo por el que se va a ausentar</b></p>
+        <p>{{datos.motivo_ausencia}}</p>
+
+        <p><b>¿Recibirá un descuento por el tiempo en el que estuvo ausente?</b></p>
+        <p>{{datos.recibira_descuento}}</p>
+
+        <p><b>Descuento que se le aplicará (de ser positiva la respuesta anterior).</b></p>
+        <p>{{datos.descuento}} ₲</p>
+
+
+        <p><b>Firma del trabajador que se ausentará</b></p>
+        <img src="{{datos.foto_firma_trabajador.url}}" height="100px">
+
+        <p><b>Firma del encargado que le concedió el permiso</b></p>
+        <img src="{{datos.foto_firma_encargado_rrhh.url}}" height="100px">
+
+
+        <p><b>Fecha en la que se registró el permiso</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+
+
+
+{% endblock %}

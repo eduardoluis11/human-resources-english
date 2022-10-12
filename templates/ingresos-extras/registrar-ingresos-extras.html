@@ -1,0 +1,33 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Ingresos Extras
+{% endblock %}
+
+<!-- Página para registrar el descuento de un empleado -->
+{% block body %}
+
+    <h1>Registrar Ingresos Extras</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del trabajador y de sus correspondientes ingresos extras.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar los ingresos extras. -->
+    <form method="post">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Registrar Ingresos">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de descuentos -->
+        <a href="{% url 'lista_ingresos_extras' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+    </form>
+{% endblock %}

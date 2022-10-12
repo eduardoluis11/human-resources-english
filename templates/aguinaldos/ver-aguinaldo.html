@@ -1,0 +1,82 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Planilla de Aguinaldos
+{% endblock %}
+
+<!-- Aguinaldos del trabajador seleccionado en formato para imprimir (sin navbar ni footer). -->
+{% block body %}
+
+    <!-- Esto pondrá el nombre del trabajador en el título del Aguinaldos.
+
+    No pondré el enlace a la página anterior para que no se vea en la planilla a imprimir. -->
+    {% for datos in aguinaldo_seleccionado %}
+        <h1>Aguinaldos de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos de la sanción seleccionada -->
+        <p><b>Nombre</b></p>
+        <p>{{datos.nombre}}</p>
+
+        <p><b>Apellidos</b></p>
+        <p>{{datos.apellidos}}</p>
+
+        <p><b>Cédula de identidad</b></p>
+        <p>{{datos.cedula}}</p>
+
+        <p><b>Año de los aguinaldos</b></p>
+        <p>{{datos.anno}}</p>
+        <br>
+
+        <hr>
+        <h4>Salario total recibido en cada mes</h4>
+        <br>
+
+        <p><b>Enero</b></p>
+        <p>{{datos.salario_enero}} ₲</p>
+
+        <p><b>Febrero</b></p>
+        <p>{{datos.salario_febrero}} ₲</p>
+
+        <p><b>Marzo</b></p>
+        <p>{{datos.salario_marzo}} ₲</p>
+
+        <p><b>Abril</b></p>
+        <p>{{datos.salario_abril}} ₲</p>
+
+        <p><b>Mayo</b></p>
+        <p>{{datos.salario_mayo}} ₲</p>
+
+        <p><b>Junio</b></p>
+        <p>{{datos.salario_junio}} ₲</p>
+
+        <p><b>Julio</b></p>
+        <p>{{datos.salario_julio}} ₲</p>
+
+        <p><b>Septiembre</b></p>
+        <p>{{datos.salario_septiembre}} ₲</p>
+
+        <p><b>Octubre</b></p>
+        <p>{{datos.salario_octubre}} ₲</p>
+
+        <p><b>Noviembre</b></p>
+        <p>{{datos.salario_noviembre}} ₲</p>
+
+        <p><b>Diciembre</b></p>
+        <p>{{datos.salario_diciembre}} ₲</p>
+
+        <hr>
+
+
+        <br>
+        <h3>Aguinaldos</h3>
+        <br>
+        <p><b>{{datos.aguinaldos}} ₲</b></p>
+
+        <br>
+
+        <p><b>Fecha en la que se registraron los aguinaldos</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+{% endblock %}

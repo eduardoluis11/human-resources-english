@@ -1,0 +1,38 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Liquidación del Personal
+{% endblock %}
+
+<!-- Registrar una Liquidación del Personal -->
+{% block body %}
+
+    <h1>Registrar Liquidación del Personal</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del trabajador que sale de la empresa y de su correspondiente Liquidación.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar Liquidación del Personal.
+
+    Agregaré "enctype" al formulario para que me permita subir imagenes.
+    -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Calcular Liquidación">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de planillas de liquidacion del personal -->
+        <a href="{% url 'lista_liquidacion_personal' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+
+
+    </form>
+{% endblock %}

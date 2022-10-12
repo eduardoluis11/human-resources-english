@@ -1,0 +1,63 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Justificaciones de Permisos
+{% endblock %}
+
+<!-- Lista de todas las justificaciones de permisos de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Justificaciones de Permisos</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra una nueva justificaciones-->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar una nueva justificacion -->
+    <a href="{% url 'registrar_justificacion_permiso' %}" class="text-decoration-none">
+        Agregar Nueva Justificación de Permiso
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los cargos -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Fecha de inicio de la ausencia
+            </th>
+            <th>
+                Fecha de reincorporación
+            </th>
+            <th>
+                Detalles de la Justificación
+            </th>
+            <!-- Esto llama cada justificación registrada en la base de datos -->
+            {% for justificacion in justificaciones %}
+                <tr>
+                    <td>
+                        {{justificacion.apellidos}}, {{justificacion.nombre}}
+                    </td>
+                    <td>
+                        {{justificacion.fecha_inicio_ausencia}}
+                    </td>
+                    <td>
+                        {{justificacion.fecha_reincorporacion}}
+                    </td>
+                    <td>
+                        <a href="{{justificacion.id}}/ver-justificacion" class="text-decoration-none">Ver detalles</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+
+{% endblock %}

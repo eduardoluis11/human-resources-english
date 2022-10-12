@@ -1,0 +1,66 @@
+{% extends "disposicion.html" %}
+
+<!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
+{% block title %}
+    Lista de Contratos
+{% endblock %}
+
+<!-- Lista de todos los Contratos para todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Contratos</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra una nueva Liquidación de Salarios -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+    <!-- Enlace para agregar un nuevo contrato -->
+    <a href="{% url 'registrar_contrato' %}" class="text-decoration-none">
+        Agregar Nuevo Contrato
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los Contratos.
+
+    Ahora, debo mostrar en la lista los Contratos creados.-->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Cédula
+            </th>
+            <th>
+                Cargo
+            </th>
+            <th>
+                Contrato Para Imprimir
+            </th>
+            <!-- Esto llama cada Contrato registrado en la base de datos -->
+            {% for contrato in contratos %}
+                <tr>
+                    <td>
+                        {{contrato.apellidos}}, {{contrato.nombre}}
+                    </td>
+                    <td>
+                        {{contrato.cedula}}
+                    </td>
+                    <td>
+                        {{contrato.cargo}}
+                    </td>
+                    <td>
+                        <a href="{{contrato.id}}/ver-contrato" class="text-decoration-none">
+                            Ver detalles en vista para imprimir
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

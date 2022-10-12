@@ -1,0 +1,62 @@
+{% extends "disposicion.html" %}
+
+<!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
+{% block title %}
+    Lista de Bonificaciones Familiares del Personal
+{% endblock %}
+
+<!-- Lista de todas las bonificaciones familiares para todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Bonificaciones Familiares del Personal</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario regista una nueva bonificacion familiar -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar una nueva bonificacion familiar -->
+    <a href="{% url 'registrar_bonificacion_familiar' %}" class="text-decoration-none">Agregar Nueva Bonificación Familiar</a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todas las bonificaciones -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Fecha que recibira el pago
+            </th>
+            <th>
+                Bonificación Familiar a Pagar
+            </th>
+            <th>
+                Ver detalles
+            </th>
+            <!-- Esto llama cada bonificacion registrada en la base de datos -->
+            {% for bonificacion in bonificaciones_familiares %}
+                <tr>
+                    <td>
+                        {{bonificacion.apellidos}}, {{bonificacion.nombre}}
+                    </td>
+                    <td>
+                        {{bonificacion.fecha_a_pagar}}
+                    </td>
+                    <td>
+                        {{bonificacion.bonificacion_familiar}} ₲
+                    </td>
+                    <td>
+                        <a href="{{bonificacion.id}}/ver-bonificacion" class="text-decoration-none">Ver detalles</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+
+{% endblock %}

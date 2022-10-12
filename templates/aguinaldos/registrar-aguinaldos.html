@@ -1,0 +1,33 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Aguinaldos
+{% endblock %}
+
+<!-- Página para registrar los aguinaldos de un empleado -->
+{% block body %}
+
+    <h1>Registrar Aguinaldos</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada los datos del trabajador y de sus correspondientes Aguinaldos.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar los Aguinaldos. -->
+    <form method="post">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Calcular Aguinaldos">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de Aguinaldos -->
+        <a href="{% url 'lista_aguinaldos' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+    </form>
+{% endblock %}

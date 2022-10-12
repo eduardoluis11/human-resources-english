@@ -1,0 +1,143 @@
+{% extends "disposicion.html" %}
+
+<!-- El extends es como el require de PHP. Básicamente me llama el archivo HTML "disposicion.html", y me lo carga (fuente: 
+https://www.w3schools.com/django/django_tags_extends.php .) -->
+
+<!-- Esto me carga el CSS y el JS almacenado en la carpeta "static" -->
+{% load static %}
+
+<!-- Esto me llamará todo el código de disposicion.html, para que así tenga el Boostrap, la barra de navegación, y el footer. Todo
+lo que escriba dentro del tag "block body" aparecerá en la página de inicio/Home. -->
+{% block body %}
+    <div>
+        <h1>Sistema de Recursos Humanos</h1>
+    </div>
+    <br>
+    <br>
+
+    <!-- Texto que le aparece al usuario si no está logueado.
+
+    Las etiquetas "url" redirigen a los usuarios a las páginas que estén asociadas al nombre del view que ahí
+    aparecen (por ejemplo, "registrar" redirige a registrar.html, ya que está asociado al view registrar() ).
+
+    El decorator que debo usar en los archivos HTML para verificar si un usuario está logueado es
+    “user.is_authenticated” (fuente: https://docs.djangoproject.com/en/dev/topics/auth/default/ .)
+    -->
+    <div>
+
+
+        <!-- Esto solo aparecerá si inicias sesión -->
+        {% if user.is_authenticated %}
+
+            <p>
+                ¡Bienvenido, {{user.username}}!
+            </p>
+            <p>
+                Aquí tendrás acceso a todas las funciones del sistema de recursos humanos de la empresa.
+            </p>
+            <p>
+                Aquí podrás ver todas las funciones disponibles en este sistema. Haz clic en la función que desees para
+                empezar a usarla.
+            </p>
+
+            <!-- Aquí estarán todos los enlaces a las 18 funciones de recursos humanos de la web app.
+
+            El "list style type: none" elimina los puntos de las listas creadas con <ul> (fuente:
+            https://www.tutorialspoint.com/How-to-create-an-unordered-list-without-bullets-in-HTML .)
+            -->
+            <div>
+                <ul style="list-style-type:none">
+                    <li>
+                        <a href="{% url 'registrar_curriculum' %}">Registrar Currículum</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'lista_perfiles_cargos' %}">Mantener Perfil de Cargos</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_contrato' %}">Generar Contratos</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'lista_dias_asistencia' %}">Registrar Asistencia</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_justificacion_permiso' %}">Registrar Justificación de un Permiso</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_sancion' %}">Registrar Sanción</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_descuentos' %}">Registrar Descuentos</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_ingresos_extras' %}">Registrar Ingresos Extras</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_permiso' %}">Registrar Permisos</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'lista_legajos' %}">Legajo del funcionario</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_planillas_ministerio_trabajo' %}">Generar Planillas del Ministerio de Trabajo</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_ips' %}">Generar Planilla del IPS</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'lista_liquidacion_salarios' %}">Gestionar Liquidación de Salarios</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'lista_liquidacion_personal' %}">Liquidación del Personal</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_aguinaldos' %}">Generar Planilla Aguinaldos</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_bonificacion_familiar' %}">Generar Bonificación Familiar</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'lista_vacaciones' %}">Mantener Vacaciones</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="{% url 'registrar_informe_web' %}">Elaborar Informes Web</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+        <!-- Si no inicias sesión, esto te aparecerá -->
+        {% else %}
+            <p>
+                Bienvenido al sistema de administración de recursos humanos de la empresa.
+            </p>
+            <p>
+                Por favor, <a href="{% url 'registrar' %}">regístrese</a> para poder usar el sitio web.
+            </p>
+            <p>
+                Si ya posee una cuenta, por favor, <a href="{% url 'iniciar_sesion' %}">inicie sesión</a> para utilizar la aplicación
+                web.
+            </p>
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Ver Informe Web
+{% endblock %}
+
+{% block body %}
+
+    <!-- Esto pondrá el año del informe en el título del Informe Web -->
+    {% for datos in informe_seleccionado %}
+        <h1>Informe Web del año {{datos.anno}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos del Informe Web seleccionado.
+
+        Tengo que usar el atributo “download” de un <a> en HTML para poder descargar un archivo.
+        -->
+
+        <p><b>Evaluación de Desempeño Anual de Todo el Personal</b></p>
+        <a href="{{datos.evaluacion_de_desempeno_personal.url}}" download>
+            Descargar Evaluación de Desempeño
+        </a>
+        <br>
+        <br>
+
+        <p><b>Número de trabajadores contratados</b></p>
+        <p>{{datos.trabajadores_contratados}} trabajadores</p>
+
+        <p><b>Número de trabajadores que salieron de la compañía (renuncias y/o despidos)</b></p>
+        <p>{{datos.trabajadores_que_salieron}} trabajadores</p>
+
+        <p><b>Edad promedio de todos los trabajadores</b></p>
+        <p>{{datos.edad_promedio_personal}} años</p>
+
+        <p><b>Tasa de absentismo</b></p>
+        <p>{{datos.tasa_absentismo}}</p>
+
+        <p><b>Salario promedio de todos los trabajadores</b></p>
+        <p>{{datos.salario_promedio_personal}} ₲</p>
+
+        <p><b>
+            Número promedio de días que pasaron desde que se registró un cargo vacante hasta que se pudo contratar a un
+            trabajador para ese cargo.
+        </b></p>
+        <p>{{datos.promedio_dias_para_ocupar_cargo_vacante}} días</p>
+
+        <p><b>
+            Número de años trabajando en la empresa que tiene el empleado que ha trabajado por más tiempo en la
+            compañía.
+        </b></p>
+        <p>{{datos.annos_de_trabajador_con_mas_tiempo_en_empresa}} años</p>
+
+        <p><b>Número de cursos ofrecidos a los trabajadores</b></p>
+        <p>{{datos.numero_cursos_ofrecidos_trabajadores}} cursos</p>
+
+        <p><b>Fecha en la que se registró el Informe Web</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+{% endblock %}

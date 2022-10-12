@@ -1,0 +1,33 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Registrar Asistencias
+{% endblock %}
+
+<!-- Página para registrar los Días de Asistencia de un empleado -->
+{% block body %}
+
+    <h1>Registrar Asistencias</h1>
+    <br>
+    <br>
+
+    <p>
+        Añada las Asistencias de esta fecha.
+    </p>
+
+    <!-- Esto me llama el formulario de Django para registrar los Días de Asistencia. -->
+    <form method="post">
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input class="btn btn-primary" type="submit" value="Registrar Asistencia">  <!-- Botón de enviar/submit -->
+
+        <!-- Esto regresará al usuario a la lista de dias de Asistencias -->
+        <a href="{% url 'lista_dias_asistencia' %}" class="text-decoration-none" style="padding-left: 1rem;">
+            Cancelar
+        </a>
+        <br>
+        <br>
+    </form>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Asistencias
+{% endblock %}
+
+<!-- Lista de todas las Asistencias de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Asistencias</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos Asistencias -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar unas nuevas Asistencias -->
+    <a href="/{{dia}}/registrar-asistencia" class="text-decoration-none">
+        Agregar Nueva Asistencia
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los Asistencias del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Cédula
+            </th>
+            <th>
+                ¿Vino al trabajo?
+            </th>
+            <th>
+                Hora de llegada
+            </th>
+            <th>
+                Hora de salida
+            </th>
+            <!-- Esto llama cada aguinaldo registrado en la base de datos -->
+            {% for fecha in asistencias_del_dia %}
+                <tr>
+                    <td>
+                        {{fecha.apellidos}}, {{fecha.nombre}}
+                    </td>
+                    <td>
+                        {{fecha.cedula}}
+                    </td>
+                    <td>
+                        {{fecha.vino_a_trabajar}}
+                    </td>
+                    <td>
+                        {{fecha.hora_llegada}}
+                    </td>
+                    <td>
+                        {{fecha.hora_salida}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+
+    <!-- Esto regresará al usuario a la lista de dias de Asistencias -->
+    <a href="{% url 'lista_dias_asistencia' %}" class="text-decoration-none" style="padding-left: 1rem;">
+        Regresar a Lista de Días
+    </a>
+{% endblock %}

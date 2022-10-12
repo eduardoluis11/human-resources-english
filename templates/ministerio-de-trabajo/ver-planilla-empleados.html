@@ -1,0 +1,81 @@
+{% extends "disposicion-para-impresoras.html" %}
+
+{% block title %}
+    Ver Planilla de Empleados y Obreros
+{% endblock %}
+
+{% block body %}
+
+
+    <!-- Esto pondrá el año del informe en el título de Planilla de Empleados y Obreros -->
+    {% for datos in planilla_seleccionada %}
+        <h1>Planilla de Empleados y Obreros del {{datos.timestamp}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos de la Planilla de Empleados y Obreros seleccionada.
+        -->
+        <p><b>Número patronal</b></p>
+        <p>{{datos.numero_patronal}}</p>
+
+        <p><b>Nombre</b></p>
+        <p>{{datos.nombre}}</p>
+
+        <p><b>Apellidos</b></p>
+        <p>{{datos.apellidos}}</p>
+
+        <p><b>Cédula</b></p>
+        <p>{{datos.cedula}}</p>
+
+        <p><b>Sexo</b></p>
+        <p>{{datos.sexo}}</p>
+
+        <p><b>Fecha de nacimiento</b></p>
+        <p>{{datos.fecha_nacimiento}}</p>
+
+        <p><b>Domicilio</b></p>
+        <p>{{datos.domicilio}}</p>
+
+        <p><b>Cantidad de hijos menores</b></p>
+        <p>{{datos.cantidad_hijos_menores}}</p>
+
+        <p><b>Fecha de nacimiento del menor</b></p>
+        <p>{{datos.fecha_nacimiento_del_menor}}</p>
+
+        <p><b>Estado civil</b></p>
+        <p>{{datos.estado_civil}}</p>
+
+        <p><b>Nacionalidad</b></p>
+        <p>{{datos.nacionalidad}}</p>
+
+        <p><b>Horario de trabajo</b></p>
+        <p>{{datos.horario_de_trabajo}}</p>
+
+        <p><b>Cargo</b></p>
+        <p>{{datos.cargo}}</p>
+
+        <p><b>Profesion</b></p>
+        <p>{{datos.profesion}}</p>
+
+        <p><b>Fecha inicio trabajo del menor</b></p>
+        <p>{{datos.fecha_inicio_trabajo_del_menor}}</p>
+
+        <p><b>Situación escolar menor</b></p>
+        <p>{{datos.situacion_escolar_menor}}</p>
+
+        <p><b>Fecha entrada</b></p>
+        <p>{{datos.fecha_entrada}}</p>
+
+        <p><b>Fecha salida</b></p>
+        <p>{{datos.fecha_salida}}</p>
+
+        <p><b>Motivo de salida</b></p>
+        <p>{{datos.motivo_de_salida}}</p>
+
+        <p><b>Estado</b></p>
+        <p>{{datos.estado}}</p>
+
+        <p><b>Fecha en la que se registró la Planilla de Empleados y Obreros</b></p>
+        <p>{{datos.timestamp}}</p>
+    {% endfor %}
+{% endblock %}

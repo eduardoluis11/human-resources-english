@@ -1,0 +1,68 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Lista de Aguinaldos
+{% endblock %}
+
+<!-- Lista de todos las Aguinaldos de todos los trabajadores -->
+{% block body %}
+
+    <h1>Lista de Aguinaldos</h1>
+    <br>
+    <br>
+
+    <!-- Mensaje de confirmación que aparece si el usuario registra unos nuevos Aguinaldos -->
+    {% for msg in messages %}
+        <p style="color: green;">{{msg}}</p>
+    {% endfor %}
+
+
+    <!-- Enlace para agregar unos nuevos Aguinaldos -->
+    <a href="{% url 'registrar_aguinaldos' %}" class="text-decoration-none">
+        Agregar Nuevos Aguinaldos
+    </a>
+    <br>
+    <br>
+
+    <!-- Tabla que muestra todos los Aguinaldos del personal -->
+    <table>
+        <tbody>
+            <!-- Esto le agregará los títulos a las tablas -->
+            <th>
+                Nombre
+            </th>
+            <th>
+                Cédula
+            </th>
+            <th>
+                Año
+            </th>
+            <th>
+                Aguinaldos
+            </th>
+            <th>
+                Ver Planilla de Aguinaldos
+            </th>
+            <!-- Esto llama cada aguinaldo registrado en la base de datos -->
+            {% for aguinaldo in aguinaldos %}
+                <tr>
+                    <td>
+                        {{aguinaldo.apellidos}}, {{aguinaldo.nombre}}
+                    </td>
+                    <td>
+                        {{aguinaldo.cedula}}
+                    </td>
+                    <td>
+                        {{aguinaldo.anno}}
+                    </td>
+                    <td>
+                        {{aguinaldo.aguinaldos}} ₲
+                    </td>
+                    <td>
+                        <a href="{{aguinaldo.id}}/ver-aguinaldo" class="text-decoration-none">Ver Planilla</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    <!-- Fin de la tabla -->
+{% endblock %}

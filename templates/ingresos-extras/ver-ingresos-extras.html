@@ -1,0 +1,61 @@
+{% extends "disposicion.html" %}
+
+{% block title %}
+    Ver ingresos extras de un Trabajador
+{% endblock %}
+
+{% block body %}
+
+    <!-- Esto pondrá el nombre del trabajador en el título de los ingresos extras-->
+    {% for datos in ingreso_seleccionado %}
+        <h1>Ingresos Extras de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <br>
+        <br>
+
+        <!-- Datos del ingreso extra seleccionado. -->
+        <p><b>Nombre</b></p>
+        <p>{{datos.nombre}}</p>
+
+        <p><b>Apellidos</b></p>
+        <p>{{datos.apellidos}}</p>
+
+        <p><b>Cédula de identidad</b></p>
+        <p>{{datos.cedula}}</p>
+
+        <p><b>Salario Base</b></p>
+        <p>{{datos.salario_base}} ₲</p>
+
+        <p><b>Fecha en la que se le hará el Pago</b></p>
+        <p>{{datos.fecha_aplicar_ingresos_extras}}</p>
+
+        <p><b>Ingresos por Horas Extras</b></p>
+        <p>{{datos.ingresos_por_horas_extras}} ₲</p>
+
+        <p><b>Bonificación Familiar</b></p>
+        <p>{{datos.bonificacion_familiar}} ₲</p>
+
+        <p><b>Aguinaldos</b></p>
+        <p>{{datos.aguinaldos}} ₲</p>
+
+        <p><b>Otros Ingresos Extras</b></p>
+        <p>{{datos.otros_ingresos_extras}}</p>
+
+        <hr>
+
+        <h3>Ingresos Extras Totales</h3>
+        <br>
+        <p><b>{{datos.ingresos_extras_totales }} ₲</b></p>
+        <br>
+        <br>
+
+        <p><b>Fecha en la que se Registraron los Ingresos Extras</b></p>
+        <p>{{datos.timestamp}}</p>
+
+    {% endfor %}
+
+    <!-- Enlace para volver a la lista de ingresos extras-->
+    <a href="{% url 'lista_ingresos_extras' %}" class="text-decoration-none">
+        Volver a la lista de ingresos extras
+    </a>
+
+{% endblock %}
