@@ -1,18 +1,21 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Currículum
+    Submit Resume
 {% endblock %}
 
 <!-- Página para registrar el Currículum de un empleado -->
 {% block body %}
 
-    <h1>Registrar Currículum</h1>
+    <h1>Submit Resume</h1>
     <br>
     <br>
 
+<!--    <p>-->
+<!--        Añada los datos del candidato y de su correspondiente Currículum.-->
+<!--    </p>-->
     <p>
-        Añada los datos del candidato y de su correspondiente Currículum.
+        Fill in the form with the data of the candidate and of their respective resume.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar los Currículums. -->
@@ -21,11 +24,11 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar Currículum">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Submit Resume">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de Currículum -->
         <a href="{% url 'lista_curriculums' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

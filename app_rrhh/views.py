@@ -842,26 +842,26 @@ def registrar_curriculum(request):
     if request.method == "POST":
 
         # Datos personales
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
-        sexo = request.POST["sexo"]
-        fecha_nacimiento = request.POST["fecha_de_nacimiento"]
-        domicilio = request.POST["domicilio"]
-        email = request.POST["correo_electronico"]
-        telefono = request.POST["telefono"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
+        sexo = request.POST["sex"]
+        fecha_nacimiento = request.POST["date_of_birth"]
+        domicilio = request.POST["address"]
+        email = request.POST["email"]
+        telefono = request.POST["phone"]
 
         # Nombre del cargo para el candidato
-        nombre_del_cargo = request.POST["nombre_del_cargo"]
+        nombre_del_cargo = request.POST["job_position"]
 
         # Información laboral
-        experiencia_laboral = request.POST["experiencia_laboral"]
-        nivel_de_estudios = request.POST["nivel_de_estudios"]
-        otros_datos_interes = request.POST["otros_datos_de_interes"]
-        tiene_auto_propio = request.POST["tiene_auto_propio"]
+        experiencia_laboral = request.POST["experience"]
+        nivel_de_estudios = request.POST["education"]
+        otros_datos_interes = request.POST["additional_information"]
+        tiene_auto_propio = request.POST["has_their_own_car"]
 
         # PDF con el currículum
-        pdf_con_curriculum = request.FILES["subir_curriculum_en_pdf"]
+        pdf_con_curriculum = request.FILES["resume_in_pdf"]
 
         timestamp = datetime.datetime.now()
 
@@ -877,7 +877,7 @@ def registrar_curriculum(request):
         nuevo_curriculum.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado un nuevo currículum correctamente.")
+        messages.success(request, "A new resume has been submitted successfully.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_curriculums')

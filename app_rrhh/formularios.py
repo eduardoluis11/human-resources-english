@@ -217,37 +217,37 @@ class FormularioCurriculum(forms.Form):
 
     # Opciones para el campo que pregunta si el candidato tiene auto
     TIENE_AUTO_CHOICES = [
-        ('Sí', 'Sí'),
+        ('Yes', 'Yes'),
         ('No', 'No'),
-        ('NR', 'No Respondió')
+        ('DA', 'Did Not Answer')
     ]
 
     # Opciones para el campo que pregunta si el candidato es hombre o mujer
     SEXO_CHOICES = [
-        ('M', 'Masculino'),
-        ('F', 'Femenino'),
+        ('M', 'Male'),
+        ('F', 'Female'),
     ]
 
     # Datos personales
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    sexo = forms.ChoiceField(choices=SEXO_CHOICES)
-    fecha_de_nacimiento = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    domicilio = forms.CharField(widget=forms.Textarea, max_length=100)
-    telefono = forms.CharField(max_length=20)
-    correo_electronico = forms.EmailField(required=False, max_length=254)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+    sex = forms.ChoiceField(choices=SEXO_CHOICES)
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    address = forms.CharField(widget=forms.Textarea, max_length=100)
+    phone = forms.CharField(max_length=20)
+    email = forms.EmailField(required=False, max_length=254)
 
-    nombre_del_cargo = forms.CharField(max_length=100)
+    job_position = forms.CharField(max_length=100)
 
     # Datos laborales
-    experiencia_laboral = forms.CharField(widget=forms.Textarea)
-    nivel_de_estudios = forms.CharField(widget=forms.Textarea)
-    otros_datos_de_interes = forms.CharField(required=False, widget=forms.Textarea)
-    tiene_auto_propio = forms.ChoiceField(choices=TIENE_AUTO_CHOICES)
+    experience = forms.CharField(widget=forms.Textarea)
+    education = forms.CharField(widget=forms.Textarea)
+    additional_information = forms.CharField(required=False, widget=forms.Textarea)
+    has_their_own_car = forms.ChoiceField(choices=TIENE_AUTO_CHOICES)
 
     # PDF con curriculum (opcional)
-    subir_curriculum_en_pdf = forms.FileField(required=False)
+    resume_in_pdf = forms.FileField(required=False)
 
 """ Formulario de Aguinaldos.
 
