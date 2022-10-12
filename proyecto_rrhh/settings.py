@@ -132,9 +132,11 @@ https://stackoverflow.com/questions/13369493/how-to-format-date-in-different-lan
 
 Quiero agregar puntos para separar cada “000” (por ejemplo: 1.000) para así poder los salarios de manera más fácil. 
 Para ello, puedo instalar “USE_THOUSAND_SEPARATOR”. 
+
+I'll change the language to "en-us" to see if I get the date and number formats in US English.
 """
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
