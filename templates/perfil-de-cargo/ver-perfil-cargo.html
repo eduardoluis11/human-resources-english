@@ -1,46 +1,65 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Ver Perfil de Cargo
+    Job Profile Detailed View
 {% endblock %}
 
 {% block body %}
 
     <!-- Esto pondrá el nombre del trabajador en el título del Cargo -->
     {% for datos in cargo_seleccionado %}
-        <h1>Perfil de {{datos.nombre_del_cargo}} </h1>
+        <h1>{{datos.nombre_del_cargo}}'s Profile </h1>
         <br>
         <br>
 
         <!-- Datos del perfil seleccionado -->
-        <p><b>Nombre del Perfil de Cargo</b></p>
+        <p>
+            <b>
+                Job Profile Name
+            </b>
+        </p>
         <p>{{datos.nombre_del_cargo}}</p>
 
-        <p><b>Experiencia Laboral Requerida</b></p>
+        <p>
+            <b>
+                Work Experience Required
+            </b>
+        </p>
         <p>{{datos.experiencia_requerida}}</p>
 
-        <p><b>Conocimientos Técnicos Requeridos</b></p>
+<!--        <p>Conocimientos Técnicos Requeridos</p>-->
+        <p>
+            <b>
+                Technical Skills Required
+            </b>
+        </p>
         <p>{{datos.conocimientos_requeridos}}</p>
 
-        <p><b>Nivel de Estudios</b></p>
+<!--        <p><b>Nivel de Estudios</b></p>-->
+        <p><b>Education</b></p>
         <p>{{datos.nivel_de_estudios}}</p>
 
-        <p><b>Rango Salarial</b></p>
+<!--        <p><b>Rango Salarial</b></p>-->
+        <p><b>Salary Range</b></p>
         <p>{{datos.rango_salarial}}</p>
 
-        <p><b>Otros Requisitos</b></p>
+<!--        <p><b>Otros Requisitos</b></p>-->
+        <p><b>Other Requirements</b></p>
         <p>{{datos.otros_requisitos}}</p>
 
-        <p><b>¿El candidato necesita tener auto propio?</b></p>
+<!--        <p><b>¿El candidato necesita tener auto propio?</b></p>-->
+        <p><b>Does the candidate need their own car?</b></p>
         <p>{{datos.requiere_tener_auto_propio}}</p>
 
-        <p><b>Fecha en la que se registró el perfil de cargo</b></p>
+<!--        <p><b>Fecha en la que se registró el perfil de cargo</b></p>-->
+        <p><b>Date in which the job profile was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 
     <!-- Enlace para volver a la lista de cargos-->
+    <!--<p>Volver a la lista de perfiles de cargo</p>-->
     <a href="{% url 'lista_perfiles_cargos' %}" class="text-decoration-none">
-        Volver a la lista de perfiles de cargo
+        Go Back To the Job Profile List
     </a>
 
 {% endblock %}

@@ -2,13 +2,13 @@
 
 <!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
 {% block title %}
-    Lista de Perfiles de Cargos Buscados
+    Job Profile List
 {% endblock %}
 
 <!-- Lista de todas las bonificaciones familiares para todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Perfiles de Cargos Buscados</h1>
+    <h1>Job Profile List</h1>
     <br>
     <br>
 
@@ -19,7 +19,7 @@
 
 
     <!-- Enlace para agregar un nuevo cargo -->
-    <a href="{% url 'registrar_perfil_cargo' %}" class="text-decoration-none">Agregar Nuevo Perfil de Cargo</a>
+    <a href="{% url 'registrar_perfil_cargo' %}" class="text-decoration-none">Add A New Job Profile</a>
     <br>
     <br>
 
@@ -28,10 +28,10 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre del Perfil de Cargo
+                Job Profile Name
             </th>
             <th>
-                Detalles del Perfil de Cargo
+                Job Profile Details
             </th>
             <!-- Esto llama cada bonificacion registrada en la base de datos -->
             {% for perfil in perfiles %}
@@ -40,7 +40,7 @@
                         {{perfil.nombre_del_cargo}}
                     </td>
                     <td>
-                        <a href="{{perfil.id}}/ver-perfil-cargo" class="text-decoration-none">Ver detalles</a>
+                        <a href="{{perfil.id}}/ver-perfil-cargo" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}
