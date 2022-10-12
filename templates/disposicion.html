@@ -51,28 +51,28 @@
               <!-- 18 enlaces a todos las funciones de RRHH de esta web app -->
               <li class="nav-item dropdown"> <!-- Funciones de "Pagos" -->
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pagos
+                    Wages
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'lista_liquidacion_salarios' %}">Liquidación de Salarios</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_liquidacion_personal' %}">Liquidación del Personal</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_liquidacion_salarios' %}">Manage Payroll</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_liquidacion_personal' %}">Final Pay</a></li>
                     <li><a class="dropdown-item" href="{% url 'lista_bonificaciones_familiares' %}">
-                        Bonificaciones familiares
+                        Large Family Bonus
                     </a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_aguinaldos' %}">Aguinaldos</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_ingresos_extras' %}">Ingresos extras</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_descuentos' %}">Descuentos</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_aguinaldos' %}">Christmas Bonus</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_ingresos_extras' %}">Supplemental Income</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_descuentos' %}">Discounts</a></li>
                   </ul>
               </li>
               <li class="nav-item dropdown"> <!-- Funciones de "Asistencias" -->
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Asistencias
+                    Attendance
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'lista_vacaciones' %}">Vacaciones</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_permisos' %}">Permisos</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_justificaciones' %}">Justificaciones</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_dias_asistencia' %}">Asistencias</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_vacaciones' %}">Vacations</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_permisos' %}">Permission to Leave</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_justificaciones' %}">Proof For a Leave</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_dias_asistencia' %}">Attendance</a></li>
                   </ul>
               </li>
               <li class="nav-item dropdown"> <!-- Funciones de "Legal" -->
@@ -80,38 +80,40 @@
                     Legal
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'lista_legajos' %}">Legajo</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_ips' %}">IPS</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_ministerio_trabajo' %}">Planilla del Ministerio de Trabajo</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_legajos' %}">Dossier</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_ips' %}">Social Security</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_ministerio_trabajo' %}">
+                        Department of Labor
+                    </a></li>
                   </ul>
               </li>
               <li class="nav-item dropdown"> <!-- Funciones de "Contratación" -->
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Contratación
+                    Recruitment
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'lista_curriculums' %}">Currículum</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_perfiles_cargos' %}">Perfil de cargos</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_contratos' %}">Contratos</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_curriculums' %}">Resume</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_perfiles_cargos' %}">Job Profiles</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_contratos' %}">Contracts</a></li>
                   </ul>
               </li>
               <li class="nav-item dropdown"> <!-- Funciones de "Otros" -->
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Otros
+                    Other
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'lista_sanciones' %}">Sanciones</a></li>
-                    <li><a class="dropdown-item" href="{% url 'lista_informes' %}">Informes Web</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_sanciones' %}">Sanctions</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lista_informes' %}">Web Reports</a></li>
                   </ul>
               </li>
               <!-- Fin de las 18 funciones -->
 
 
               <li class="nav-item">
-                <span class="nav-link">Bienvenido, {{user.username}}</span> <!-- Imprime el nombre de usuario -->
+                <span class="nav-link">Welcome, {{user.username}}</span> <!-- Imprime el nombre de usuario -->
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a> <!-- Cierras sesión -->
+                <a class="nav-link" href="{% url 'cerrar_sesion' %}">Log Out</a> <!-- Cierras sesión -->
               </li>
 
             {% else %}  <!-- Si el usuario no ha iniciado sesión -->
