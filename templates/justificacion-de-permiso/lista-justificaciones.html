@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Justificaciones de Permisos
+    List of Proofs of Leaves of Absence
 {% endblock %}
 
 <!-- Lista de todas las justificaciones de permisos de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Justificaciones de Permisos</h1>
+    <h1>List of Proofs of Leaves of Absence</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar una nueva justificacion -->
     <a href="{% url 'registrar_justificacion_permiso' %}" class="text-decoration-none">
-        Agregar Nueva Justificación de Permiso
+<!--        Agregar Nueva Justificación de Permiso-->
+        Add New Proof of Leave of Absence
     </a>
     <br>
     <br>
@@ -29,16 +30,18 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Fecha de inicio de la ausencia
+<!--                Fecha de inicio de la ausencia-->
+                Absence Start Date
             </th>
             <th>
-                Fecha de reincorporación
+                Absence End Date
             </th>
             <th>
-                Detalles de la Justificación
+<!--                Detalles de la Justificación-->
+                Proof's Details
             </th>
             <!-- Esto llama cada justificación registrada en la base de datos -->
             {% for justificacion in justificaciones %}
@@ -53,7 +56,7 @@
                         {{justificacion.fecha_reincorporacion}}
                     </td>
                     <td>
-                        <a href="{{justificacion.id}}/ver-justificacion" class="text-decoration-none">Ver detalles</a>
+                        <a href="{{justificacion.id}}/ver-justificacion" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}

@@ -1,18 +1,20 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Una Justificación de Permiso
+    Register A Proof of Leave of Absence
 {% endblock %}
 
 <!-- Página para registrar la bonificación familiar del mes actual de un empleado -->
 {% block body %}
 
-    <h1>Registrar Una Justificación de Permiso</h1>
+    <h1>Register A Proof of Leave of Absence</h1>
     <br>
     <br>
 
+<!--        Añada los datos del trabajador y de su correspondiente justificación de permiso.-->
     <p>
-        Añada los datos del trabajador y de su correspondiente justificación de permiso.
+        Add the employee's data and the data corresponding to their proof of sickness or any other proof of leave of
+        absence.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar la justificación. Recuerda agregar "enctype",
@@ -22,7 +24,7 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar Justificación">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Proof">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de justificaciones -->
         <a href="{% url 'lista_justificaciones' %}" class="text-decoration-none" style="padding-left: 1rem;">

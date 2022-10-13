@@ -1,14 +1,14 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Ver Justificación de un Permiso
+    Proof of Leave of Absence's Detailed View
 {% endblock %}
 
 {% block body %}
 
     <!-- Esto pondrá el nombre del trabajador en el título de la Justificacion -->
     {% for datos in justificacion_seleccionada %}
-        <h1>Justificación del Permiso de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>Proof of {{datos.nombre}} {{datos.apellidos}}'s Leave of Absence</h1>
         <br>
         <br>
 
@@ -16,41 +16,51 @@
 
         Tengo que usar el atributo “download” de un <a> en HTML para poder descargar un archivo.
         -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Fecha de Inicio de la Ausencia</b></p>
+<!--        Fecha de Inicio de la Ausencia-->
+        <p><b>Absence Start Date</b></p>
         <p>{{datos.fecha_inicio_ausencia}}</p>
 
-        <p><b>Fecha de Reincorporación</b></p>
+<!--        Fecha de Reincorporación-->
+        <p><b>Absence End Date</b></p>
         <p>{{datos.fecha_reincorporacion}}</p>
 
-        <p><b>Archivo con la Justificación del Permiso Escaneada</b></p>
+<!--        Archivo con la Justificación del Permiso Escaneada-->
+        <p><b>File With the Scanned Proof of Leave of Absence</b></p>
         <a href="{{datos.archivo_con_justificacion.url}}" download>
-            Descargar Justificación del Permiso
+<!--            Descargar Justificación del Permiso-->
+            Download Proof of Leave
         </a>
         <br>
         <br>
 
-        <p><b>¿Existe Discrepancia Entre el Permiso Y la Justificación?</b></p>
+<!--        ¿Existe Discrepancia Entre el Permiso Y la Justificación?-->
+
+        <p><b>Is there a discrepancy between the permission to leave and the proof of leave?</b></p>
         <p>{{datos.existe_discrepancia_permiso_y_justificacion}}</p>
 
-        <p><b>Firma del Encargado Que Reviso la Justificación</b></p>
+<!--        Firma del Encargado Que Reviso la Justificación-->
+
+        <p><b>Signature of the Manager That Checked the Proof</b></p>
         <img src="{{datos.foto_firma_encargado_rrhh.url}}" height="100px">
 
-        <p><b>Fecha en la que se registró la bonificación</b></p>
+<!--        Fecha en la que se registró la justificación -->
+        <p><b>Date in which the proof was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 
     <!-- Enlace para volver a la lista de justificaciones-->
     <a href="{% url 'lista_justificaciones' %}" class="text-decoration-none">
-        Volver a la lista de justificaciones
+<!--        Volver a la lista de justificaciones-->
+        Go Back To the List of Proofs
     </a>
 
 {% endblock %}
