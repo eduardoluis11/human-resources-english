@@ -297,15 +297,15 @@ class FormularioAsistencias(forms.Form):
         ('No', 'No'),
     ]
 
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
-    vino_a_trabajar = forms.ChoiceField(choices=VINO_AL_TRABAJO_CHOICES)
+    did_they_come_to_work = forms.ChoiceField(choices=VINO_AL_TRABAJO_CHOICES)
 
     # Horas de entrada y salida (pueden estar vacíos)
-    hora_de_llegada = forms.TimeField(initial='01:00', widget=forms.widgets.TimeInput(attrs={'type': 'time'}))
-    hora_de_salida = forms.TimeField(initial='01:00', widget=forms.widgets.TimeInput(attrs={'type': 'time'}))
+    arrival_time = forms.TimeField(initial='01:00', widget=forms.widgets.TimeInput(attrs={'type': 'time'}))
+    exit_time = forms.TimeField(initial='01:00', widget=forms.widgets.TimeInput(attrs={'type': 'time'}))
 
 """ Formulario para registrar la Liquidación del Personal.
 

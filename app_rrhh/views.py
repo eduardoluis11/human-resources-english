@@ -1073,16 +1073,16 @@ def registrar_asistencia(request, id_dia):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
         # Esto agarra si asistió al trabajo (sí/no)
-        vino_a_trabajar = request.POST["vino_a_trabajar"]
+        vino_a_trabajar = request.POST["did_they_come_to_work"]
 
         # Horas de entrada y de salida del trabajador (pueden estar vacíos)
-        hora_llegada = request.POST["hora_de_llegada"]
-        hora_salida = request.POST["hora_de_salida"]
+        hora_llegada = request.POST["arrival_time"]
+        hora_salida = request.POST["exit_time"]
 
         # Mensaje de debugueo
         print(hora_salida)
@@ -1106,7 +1106,8 @@ def registrar_asistencia(request, id_dia):
         nueva_asistencia.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva asistencia correctamente.")
+        # messages.success(request, "Se ha registrado una nueva asistencia correctamente.")
+        messages.success(request, "A new attendance entry has been successfully registered.")
 
         # Mensaje de debuggeo. ESTO SE EJECUTA
         print("Se almacenó correctamente el mensaje de confirmación de asistencias.")
