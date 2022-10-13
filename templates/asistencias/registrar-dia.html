@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Día de Asistencia
+    Register An Attendance Date
 {% endblock %}
 
 <!-- Página para registrar los Días de Asistencia de un empleado -->
 {% block body %}
 
-    <h1>Registrar Día de Asistencia</h1>
+    <h1>Register An Attendance Date</h1>
     <br>
     <br>
 
     <p>
-        Añada la fecha a la cual le quiere registrar sus Asistencias.
+<!--        Añada la fecha a la cual le quiere registrar sus Asistencias.-->
+        Add the date to which you want to register attendance entries.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar los Días de Asistencia. -->
@@ -21,11 +22,11 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar Fecha">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Date">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de Día de Asistencia -->
         <a href="{% url 'lista_dias_asistencia' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

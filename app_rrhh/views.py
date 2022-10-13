@@ -1006,7 +1006,7 @@ def registrar_dia_asistencia(request):
     if request.method == "POST":
 
         # Fecha de la asistencia
-        fecha_asistencias = request.POST["fecha_para_tomar_asistencias"]
+        fecha_asistencias = request.POST["attendance_date"]
 
         # Esto prepara los datos antes de meterlos a la base de datos
         nueva_fecha = FechaAsistencia(fecha_asistencias=fecha_asistencias)
@@ -1015,7 +1015,7 @@ def registrar_dia_asistencia(request):
         nueva_fecha.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva fecha correctamente.")
+        messages.success(request, "A new date has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_dias_asistencia')

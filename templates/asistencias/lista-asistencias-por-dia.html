@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Asistencias
+    Attendance List
 {% endblock %}
 
 <!-- Lista de todas las Asistencias de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Asistencias</h1>
+    <h1>Attendance List</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar unas nuevas Asistencias -->
     <a href="/{{dia}}/registrar-asistencia" class="text-decoration-none">
-        Agregar Nueva Asistencia
+<!--        Agregar Nueva Asistencia-->
+        Register A New Attendance Entry
     </a>
     <br>
     <br>
@@ -29,19 +30,19 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Cédula
+                ID Number
             </th>
             <th>
-                ¿Vino al trabajo?
+                Did they come to work?
             </th>
             <th>
-                Hora de llegada
+                Arrival Time
             </th>
             <th>
-                Hora de salida
+                Exit Time
             </th>
             <!-- Esto llama cada aguinaldo registrado en la base de datos -->
             {% for fecha in asistencias_del_dia %}
@@ -68,6 +69,7 @@
 
     <!-- Esto regresará al usuario a la lista de dias de Asistencias -->
     <a href="{% url 'lista_dias_asistencia' %}" class="text-decoration-none" style="padding-left: 1rem;">
-        Regresar a Lista de Días
+<!--        Regresar a Lista de Días-->
+        Go Back to the Date List
     </a>
 {% endblock %}

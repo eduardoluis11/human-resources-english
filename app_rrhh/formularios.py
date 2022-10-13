@@ -281,7 +281,7 @@ class FormularioAguinaldos(forms.Form):
 Solo necesito la fecha. No necesito la hora.
 """
 class FormularioFechas(forms.Form):
-    fecha_para_tomar_asistencias = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    attendance_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
 """ Formulario para agregar las Asistencias de cada trabajador.
 
@@ -293,7 +293,7 @@ class FormularioAsistencias(forms.Form):
 
     # Opciones "si/no" para saber si el trabajador vino a trabajar
     VINO_AL_TRABAJO_CHOICES = [
-        ('Sí', 'Sí'),
+        ('Yes', 'Yes'),
         ('No', 'No'),
     ]
 

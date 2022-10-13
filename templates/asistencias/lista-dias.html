@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Fechas de Asistencia
+    Attendance Dates List
 {% endblock %}
 
 <!-- Lista de todas las Fechas de Asistencia de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Fechas de Asistencia</h1>
+    <h1>Attendance Dates List</h1>
     <br>
     <br>
 
@@ -19,7 +19,7 @@
 
     <!-- Enlace para agregar unas nuevas Fechas de Asistencia -->
     <a href="{% url 'registrar_dia_asistencia' %}" class="text-decoration-none">
-        Agregar Nueva Fecha
+        Add A New Date
     </a>
     <br>
     <br>
@@ -29,10 +29,10 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Fecha
+                Date
             </th>
             <th>
-                Ver Asistencias
+                View Attendance Entries
             </th>
             <!-- Esto llama cada aguinaldo registrado en la base de datos -->
             {% for fecha in fechas %}
@@ -41,7 +41,9 @@
                         {{fecha.fecha_asistencias}}
                     </td>
                     <td>
-                        <a href="{{fecha.id}}/lista-asistencias" class="text-decoration-none">Ver Asistencias</a>
+                        <a href="{{fecha.id}}/lista-asistencias" class="text-decoration-none">
+                            View Attendance Entries
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
