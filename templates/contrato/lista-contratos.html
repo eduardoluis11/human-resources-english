@@ -2,13 +2,13 @@
 
 <!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
 {% block title %}
-    Lista de Contratos
+    Contract List
 {% endblock %}
 
 <!-- Lista de todos los Contratos para todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Contratos</h1>
+    <h1>Contract List</h1>
     <br>
     <br>
 
@@ -19,7 +19,7 @@
 
     <!-- Enlace para agregar un nuevo contrato -->
     <a href="{% url 'registrar_contrato' %}" class="text-decoration-none">
-        Agregar Nuevo Contrato
+        Add New Contract
     </a>
     <br>
     <br>
@@ -31,16 +31,16 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Cédula
+                ID Number
             </th>
             <th>
-                Cargo
+                Job Title
             </th>
             <th>
-                Contrato Para Imprimir
+                Contract in Print Preview
             </th>
             <!-- Esto llama cada Contrato registrado en la base de datos -->
             {% for contrato in contratos %}
@@ -55,8 +55,9 @@
                         {{contrato.cargo}}
                     </td>
                     <td>
+<!--                        Ver detalles en vista para imprimir-->
                         <a href="{{contrato.id}}/ver-contrato" class="text-decoration-none">
-                            Ver detalles en vista para imprimir
+                            View details in print preview
                         </a>
                     </td>
                 </tr>

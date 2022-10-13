@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Contrato
+    Register Contract
 {% endblock %}
 
 <!-- Registrar una Contrato -->
 {% block body %}
 
-    <h1>Registrar Contrato</h1>
+    <h1>Register Contract</h1>
     <br>
     <br>
 
     <p>
-        Registre el contrato de un trabajador.
+<!--        Registre el contrato de un trabajador.-->
+        Register an employee's contract.
     </p>
     <br>
     <br>
@@ -24,23 +25,24 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <h3>Datos Personales</h3>
+        <h3>Personal Data</h3>
         {{formulario_datos_personales.as_p}}
         <br>
         <br>
 
         <hr>
 
-        <h3>Datos del Contrato</h3>
+<!--        Datos del Contrato-->
+        <h3>Contract's Data</h3>
         {{formulario_datos_contrato.as_p}}
         <br>
         <br>
 
-        <input class="btn btn-primary" type="submit" value="Registrar Contrato">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Contract">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de planillas de Contrato -->
         <a href="{% url 'lista_contratos' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

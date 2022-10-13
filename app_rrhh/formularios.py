@@ -423,21 +423,21 @@ class FormularioOtrosDatosLegajo(forms.Form):
 class FormularioDatosPersonalesContrato(forms.Form):
     # Opciones para el campo que pregunta si el trabajador es hombre o mujer
     SEXO_CHOICES = [
-        ('M', 'Masculino'),
-        ('F', 'Femenino'),
+        ('M', 'Male'),
+        ('F', 'Female'),
     ]
 
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    fecha_de_nacimiento = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    sexo = forms.ChoiceField(choices=SEXO_CHOICES)
-    domicilio = forms.CharField(widget=forms.Textarea)
-    telefono = forms.CharField(max_length=20)
-    correo_electronico = forms.EmailField(required=False, max_length=254)
-    titulo_o_nivel_maximo_de_educacion_obtenido = forms.CharField(max_length=100)
-    numero_del_ips = forms.CharField(max_length=30)
-    numero_de_cuenta_bancaria = forms.CharField(max_length=30)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    sex = forms.ChoiceField(choices=SEXO_CHOICES)
+    address = forms.CharField(widget=forms.Textarea)
+    phone = forms.CharField(max_length=20)
+    email = forms.EmailField(required=False, max_length=254)
+    degree_or_maximum_level_of_education_achieved = forms.CharField(max_length=100)
+    social_security_number = forms.CharField(max_length=30)
+    bank_account_number = forms.CharField(max_length=30)
 
 """ Formulario de Datos del Contrato para Registrar un Contrato.
 
@@ -447,15 +447,15 @@ class FormularioDatosDelContrato(forms.Form):
 
     # Opciones para el campo que pregunta si el trabajador va a trabajar a tiempo parcial o completo
     TIEMPO_COMPLETO_O_PARCIAL_CHOICES = [
-        ('Tiempo Completo', 'Tiempo Completo'),
-        ('Tiempo Parcial', 'Tiempo Parcial'),
+        ('Full-time', 'Full-time'),
+        ('Part-time', 'Part-time'),
     ]
 
-    cargo = forms.CharField(max_length=100)
-    contrato_tiempo_completo_o_tiempo_parcial = forms.ChoiceField(choices=TIEMPO_COMPLETO_O_PARCIAL_CHOICES)
-    clausulas_del_contrato = forms.FileField()  # Archivo con clausulas del contrato
-    firma_del_trabajador = forms.ImageField()
-    firma_del_encargado_que_registro_el_contrato = forms.ImageField()
+    job_title = forms.CharField(max_length=100)
+    job_type = forms.ChoiceField(choices=TIEMPO_COMPLETO_O_PARCIAL_CHOICES)
+    contract_clauses = forms.FileField()  # Archivo con clausulas del contrato
+    signature_of_the_recruit = forms.ImageField()
+    signature_of_the_manager_who_created_the_contract = forms.ImageField()
 
 """ Formulario para Registrar un Informe Web Anual.
 """

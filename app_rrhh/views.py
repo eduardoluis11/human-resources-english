@@ -494,7 +494,7 @@ def registrar_perfil_cargo(request):
         nuevo_cargo.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado un nuevo perfil de cargo correctamente.")
+        messages.success(request, "A new job profile has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_perfiles_cargos')
@@ -1421,24 +1421,24 @@ def registrar_contrato(request):
     if request.method == "POST":
     
         # Datos Personales
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
-        sexo = request.POST["sexo"]
-        fecha_nacimiento = request.POST["fecha_de_nacimiento"]
-        domicilio = request.POST["domicilio"]
-        email = request.POST["correo_electronico"]
-        telefono = request.POST["telefono"]
-        nivel_maximo_de_educacion_obtenido = request.POST["titulo_o_nivel_maximo_de_educacion_obtenido"]
-        numero_ips = request.POST["numero_del_ips"]
-        numero_cuenta_bancaria = request.POST["numero_de_cuenta_bancaria"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
+        sexo = request.POST["sex"]
+        fecha_nacimiento = request.POST["date_of_birth"]
+        domicilio = request.POST["address"]
+        email = request.POST["email"]
+        telefono = request.POST["phone"]
+        nivel_maximo_de_educacion_obtenido = request.POST["degree_or_maximum_level_of_education_achieved"]
+        numero_ips = request.POST["social_security_number"]
+        numero_cuenta_bancaria = request.POST["bank_account_number"]
 
         # Datos del Contrato
-        cargo = request.POST["cargo"]
-        tiempo_completo_o_parcial = request.POST["contrato_tiempo_completo_o_tiempo_parcial"]
-        clausulas_del_contrato = request.FILES["clausulas_del_contrato"]
-        firma_trabajador = request.FILES["firma_del_trabajador"]
-        firma_encargado_rrhh = request.FILES["firma_del_encargado_que_registro_el_contrato"]
+        cargo = request.POST["job_title"]
+        tiempo_completo_o_parcial = request.POST["job_type"]
+        clausulas_del_contrato = request.FILES["contract_clauses"]
+        firma_trabajador = request.FILES["signature_of_the_recruit"]
+        firma_encargado_rrhh = request.FILES["signature_of_the_manager_who_created_the_contract"]
 
         timestamp = datetime.datetime.now()
     
@@ -1457,7 +1457,8 @@ def registrar_contrato(request):
         
     
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado un nuevo contrato correctamente.")
+        # messages.success(request, "Se ha registrado un nuevo contrato correctamente.")
+        messages.success(request, "A new contract has been successfully registered.")
     
         # Esto redirige al usuario a la lista de contratos
         return redirect('lista_contratos')
