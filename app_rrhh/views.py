@@ -473,13 +473,13 @@ def registrar_perfil_cargo(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre_del_cargo = request.POST["nombre_del_cargo"]
-        experiencia_requerida = request.POST["experiencia_laboral_requerida"]
-        conocimientos_requeridos = request.POST["conocimientos_tecnicos_requeridos"]
-        nivel_de_estudios = request.POST["nivel_de_estudios"]
-        rango_salarial = request.POST["rango_salarial"]
-        requiere_tener_auto_propio = request.POST["requiere_tener_auto_propio"]
-        otros_requisitos = request.POST["otros_requisitos"]
+        nombre_del_cargo = request.POST["job_title"]
+        experiencia_requerida = request.POST["experience_required"]
+        conocimientos_requeridos = request.POST["technical_skills_required"]
+        nivel_de_estudios = request.POST["education"]
+        rango_salarial = request.POST["salary_range"]
+        requiere_tener_auto_propio = request.POST["does_it_require_having_a_car"]
+        otros_requisitos = request.POST["other_requirements"]
 
         # Esto me agarra la fecha y la hora actual
         timestamp = datetime.datetime.now()

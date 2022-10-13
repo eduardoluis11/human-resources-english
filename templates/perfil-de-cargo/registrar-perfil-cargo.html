@@ -1,18 +1,21 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Perfil de Cargo
+    Register A Job Profile
 {% endblock %}
 
 <!-- Registrar un permiso -->
 {% block body %}
 
-    <h1>Registrar Perfil de Cargo</h1>
+    <h1>Register A Job Profile</h1>
     <br>
     <br>
 
+<!--    <p>-->
+<!--        Añada los datos del nuevo perfil de cargo que desea registrar.-->
+<!--    </p>-->
     <p>
-        Añada los datos del nuevo perfil de cargo que desea registrar.
+        Fill in the data of the new job profile that you wish to register.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar permisos. -->
@@ -21,11 +24,11 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar Perfil">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Profile">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de sanciones -->
         <a href="{% url 'lista_perfiles_cargos' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

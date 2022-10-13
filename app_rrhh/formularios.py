@@ -96,20 +96,20 @@ class FormularioRegistrarPermiso(forms.Form):
 class FormularioPerfilDeCargo(forms.Form):
     # Opciones para el campo que pregunta si el trabajador necesita tener auto
     REQUIERE_AUTO_PROPIO_CHOICES = [
-        ('Sí', 'Sí'),
+        ('Yes', 'Yes'),
         ('No', 'No'),
     ]
 
-    nombre_del_cargo = forms.CharField(max_length=100)
+    job_title = forms.CharField(max_length=100)
 
-    experiencia_laboral_requerida = forms.CharField(widget=forms.Textarea)
-    conocimientos_tecnicos_requeridos = forms.CharField(widget=forms.Textarea)
-    nivel_de_estudios = forms.CharField(widget=forms.Textarea)
-    rango_salarial = forms.CharField(widget=forms.Textarea)
+    experience_required = forms.CharField(widget=forms.Textarea)
+    technical_skills_required = forms.CharField(widget=forms.Textarea)
+    education = forms.CharField(widget=forms.Textarea)
+    salary_range = forms.CharField(widget=forms.Textarea)
 
-    otros_requisitos = forms.CharField(widget=forms.Textarea)
+    other_requirements = forms.CharField(widget=forms.Textarea)
 
-    requiere_tener_auto_propio = forms.ChoiceField(choices=REQUIERE_AUTO_PROPIO_CHOICES)  # "Sí" o "no"
+    does_it_require_having_a_car = forms.ChoiceField(choices=REQUIERE_AUTO_PROPIO_CHOICES)  # "Sí" o "no"
 
 """ Formulario para registrar la Justificación de un Permiso.
 """
