@@ -541,19 +541,19 @@ def registrar_justificacion_permiso(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
-        fecha_inicio_ausencia = request.POST["fecha_de_inicio_de_la_ausencia"]
-        fecha_reincorporacion = request.POST["fecha_de_reincorporacion"]
+        fecha_inicio_ausencia = request.POST["absence_start_date"]
+        fecha_reincorporacion = request.POST["absence_end_date"]
 
-        existe_discrepancia_permiso_y_justificacion = request.POST["existe_discrepancia_entre_el_permiso_y_la_justificacion"]
+        existe_discrepancia_permiso_y_justificacion = request.POST["is_there_a_discrepancy_between_the_permission_and_the_proof_of_leave"]
 
         # Necesito usar FILES para agarrar el archivo con la justificación escaneada
-        archivo_con_justificacion = request.FILES["archivo_con_la_justificacion_del_permiso"]
+        archivo_con_justificacion = request.FILES["file_with_the_scanned_proof_of_leave_of_absence"]
 
-        foto_firma_encargado_rrhh = request.FILES["foto_de_la_firma_del_encargado_que_reviso_la_justificacion"]
+        foto_firma_encargado_rrhh = request.FILES["signature_of_the_manager_that_checked_the_proof"]
 
         # Esto me agarra la fecha y la hora actual
         timestamp = datetime.datetime.now()
@@ -571,7 +571,7 @@ def registrar_justificacion_permiso(request):
         nueva_justificacion.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva justificacion correctamente.")
+        messages.success(request, "A new proof of leave of absence has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_justificaciones')

@@ -116,21 +116,21 @@ class FormularioPerfilDeCargo(forms.Form):
 class FormularioJustificacion(forms.Form):
     # Opciones para el campo que pregunta si hay una diferencia entre lo que dice el permiso y el justificante
     DISCREPANCIA_CHOICES = [
-        ('Sí', 'Sí'),
+        ('Yes', 'Yes'),
         ('No', 'No'),
     ]
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    fecha_de_inicio_de_la_ausencia = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha desde que se va a ausentar
-    fecha_de_reincorporacion = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha en la que regresará
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+    absence_start_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha desde que se va a ausentar
+    absence_end_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha en la que regresará
 
     # "Sí" o "no"
-    existe_discrepancia_entre_el_permiso_y_la_justificacion = forms.ChoiceField(choices=DISCREPANCIA_CHOICES)
+    is_there_a_discrepancy_between_the_permission_and_the_proof_of_leave = forms.ChoiceField(choices=DISCREPANCIA_CHOICES)
 
-    foto_de_la_firma_del_encargado_que_reviso_la_justificacion = forms.ImageField()
+    signature_of_the_manager_that_checked_the_proof = forms.ImageField()
 
-    archivo_con_la_justificacion_del_permiso = forms.FileField()   # Archivo con justificación
+    file_with_the_scanned_proof_of_leave_of_absence = forms.FileField()   # Archivo con justificación
 
 """ Formulario para registrar los Descuentos de un trabajador.
 
