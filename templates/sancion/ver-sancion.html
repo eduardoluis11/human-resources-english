@@ -1,43 +1,48 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Borrar Sanción
+    Sanction's Detailed View
 {% endblock %}
 
 {% block body %}
 
     <!-- Esto pondrá el nombre del trabajador en el título de la sanción para diferenciar una sanción de la otra -->
     {% for datos in sancion_actual %}
-        <h1>Sanción de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Sanction</h1>
         <br>
         <br>
 
         <!-- Datos de la sanción seleccionada -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Motivo de la sanción</b></p>
+<!--        Motivo de la sanción-->
+        <p><b>Reason for the Sanction</b></p>
         <p>{{datos.motivo_de_sancion}}</p>
 
-        <p><b>Sanción que se le aplicará</b></p>
+<!--        Sanción que se le aplicará-->
+        <p><b>Sanction That Will Be Applied</b></p>
         <p>{{datos.sancion_a_aplicar}}</p>
 
-        <p><b>Fecha del incidente</b></p>
+<!--        Fecha del incidente-->
+        <p><b>Date of the incident</b></p>
         <p>{{datos.fecha_del_incidente}}</p>
 
-        <p><b>Fecha en la que se registró la sanción</b></p>
+<!--        Fecha en la que se registró la sanción-->
+        <p><b>Date In Which the Sanction Was Registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 
     <!-- Enlace para volver a la lista de sanciones -->
     <a href="{% url 'lista_sanciones' %}" class="text-decoration-none">
-        Volver a la lista de sanciones
+<!--        Volver a la lista de sanciones-->
+        Go Back to the Sanction List
     </a>
 
 {% endblock %}

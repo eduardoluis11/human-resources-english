@@ -256,7 +256,9 @@ def borrar_sancion(request, id_sancion):
         sancion_actual.delete()   # Esto borra la sanción de la base de datos
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha borrado la sanción seleccionada.")
+        messages.success(request, "The selected sanction has been deleted.")
+
+        # messages.success(request, "Se ha borrado la sanción seleccionada.")
 
         # Esto redirige al usuario a la lista de sanciones
         return redirect('lista_sanciones')

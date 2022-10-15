@@ -8,7 +8,7 @@
 <!-- Lista de todas las sanciones para todos los empelados -->
 {% block body %}
 
-    <h1>Sanciones</h1>
+    <h1>Sanctions</h1>
     <br>
     <br>
 
@@ -19,7 +19,7 @@
 
 
     <!-- Enlace para agregar una nueva sanción -->
-    <a href="{% url 'registrar_sancion' %}" class="text-decoration-none">Agregar Nueva Sanción</a>
+    <a href="{% url 'registrar_sancion' %}" class="text-decoration-none">Add a New Saction</a>
     <br>
     <br>
 
@@ -28,16 +28,16 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Cédula
+                ID Number
             </th>
             <th>
-                Sanción
+                Sanction
             </th>
             <th>
-                Ver detalles / Borrar
+                Detailed View / Delete
             </th>
             <!-- Esto llama cada sancion registrada en la base de datos -->
             {% for sancion in sanciones %}
@@ -52,9 +52,9 @@
                         {{sancion.sancion_a_aplicar}}
                     </td>
                     <td>
-                        <a href="{{sancion.id}}/ver-sancion" class="text-decoration-none">Ver detalles</a>
+                        <a href="{{sancion.id}}/ver-sancion" class="text-decoration-none">Detailed View</a>
                         /
-                        <a href="{{sancion.id}}/borrar-sancion" class="text-decoration-none">Borrar</a>
+                        <a href="{{sancion.id}}/borrar-sancion" class="text-decoration-none">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

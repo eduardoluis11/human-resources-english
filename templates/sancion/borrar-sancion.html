@@ -1,11 +1,11 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Borrar Sanción
+    Delete Sanction
 {% endblock %}
 
 {% block body %}
-    <h1>Borrar Sanción</h1>
+    <h1>Delete Sanction</h1>
     <br>
     <br>
 
@@ -13,16 +13,17 @@
     nombre del trabajador al cual le están borrando la sanción. -->
     {% for datos in sancion_actual %}
         <p>
-            Confirmar: ¿deseas borrar esta sanción de {{datos.nombre}} {{datos.apellidos}} de la base de datos?
+<!--            Confirmar: ¿deseas borrar esta sanción de %%datos.nombre%% %%datos.apellidos%% de la base de datos?-->
+            Confirm: do you wish to delete this sanction from {{datos.nombre}} {{datos.apellidos}} from the database?
         </p>
     {% endfor %}
 
     <!-- Botón de Submit/Enviar para borrar la sanción -->
     <form method="post">
         {% csrf_token %}
-        <input class="btn btn-primary" type="submit" value="Borrar">
+        <input class="btn btn-primary" type="submit" value="Delete">
         <a href="{% url 'lista_sanciones' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
     </form>
 
