@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Descuentos del Personal
+    Discount List
 {% endblock %}
 
 <!-- Lista de todas las descuentoes de permisos de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Descuentos del Personal</h1>
+    <h1>Discount List</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar un nuevo descuento -->
     <a href="{% url 'registrar_descuentos' %}" class="text-decoration-none">
-        Agregar Nuevo Descuento
+<!--        Agregar Nuevo Descuento-->
+        Add a New Discount
     </a>
     <br>
     <br>
@@ -29,16 +30,20 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre del Trabajador
+<!--                Nombre del Trabajador-->
+                Employee's Name
             </th>
             <th>
-                Fecha en el que se le hará el Descuento
+<!--                Fecha en el que se le hará el Descuento-->
+                Date To Apply Discount
             </th>
             <th>
-                Monto que se le Descontará de su Salario
+<!--                Monto que se le Descontará de su Salario-->
+                Amount To Be Subtracted From Their Salary
             </th>
             <th>
-                Ver Detalles
+<!--                Ver Detalles-->
+                View Details
             </th>
             <!-- Esto llama cada descuento registrado en la base de datos -->
             {% for descuento in descuentos %}
@@ -50,10 +55,10 @@
                         {{descuento.fecha_aplicar_descuento}}
                     </td>
                     <td>
-                        {{descuento.descuentos_totales}} ₲
+                        {{descuento.descuentos_totales}} $
                     </td>
                     <td>
-                        <a href="{{descuento.id}}/ver-descuento" class="text-decoration-none">Ver detalles</a>
+                        <a href="{{descuento.id}}/ver-descuento" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}

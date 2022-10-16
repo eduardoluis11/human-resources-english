@@ -137,22 +137,33 @@ class FormularioJustificacion(forms.Form):
 Para que un campo sea opcional en los formularios de django, tengo que poner “required=False”.
 """
 class FormularioDescuentos(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
-    fecha_a_aplicar_el_descuento = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    # fecha_a_aplicar_el_descuento
+    date_to_apply_discount = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
-    salario_base = forms.DecimalField(max_digits=14, decimal_places=2, initial = 0)
-    salario_con_ingresos_extras = forms.DecimalField(max_digits=14, decimal_places=2, initial = 0)
-    descuento_por_cuota_del_ips = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    descuento_por_sanciones = forms.DecimalField(required=False, max_digits=14, decimal_places=2, initial=0)
-    descuento_por_inasistencias = forms.DecimalField(required=False, max_digits=14, decimal_places=2, initial=0)
+    base_salary = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
-    otros_descuentos = forms.CharField(required=False, widget=forms.Textarea)  # Se meteran en un <textarea>
+    # salario_con_ingresos_extras
+    salary_with_extra_income = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # descuento_por_cuota_del_ips
+    social_security_discount = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # descuento_por_sanciones
+    discounts_due_to_sanctions = forms.DecimalField(required=False, max_digits=14, decimal_places=2, initial=0)
+
+    # descuento_por_inasistencias
+    discounts_due_to_nonattendances = forms.DecimalField(required=False, max_digits=14, decimal_places=2, initial=0)
+
+    # otros_descuentos
+    other_discounts = forms.CharField(required=False, widget=forms.Textarea)  # Se meteran en un <textarea>
 
     # Suma de todos los descuentos
-    suma_total_de_todos_los_descuentos_para_este_trabajador = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    # suma_total_de_todos_los_descuentos_para_este_trabajador
+    sum_of_all_the_discounts_for_this_employee = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
 """ Formulario para registrar los Ingresos Extras de un trabajador.
 

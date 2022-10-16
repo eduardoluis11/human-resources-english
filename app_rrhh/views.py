@@ -636,7 +636,7 @@ def registrar_descuentos(request):
         timestamp = datetime.datetime.now()
 
         # Esto prepara los datos antes de meterlos a la base de datos
-        nuevos_descuentos = Descuentos(nombre=nombre,apellidos=apellidos, cedula=cedula,
+        nuevos_descuentos = Descuentos(nombre=nombre, apellidos=apellidos, cedula=cedula,
                                     fecha_aplicar_descuento=fecha_aplicar_descuento, salario_base=salario_base,
                                     salario_con_ingresos_extras=salario_con_ingresos_extras,
                                     descuento_cuota_ips=descuento_cuota_ips, descuento_sanciones=descuento_sanciones,
@@ -648,7 +648,9 @@ def registrar_descuentos(request):
         nuevos_descuentos.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se han registrado nuevos descuentos correctamente.")
+        messages.success(request, "A new discount has been successfully registered.")
+
+        # messages.success(request, "Se han registrado nuevos descuentos correctamente.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_descuentos')

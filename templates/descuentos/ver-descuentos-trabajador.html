@@ -1,58 +1,68 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Ver Descuentos de un Trabajador
+    Discount Detailed View
 {% endblock %}
 
 {% block body %}
 
     <!-- Esto pondrá el nombre del trabajador en el título del descuento-->
     {% for datos in descuento_seleccionado %}
-        <h1>Descuentos de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Discount Statement</h1>
         <br>
         <br>
 
         <!-- Datos del descuento seleccionado. -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Fecha a Aplicar el Descuento</b></p>
+<!--        Fecha a Aplicar el Descuento-->
+        <p><b>Date To Apply the Discount</b></p>
         <p>{{datos.fecha_aplicar_descuento}}</p>
 
-        <p><b>Salario Base</b></p>
+<!--        Salario Base-->
+        <p><b>Base Salary</b></p>
         <p>{{datos.salario_base}}</p>
 
-        <p><b>Salario con Ingresos Extras</b></p>
+<!--        Salario con Ingresos Extras-->
+        <p><b>Salary With Extra Income</b></p>
         <p>{{datos.salario_con_ingresos_extras}}</p>
 
-        <p><b>Descuento por la Cuota del IPS</b></p>
+<!--        Descuento por la Cuota del IPS-->
+        <p><b>Social Security Discount</b></p>
         <p>{{datos.descuento_cuota_ips}}</p>
 
-        <p><b>Descuento por Sanciones</b></p>
+<!--        Descuento por Sanciones-->
+        <p><b>Discounts Due to Sanctions</b></p>
         <p>{{datos.descuento_sanciones}}</p>
 
-        <p><b>Descuento por Inasistencias</b></p>
+<!--        Descuento por Inasistencias-->
+        <p><b>Discounts Due to Non-attendances</b></p>
         <p>{{datos.descuento_inasistencias}}</p>
 
-        <p><b>Otros Descuentos</b></p>
+<!--        Otros Descuentos-->
+        <p><b>Other Discounts</b></p>
         <p>{{datos.otros_descuentos}}</p>
 
-        <p><b>Descuentos Totales</b></p>
+<!--        Descuentos Totales-->
+        <p><b>Total Discounts</b></p>
         <p>{{datos.descuentos_totales}}</p>
 
-        <p><b>Fecha en la que se Registraron los Descuentos</b></p>
+<!--        Fecha en la que se Registraron los Descuentos-->
+        <p><b>Date in Which the Discounts Were Registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 
     <!-- Enlace para volver a la lista de descuentos-->
     <a href="{% url 'lista_descuentos' %}" class="text-decoration-none">
-        Volver a la lista de descuentos
+<!--        Volver a la lista de descuentos-->
+        Go Back to the List of Discounts
     </a>
 
 {% endblock %}
