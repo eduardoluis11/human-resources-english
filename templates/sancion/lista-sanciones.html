@@ -2,13 +2,13 @@
 
 <!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
 {% block title %}
-    Lista de Sanciones
+    Sanctions List
 {% endblock %}
 
 <!-- Lista de todas las sanciones para todos los empelados -->
 {% block body %}
 
-    <h1>Sanctions</h1>
+    <h1>Sanctions List</h1>
     <br>
     <br>
 
@@ -19,7 +19,7 @@
 
 
     <!-- Enlace para agregar una nueva sanción -->
-    <a href="{% url 'registrar_sancion' %}" class="text-decoration-none">Add a New Saction</a>
+    <a href="{% url 'registrar_sancion' %}" class="text-decoration-none">Add a New Sanction</a>
     <br>
     <br>
 

@@ -2,18 +2,19 @@
 
 <!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
 {% block title %}
-    Registrar Una Sanción
+    Register a Sanction
 {% endblock %}
 
 <!-- Lista de todas las sanciones para todos los empelados -->
 {% block body %}
 
-    <h1>Registrar Una Sanción</h1>
+    <h1>Register a Sanction</h1>
     <br>
     <br>
 
     <p>
-        Añada los datos del trabajador y de su correspondiente sanción.
+<!--        Añada los datos del trabajador y de su correspondiente sanción.-->
+        Add the employee's data and of their corresponding sanction.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar sanciones.
@@ -29,11 +30,11 @@
 
         {{formulario.as_p}}   <!-- Django form -->
 
-        <input class="btn btn-primary" type="submit" value="Registrar Sanción">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Sanction">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de sanciones -->
         <a href="{% url 'lista_sanciones' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

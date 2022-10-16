@@ -16,12 +16,12 @@ https://code.djangoproject.com/ticket/16304 ).
 
 """
 class FormularioRegistrarSancion(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    motivo_de_la_sancion = forms.CharField(widget=forms.Textarea)
-    sancion_que_se_le_aplicara = forms.CharField(widget=forms.Textarea)
-    fecha_del_incidente = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+    reason_for_the_sanction = forms.CharField(widget=forms.Textarea)
+    sanction_that_will_be_applied = forms.CharField(widget=forms.Textarea)
+    date_of_the_incident = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
 """ Formulario para registrar las bonificaciones familiares de un trabajador.
 

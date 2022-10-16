@@ -192,12 +192,12 @@ def registrar_sancion(request):
     # confirmacion_nueva_sancion = ''
 
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
-        motivo_de_sancion = request.POST["motivo_de_la_sancion"]
-        sancion_a_aplicar = request.POST["sancion_que_se_le_aplicara"]
-        fecha_del_incidente = request.POST["fecha_del_incidente"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
+        motivo_de_sancion = request.POST["reason_for_the_sanction"]
+        sancion_a_aplicar = request.POST["sanction_that_will_be_applied"]
+        fecha_del_incidente = request.POST["date_of_the_incident"]
 
         # PARA DEBUGGEAR: esto metera una imagen en la base de datos. BORRAR
         # foto_firma_trabajador = request.FILES["foto_firma_trabajador"]
@@ -214,7 +214,9 @@ def registrar_sancion(request):
         nueva_sancion.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva sanción correctamente.")
+        messages.success(request, "A new sanction has been successfully registered.")
+
+        # messages.success(request, "Se ha registrado una nueva sanción correctamente.")
 
         # PARA DEBUGGEAR. Esto preparará la imagen para meterla a la bbdd. BORRAR.
         # nueva_imagen = Permiso(foto_firma_trabajador=foto_firma_trabajador)
