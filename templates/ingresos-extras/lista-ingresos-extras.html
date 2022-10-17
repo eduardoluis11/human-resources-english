@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Ingresos Extras
+    List of Supplemental Income Statements
 {% endblock %}
 
-<!-- Lista de todos las ingresos extras  de todos los trabajadores -->
+<!-- Lista de todos las ingresos extras de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Ingresos Extras</h1>
+    <h1>List of Supplemental Income Statements</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar un nuevo ingresos extras -->
     <a href="{% url 'registrar_ingresos_extras' %}" class="text-decoration-none">
-        Agregar Nuevos Ingresos Extras
+<!--        Agregar Nuevos Ingresos Extras-->
+        Add a New Supplemental Income Statement
     </a>
     <br>
     <br>
@@ -29,16 +30,18 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre del Trabajador
+                Employee's name
             </th>
             <th>
-                Fecha en el que se le hará el Pago
+<!--                Fecha en el que se le hará el Pago-->
+                Date in which the payment will be made
             </th>
             <th>
-                Ingresos Extras a Agregar a su Salario
+<!--                Ingresos Extras a Agregar a su Salario-->
+                Supplemental income to add to their salary
             </th>
             <th>
-                Ver Detalles
+                View Details
             </th>
             <!-- Esto llama cada ingreso extra registrado en la base de datos -->
             {% for ingreso in ingresos_extras %}
@@ -50,10 +53,10 @@
                         {{ingreso.fecha_aplicar_ingresos_extras}}
                     </td>
                     <td>
-                        {{ingreso.ingresos_extras_totales}} ₲
+                        {{ingreso.ingresos_extras_totales}} $
                     </td>
                     <td>
-                        <a href="{{ingreso.id}}/ver-ingreso-extra" class="text-decoration-none">Ver detalles</a>
+                        <a href="{{ingreso.id}}/ver-ingreso-extra" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}

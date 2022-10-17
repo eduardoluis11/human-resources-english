@@ -173,23 +173,30 @@ Voy a ver si la respuesta de Ten en este post me ayuda a poner un Date Picker pa
 https://stackoverflow.com/questions/3367091/whats-the-cleanest-simplest-to-get-running-datepicker-in-django .)
 """
 class FormularioIngresosExtras(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
     # fecha_a_pagar_ingresos_a_trabajador = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    fecha_a_pagar_ingresos_a_trabajador = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    date_in_which_the_payment_will_be_made = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
-    salario_base = forms.DecimalField(max_digits=14, decimal_places=2, initial = 0)
+    base_salary = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
-    ingresos_por_horas_extras = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    bonificacion_familiar = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    aguinaldos = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    # ingresos_por_horas_extras
+    income_from_extra_hours = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
-    otros_ingresos_extras = forms.CharField(required=False, widget=forms.Textarea)  # Se meteran en un <textarea>
+    # bonificacion_familiar
+    income_from_large_family_bonus = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # aguinaldos
+    income_from_christmas_bonus = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # otros_ingresos_extras
+    other_supplemental_income = forms.CharField(required=False, widget=forms.Textarea)  # Se meteran en un <textarea>
 
     # Suma de todos los ingresos extras
-    ingresos_extras_totales_para_este_trabajador = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    # ingresos_extras_totales_para_este_trabajador
+    total_supplemental_income = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
 """ Formulario para registrar Vacaciones de un trabajador.
 

@@ -691,16 +691,16 @@ def registrar_ingresos_extras(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
-        fecha_aplicar_ingresos_extras = request.POST["fecha_a_pagar_ingresos_a_trabajador"]
-        salario_base = request.POST["salario_base"]
-        ingresos_por_horas_extras = request.POST["ingresos_por_horas_extras"]
-        bonificacion_familiar = request.POST["bonificacion_familiar"]
-        aguinaldos = request.POST["aguinaldos"]
-        otros_ingresos_extras = request.POST["otros_ingresos_extras"]
-        ingresos_extras_totales = request.POST["ingresos_extras_totales_para_este_trabajador"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
+        fecha_aplicar_ingresos_extras = request.POST["date_in_which_the_payment_will_be_made"]
+        salario_base = request.POST["base_salary"]
+        ingresos_por_horas_extras = request.POST["income_from_extra_hours"]
+        bonificacion_familiar = request.POST["income_from_large_family_bonus"]
+        aguinaldos = request.POST["income_from_christmas_bonus"]
+        otros_ingresos_extras = request.POST["other_supplemental_income"]
+        ingresos_extras_totales = request.POST["total_supplemental_income"]
 
         # Esto me agarra la fecha y la hora actual
         timestamp = datetime.datetime.now()
@@ -717,7 +717,8 @@ def registrar_ingresos_extras(request):
         nuevos_ingresos_extras.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se han registrado nuevos ingresos extras correctamente.")
+        # messages.success(request, "Se han registrado nuevos ingresos extras correctamente.")
+        messages.success(request, "A new supplemental income statement has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_ingresos_extras')
