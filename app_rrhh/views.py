@@ -398,19 +398,19 @@ def registrar_permiso(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
-        fecha_inicio_ausencia = request.POST["fecha_de_inicio_de_la_ausencia"]
-        fecha_reincorporacion = request.POST["fecha_de_reincorporacion"]
-        motivo_ausencia = request.POST["motivo_de_la_ausencia"]
-        recibira_descuento = request.POST["recibira_descuento"]
-        descuento = request.POST["descuento_que_se_le_aplicara"]
+        fecha_inicio_ausencia = request.POST["absence_start_date"]
+        fecha_reincorporacion = request.POST["absence_end_date"]
+        motivo_ausencia = request.POST["reason_for_the_absence"]
+        recibira_descuento = request.POST["will_they_receive_a_discount"]
+        descuento = request.POST["discount_that_will_be_applied"]
 
         # Esto me agarra las fotos de las firmas
-        foto_firma_trabajador = request.FILES["foto_de_la_firma_del_trabajador_que_se_ausentara"]
-        foto_firma_encargado_rrhh = request.FILES["foto_de_la_firma_del_encargado_que_le_concedio_el_permiso"]
+        foto_firma_trabajador = request.FILES["signature_of_the_employee_that_will_be_absent"]
+        foto_firma_encargado_rrhh = request.FILES["signature_of_the_manager_that_game_them_the_permission_to_leave"]
 
         # Esto me agarra la fecha y la hora actual
         timestamp = datetime.datetime.now()
@@ -434,7 +434,8 @@ def registrar_permiso(request):
         nuevo_permiso.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado un nuevo permiso correctamente.")
+        # messages.success(request, "Se ha registrado un nuevo permiso correctamente.")
+        messages.success(request, "A new permission to leave has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_permisos')

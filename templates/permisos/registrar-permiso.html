@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Permiso
+    Register a Permission to Leave
 {% endblock %}
 
 <!-- Registrar un permiso -->
 {% block body %}
 
-    <h1>Registrar Permiso</h1>
+    <h1>Register a Permission to Leave</h1>
     <br>
     <br>
 
     <p>
-        Añada los datos del trabajador y de su correspondiente permiso.
+<!--        Añada los datos del trabajador y de su correspondiente permiso.-->
+        Fill in the employee's data, and the data corresponding to their respective permission to leave.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar permisos.
@@ -24,11 +25,11 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar Permiso">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Permission">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de sanciones -->
         <a href="{% url 'lista_permisos' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

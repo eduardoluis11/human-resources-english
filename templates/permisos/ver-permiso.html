@@ -1,7 +1,7 @@
 {% extends "disposicion-para-impresoras.html" %}
 
 {% block title %}
-    Permiso
+    Permission to Leave's Detailed View
 {% endblock %}
 
 <!-- Permiso del trabajador seleccionado en formato para imprimir (sin navbar ni footer). -->
@@ -13,44 +13,50 @@
 
     Tenia que poner “.url” al final de “datos.foto_firma_trabajador” para que me imprimiera la imagen -->
     {% for datos in permiso_seleccionado %}
-        <h1>Permiso de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Permission to Leave</h1>
         <br>
         <br>
 
         <!-- Datos de la sanción seleccionada -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Fecha de inicio de ausencia</b></p>
+<!--        Fecha de inicio de ausencia-->
+        <p><b>Absence start date</b></p>
         <p>{{datos.fecha_inicio_ausencia}}</p>
 
-        <p><b>Fecha de reincorporación</b></p>
+<!--        Fecha de reincorporación-->
+        <p><b>Absence end date</b></p>
         <p>{{datos.fecha_reincorporacion}}</p>
 
-        <p><b>Motivo por el que se va a ausentar</b></p>
+<!--        Motivo por el que se va a ausentar-->
+        <p><b>Reason for the absence</b></p>
         <p>{{datos.motivo_ausencia}}</p>
 
-        <p><b>¿Recibirá un descuento por el tiempo en el que estuvo ausente?</b></p>
+<!--        ¿Recibirá un descuento por el tiempo en el que estuvo ausente?-->
+        <p><b>Will they receive a discount for being absent from work?</b></p>
         <p>{{datos.recibira_descuento}}</p>
 
-        <p><b>Descuento que se le aplicará (de ser positiva la respuesta anterior).</b></p>
-        <p>{{datos.descuento}} ₲</p>
+<!--        Descuento que se le aplicará (de ser positiva la respuesta anterior).-->
+        <p><b>Discount that will be applied (if the previous answer was "Yes")</b></p>
+        <p>{{datos.descuento}} $</p>
 
-
-        <p><b>Firma del trabajador que se ausentará</b></p>
+<!--        Firma del trabajador que se ausentará-->
+        <p><b>Signature of the employee that will be absent</b></p>
         <img src="{{datos.foto_firma_trabajador.url}}" height="100px">
 
-        <p><b>Firma del encargado que le concedió el permiso</b></p>
+<!--        Firma del encargado que le concedió el permiso-->
+        <p><b>Signature of the manager that game them the permission to leave</b></p>
         <img src="{{datos.foto_firma_encargado_rrhh.url}}" height="100px">
 
 
-        <p><b>Fecha en la que se registró el permiso</b></p>
+        <p><b>Date in which the permission was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 

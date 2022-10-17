@@ -2,13 +2,13 @@
 
 <!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
 {% block title %}
-    Lista de Permisos del Personal
+    List of Permissions to Leave
 {% endblock %}
 
 <!-- Lista de todas los permisos para todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Permisos del Personal</h1>
+    <h1>List of Permissions to Leave</h1>
     <br>
     <br>
 
@@ -18,7 +18,8 @@
     {% endfor %}
 
     <!-- Enlace para agregar un nuevo permiso -->
-    <a href="{% url 'registrar_permiso' %}" class="text-decoration-none">Agregar Nueva Planilla de Permiso</a>
+<!--    Agregar Nueva Planilla de Permiso-->
+    <a href="{% url 'registrar_permiso' %}" class="text-decoration-none">Add a New Permission Form</a>
     <br>
     <br>
 
@@ -27,13 +28,14 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Cédula
+                ID Number
             </th>
             <th>
-                Planilla de Permiso Para Imprimir
+<!--                Planilla de Permiso Para Imprimir-->
+                Permission Form in Print Preview
             </th>
             <!-- Esto llama cada permiso registrado en la base de datos -->
             {% for permiso in permisos %}
@@ -46,7 +48,8 @@
                     </td>
                     <td>
                         <a href="{{permiso.id}}/ver-permiso" class="text-decoration-none">
-                            Ver detalles en vista para imprimir
+<!--                            Ver detalles en vista para imprimir-->
+                            View details in print preview
                         </a>
                     </td>
                 </tr>

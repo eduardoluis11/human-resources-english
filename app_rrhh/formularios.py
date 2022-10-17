@@ -74,22 +74,34 @@ class FormularioRegistrarPermiso(forms.Form):
 
     # Opciones para el campo que pregunta si se le dará un descuento al trabajador
     RECIBIRA_DESCUENTO_CHOICES = [
-        ('Sí', 'Sí'),
+        ('Yes', 'Yes'),
         ('No', 'No'),
     ]
 
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    fecha_de_inicio_de_la_ausencia = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha desde que se va a ausentar
-    fecha_de_reincorporacion = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha en la que regresará
-    motivo_de_la_ausencia = forms.CharField(widget=forms.Textarea)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
-    recibira_descuento = forms.ChoiceField(choices=RECIBIRA_DESCUENTO_CHOICES)  # "Sí" o "no"
+    # fecha_de_inicio_de_la_ausencia
+    absence_start_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha desde que se va a ausentar
 
-    descuento_que_se_le_aplicara = forms.DecimalField(max_digits=14, decimal_places=2, initial = 0)
-    foto_de_la_firma_del_trabajador_que_se_ausentara = forms.ImageField()
-    foto_de_la_firma_del_encargado_que_le_concedio_el_permiso = forms.ImageField()
+    # fecha_de_reincorporacion
+    absence_end_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))    # fecha en la que regresará
+
+    # motivo_de_la_ausencia
+    reason_for_the_absence = forms.CharField(widget=forms.Textarea)
+
+    # recibira_descuento
+    will_they_receive_a_discount = forms.ChoiceField(choices=RECIBIRA_DESCUENTO_CHOICES)  # "Sí" o "no"
+
+    # descuento_que_se_le_aplicara
+    discount_that_will_be_applied = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # foto_de_la_firma_del_trabajador_que_se_ausentara
+    signature_of_the_employee_that_will_be_absent = forms.ImageField()
+
+    # foto_de_la_firma_del_encargado_que_le_concedio_el_permiso
+    signature_of_the_manager_that_game_them_the_permission_to_leave = forms.ImageField()
 
 """ Formulario para registrar un Perfil de Cargo.
 """
