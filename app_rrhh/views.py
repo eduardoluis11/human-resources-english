@@ -617,20 +617,20 @@ def registrar_descuentos(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
-        fecha_aplicar_descuento = request.POST["fecha_a_aplicar_el_descuento"]
+        fecha_aplicar_descuento = request.POST["date_to_apply_discount"]
 
-        salario_base = request.POST["salario_base"]
-        salario_con_ingresos_extras = request.POST["salario_con_ingresos_extras"]
+        salario_base = request.POST["base_salary"]
+        salario_con_ingresos_extras = request.POST["salary_with_extra_income"]
 
-        descuento_cuota_ips = request.POST["descuento_por_cuota_del_ips"]
-        descuento_sanciones = request.POST["descuento_por_sanciones"]
-        descuento_inasistencias = request.POST["descuento_por_inasistencias"]
-        otros_descuentos = request.POST["otros_descuentos"]
-        descuentos_totales = request.POST["suma_total_de_todos_los_descuentos_para_este_trabajador"]
+        descuento_cuota_ips = request.POST["social_security_discount"]
+        descuento_sanciones = request.POST["discounts_due_to_sanctions"]
+        descuento_inasistencias = request.POST["discounts_due_to_nonattendances"]
+        otros_descuentos = request.POST["other_discounts"]
+        descuentos_totales = request.POST["sum_of_all_the_discounts_for_this_employee"]
 
         # Esto me agarra la fecha y la hora actual
         timestamp = datetime.datetime.now()
