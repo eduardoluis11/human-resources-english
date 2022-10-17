@@ -1,19 +1,22 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Legajo
+    Register a Dossier
 {% endblock %}
 
 <!-- Registrar una Legajo -->
 {% block body %}
 
-    <h1>Registrar Legajo</h1>
+    <h1>Register a Dossier</h1>
     <br>
     <br>
 
     <p>
-        Aquí puedes insertar los datos personales, jurídicos, y datos relacionados con la administración interna de la
-        empresa en el legajo de un trabajador.
+<!--        Aquí puedes insertar los datos personales, jurídicos, y datos relacionados con la administración interna de la-->
+<!--        empresa en el legajo de un trabajador.-->
+        Here, you'll be able to fill in the personal and legal data of an employee, and data regarding the internal
+        management of the company, into their dossier.
+
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar Legajo.
@@ -23,23 +26,27 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <h3>Datos Personales</h3>
+<!--        Datos Personales-->
+        <h3>Personal Data</h3>
         {{formulario_datos_personales.as_p}}
 
-        <h3>Información Jurídica</h3>
+<!--        Información Jurídica-->
+        <h3>Legal Information</h3>
         {{formulario_informacion_juridica.as_p}}
 
-        <h3>Datos de la Administración Interna de la Empresa</h3>
+<!--        Datos de la Administración Interna de la Empresa-->
+        <h3>Company's Internal Management Data</h3>
         {{formulario_empresa.as_p}}
 
-        <h3>Otros Datos de Interés</h3>
+<!--        Otros Datos de Interés-->
+        <h3>Other Data</h3>
         {{formulario_otros_datos.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar Legajo">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Dossier">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de planillas de liquidacion de Salarios -->
         <a href="{% url 'lista_legajos' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>
