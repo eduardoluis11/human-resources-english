@@ -1,7 +1,7 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Vacación
+    Vacation Record Detailed View
 {% endblock %}
 
 <!-- Vacación del trabajador seleccionado. -->
@@ -9,47 +9,55 @@
 
     <!-- Esto pondrá el nombre del trabajador en el título de la Vacación. -->
     {% for datos in vacacion_seleccionada %}
-        <h1>Vacación de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Vacation Record</h1>
         <br>
         <br>
 
         <!-- Datos de la sanción seleccionada -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Cantidad Inicial de Días de Vacaciones</b></p>
+<!--        Cantidad Inicial de Días de Vacaciones-->
+        <p><b>Initial Number of Vacation Days</b></p>
         <p>{{datos.cantidad_inicial_dias_vacaciones}}</p>
 
-        <p><b>Días que se tomará de vacaciones</b></p>
+<!--        Días que se tomará de vacaciones-->
+        <p><b>Number of vacation days that they will take</b></p>
         <p>{{datos.dias_que_se_tomara_vacaciones}}</p>
 
-        <p><b>Días restantes de vacaciones</b></p>
+<!--        Días restantes de vacaciones-->
+        <p><b>Remaining Vacation Days</b></p>
         <p>{{datos.dias_restantes_vacaciones}}</p>
 
-        <p><b>Fecha de inicio de vacaciones</b></p>
+<!--        Fecha de inicio de vacaciones-->
+        <p><b>Vacation Start Date</b></p>
         <p>{{datos.fecha_inicio_vacaciones}}</p>
 
-        <p><b>Fecha de Reincorporación al trabajo</b></p>
+<!--        Fecha de Reincorporación al trabajo-->
+        <p><b>Vacation End Date</b></p>
         <p>{{datos.fecha_fin_vacaciones}}</p>
 
-        <p><b>Firma del trabajador que se ausentará</b></p>
+<!--        Firma del trabajador que se ausentará-->
+        <p><b>Signature of the employee that will be on vacation</b></p>
         <img src="{{datos.foto_firma_trabajador.url}}" height="100px">
 
-        <p><b>Firma del encargado que le concedió las vacaciones</b></p>
+<!--        Firma del encargado que le concedió las vacaciones-->
+        <p><b>Signature of the manager that authorized their vacation</b></p>
         <img src="{{datos.foto_firma_encargado_rrhh.url}}" height="100px">
 
-
-        <p><b>Fecha en la que se registraron las vacaciones</b></p>
+<!--        Fecha en la que se registraron las vacaciones-->
+        <p><b>Date in which the vacation record was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
     <!-- Enlace para volver a la lista de ingresos extras-->
     <a href="{% url 'lista_vacaciones' %}" class="text-decoration-none">
-        Volver a la lista de vacaciones
+<!--        Volver a la lista de vacaciones-->
+        Go back to the Vacation Management System
     </a>
 {% endblock %}

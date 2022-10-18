@@ -216,21 +216,23 @@ Ahora, haré el formulario. Todos los campos son obligatorios. NO pondré la cas
 Eso se calculará automáticamente  en el lado del servidor usando el view para registrar las vacaciones.
 """
 class FormularioVacaciones(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
     # Días de vacaciones
-    total_de_dias_de_vacaciones_disponibles_inicialmente = forms.IntegerField()
-    dias_que_se_tomara_de_vacaciones = forms.IntegerField()
+    initial_number_of_vacation_days = forms.IntegerField()
+    number_of_vacation_days_that_they_will_take = forms.IntegerField()
 
     # Fecha de inicio y fin de vacaciones
-    fecha_de_inicio_de_sus_vacaciones = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    fecha_de_reincorporacion_al_trabajo = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    vacation_start_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    vacation_end_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
     # Firmas
-    foto_de_la_firma_del_trabajador_que_se_ausentara = forms.ImageField()
-    foto_de_la_firma_del_encargado_que_le_concedio_las_vacaciones = forms.ImageField()
+    signature_of_the_employee_that_will_be_on_vacation = forms.ImageField()
+
+    # foto_de_la_firma_del_encargado_que_le_concedio_las_vacaciones
+    signature_of_the_manager_that_authorized_their_vacation = forms.ImageField()
 
 """ Formulario para Currículums.
 

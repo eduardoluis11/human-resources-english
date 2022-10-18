@@ -767,30 +767,30 @@ def registrar_vacaciones(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
         # Fechas de inicio y fin de vacaciones
-        fecha_inicio_vacaciones = request.POST["fecha_de_inicio_de_sus_vacaciones"]
-        fecha_fin_vacaciones = request.POST["fecha_de_reincorporacion_al_trabajo"]
+        fecha_inicio_vacaciones = request.POST["vacation_start_date"]
+        fecha_fin_vacaciones = request.POST["vacation_end_date"]
 
         # Días de vacaciones
-        cantidad_inicial_dias_vacaciones = request.POST["total_de_dias_de_vacaciones_disponibles_inicialmente"]
-        dias_que_se_tomara_vacaciones = request.POST["dias_que_se_tomara_de_vacaciones"]
+        cantidad_inicial_dias_vacaciones = request.POST["initial_number_of_vacation_days"]
+        dias_que_se_tomara_vacaciones = request.POST["number_of_vacation_days_that_they_will_take"]
 
         # Los días que les quedarán de vacaciones al empleado los calcularé aquí en el back end
         dias_restantes_vacaciones = int(cantidad_inicial_dias_vacaciones) - int(dias_que_se_tomara_vacaciones)
 
         # Firmas del trabajador y del encargado de RRHH
-        foto_firma_trabajador = request.FILES["foto_de_la_firma_del_trabajador_que_se_ausentara"]
-        foto_firma_encargado_rrhh = request.FILES["foto_de_la_firma_del_encargado_que_le_concedio_las_vacaciones"]
+        foto_firma_trabajador = request.FILES["signature_of_the_employee_that_will_be_on_vacation"]
+        foto_firma_encargado_rrhh = request.FILES["signature_of_the_manager_that_authorized_their_vacation"]
 
         # Esto me agarra la fecha y la hora actual
         timestamp = datetime.datetime.now()
 
         # Esto prepara los datos antes de meterlos a la base de datos
-        nuevas_vacaciones = Vacacion(nombre=nombre,apellidos=apellidos, cedula=cedula, 
+        nuevas_vacaciones = Vacacion(nombre=nombre, apellidos=apellidos, cedula=cedula,
                                     fecha_inicio_vacaciones=fecha_inicio_vacaciones, 
                                     fecha_fin_vacaciones=fecha_fin_vacaciones, 
                                     cantidad_inicial_dias_vacaciones=cantidad_inicial_dias_vacaciones,
@@ -804,7 +804,8 @@ def registrar_vacaciones(request):
         nuevas_vacaciones.save()
     
         # Mensaje flash de confirmación
-        messages.success(request, "Se han registrado unas nuevas vacaciones correctamente.")
+        # messages.success(request, "Se han registrado unas nuevas vacaciones correctamente.")
+        messages.success(request, "A new vacation record has been successfully registered.")
     
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_vacaciones')

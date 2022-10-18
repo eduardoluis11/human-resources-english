@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Vacaciones
+    Vacation Management System
 {% endblock %}
 
 <!-- Lista de todos las vacaciones  de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Vacaciones</h1>
+    <h1>Vacation Management System</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar unas nuevas vacaciones -->
     <a href="{% url 'registrar_vacaciones' %}" class="text-decoration-none">
-        Agregar Nuevas Vacaciones
+        <!-- Agregar Nuevas Vacaciones -->
+        Add a New Vacation Record
     </a>
     <br>
     <br>
@@ -29,16 +30,19 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Fecha de Inicio de Vacaciones
+                <!-- Fecha de Inicio de Vacaciones -->
+                Vacation Start Date
             </th>
             <th>
-                Fecha de Reincorporación Al Trabajo
+                <!-- Fecha de Reincorporación Al Trabajo -->
+                Vacation End Date
             </th>
             <th>
-                Ver Detalles
+                <!-- Ver Detalles -->
+                View Details
             </th>
             <!-- Esto llama cada vacación registrada en la base de datos -->
             {% for vacacion in vacaciones %}
@@ -53,7 +57,7 @@
                         {{vacacion.fecha_fin_vacaciones}}
                     </td>
                     <td>
-                        <a href="{{vacacion.id}}/ver-vacacion" class="text-decoration-none">Ver detalles</a>
+                        <a href="{{vacacion.id}}/ver-vacacion" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}

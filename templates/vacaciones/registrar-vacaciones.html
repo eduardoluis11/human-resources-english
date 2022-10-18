@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Vacaciones
+    Register a Vacation Record
 {% endblock %}
 
 <!-- Página para registrar el descuento de un empleado -->
 {% block body %}
 
-    <h1>Registrar Vacaciones</h1>
+    <h1>Register a Vacation Record</h1>
     <br>
     <br>
 
     <p>
-        Añada los datos del trabajador y de sus correspondientes vacaciones.
+<!--        Añada los datos del trabajador y de sus correspondientes vacaciones.-->
+        Fill in the data of the employee that will go on vacation, and the data regarding their vacation.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar las vacaciones. -->
@@ -21,11 +22,11 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar Vacaciones">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Vacation Record">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de vacaciones -->
         <a href="{% url 'lista_vacaciones' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>
