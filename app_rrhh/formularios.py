@@ -405,22 +405,31 @@ class FormularioDatosPersonalesLegajo(forms.Form):
 
     # Opciones para el campo que pregunta si el trabajador es hombre o mujer
     SEXO_CHOICES = [
-        ('M', 'Masculino'),
-        ('F', 'Femenino'),
+        ('M', 'Male'),
+        ('F', 'Female'),
     ]
 
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    fecha_de_vencimiento_de_la_cedula = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    fecha_de_nacimiento = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    sexo = forms.ChoiceField(choices=SEXO_CHOICES)
-    nacionalidad = forms.CharField(max_length=20)
-    domicilio = forms.CharField(widget=forms.Textarea)
-    telefono = forms.CharField(max_length=20)
-    correo_electronico = forms.EmailField(required=False, max_length=254)
-    curriculum = forms.FileField()  # PDF con currículum
-    titulo_o_nivel_maximo_de_educacion_obtenido = forms.CharField(max_length=100)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+
+    expiry_date_of_the_id = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+
+    gender = forms.ChoiceField(choices=SEXO_CHOICES)
+
+    nationality = forms.CharField(max_length=20)
+
+    address = forms.CharField(widget=forms.Textarea)
+
+    phone = forms.CharField(max_length=20)
+
+    email = forms.EmailField(required=False, max_length=254)
+
+    resume = forms.FileField()  # PDF con currículum
+
+    degree_or_maximum_level_of_education_achieved = forms.CharField(max_length=100)
 
 """ Formulario de Información Jurídica del Legajo.
 """
@@ -428,25 +437,35 @@ class FormularioInformacionJuridicaLegajo(forms.Form):
 
     # Opciones para el campo que pregunta si el trabajador tiene antecedentes penales
     ANTECEDENTES_CHOICES = [
-        ('Sí', 'Sí'),
+        ('Yes', 'Yes'),
         ('No', 'No'),
     ]
 
-    tiene_antecedentes_penales = forms.ChoiceField(choices=ANTECEDENTES_CHOICES)
-    numero_del_ips = forms.CharField(max_length=30)
+    # tiene_antecedentes_penales
+    do_they_have_a_criminal_record = forms.ChoiceField(choices=ANTECEDENTES_CHOICES)
+
+    social_security_number = forms.CharField(max_length=30)
 
 """ Formulario de Datos de la Administracion Interna de la Empresa del Legajo.
 """
 class FormularioAdministracionEmpresaLegajo(forms.Form):
-    permisos_que_ha_tomado_para_ausentarse = forms.CharField(required=False, widget=forms.Textarea) # Opcional
-    evaluacion_de_desempeno = forms.FileField(required=False)  # Archivo con evaluación de desempeño (opcional)
-    sanciones = forms.CharField(required=False, widget=forms.Textarea)  # Opcional
-    cargo = forms.CharField(max_length=100)
+
+    # permisos_que_ha_tomado_para_ausentarse
+    leaves_of_absence_taken = forms.CharField(required=False, widget=forms.Textarea)  # Opcional
+
+    # evaluacion_de_desempeno
+    performance_appraisal_report = forms.FileField(required=False)  # Archivo con evaluación de desempeño (opcional)
+
+    sanctions = forms.CharField(required=False, widget=forms.Textarea)  # Opcional
+
+    job_title = forms.CharField(max_length=100)
 
 """ Formulario de Datos de Otros Datos de Interés del Legajo (opcional).
 """
 class FormularioOtrosDatosLegajo(forms.Form):
-    otros_datos_de_interes = forms.CharField(required=False, widget=forms.Textarea)  # Opcional
+
+    # otros_datos_de_interes
+    other_data = forms.CharField(required=False, widget=forms.Textarea)  # Opcional
 
 """ Formulario de Datos Personales para Registrar un Contrato.
 """

@@ -1338,31 +1338,31 @@ def registrar_legajo(request):
     if request.method == "POST":
 
         # Datos Personales
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
-        sexo = request.POST["sexo"]
-        fecha_nacimiento = request.POST["fecha_de_nacimiento"]
-        domicilio = request.POST["domicilio"]
-        email = request.POST["correo_electronico"]
-        telefono = request.POST["telefono"]
-        nacionalidad = request.POST["nacionalidad"]
-        fecha_de_vencimiento_cedula = request.POST["fecha_de_vencimiento_de_la_cedula"]
-        curriculum = request.FILES["curriculum"]
-        nivel_maximo_de_educacion_obtenido = request.POST["titulo_o_nivel_maximo_de_educacion_obtenido"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
+        sexo = request.POST["gender"]
+        fecha_nacimiento = request.POST["date_of_birth"]
+        domicilio = request.POST["address"]
+        email = request.POST["email"]
+        telefono = request.POST["phone"]
+        nacionalidad = request.POST["nationality"]
+        fecha_de_vencimiento_cedula = request.POST["expiry_date_of_the_id"]
+        curriculum = request.FILES["resume"]
+        nivel_maximo_de_educacion_obtenido = request.POST["degree_or_maximum_level_of_education_achieved"]
 
         # Información Jurídica
-        tiene_antecedentes_penales = request.POST["tiene_antecedentes_penales"]
-        numero_ips = request.POST["numero_del_ips"]
+        tiene_antecedentes_penales = request.POST["do_they_have_a_criminal_record"]
+        numero_ips = request.POST["social_security_number"]
 
         # Datos de la administración interna de la empresa
-        cargo = request.POST["cargo"]
-        evaluacion_de_desempeno = request.FILES["evaluacion_de_desempeno"]
-        sanciones = request.POST["sanciones"]
-        permisos_para_ausentarse = request.POST["permisos_que_ha_tomado_para_ausentarse"]
+        cargo = request.POST["job_title"]
+        evaluacion_de_desempeno = request.FILES["performance_appraisal_report"]
+        sanciones = request.POST["sanctions"]
+        permisos_para_ausentarse = request.POST["leaves_of_absence_taken"]
 
         # Otros datos de interés de la empresa
-        otros_datos = request.POST["otros_datos_de_interes"]
+        otros_datos = request.POST["other_data"]
 
         timestamp = datetime.datetime.now()
 
@@ -1381,7 +1381,8 @@ def registrar_legajo(request):
         nuevo_legajo.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado un nuevo legajo correctamente.")
+        # messages.success(request, "Se ha registrado un nuevo legajo correctamente.")
+        messages.success(request, "A new dossier has been successfully registered.")
 
         # Esto redirige al usuario a la lista de legajos
         return redirect('lista_legajos')
