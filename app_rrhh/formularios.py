@@ -47,13 +47,21 @@ desde el view.
 
 """
 class FormularioRegistrarBonificacion(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    fecha_a_pagar = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    numero_de_hijos_menores = forms.IntegerField(initial = 0)
-    numero_de_hijos_mayores_con_discapacidades = forms.IntegerField(initial = 0)
-    salario_minimo_mensual_vigente = forms.DecimalField(max_digits=14, decimal_places=2, initial = 0)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+
+    # fecha_a_pagar
+    date_to_make_the_payment = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+
+    # numero_de_hijos_menores
+    number_of_underage_children = forms.IntegerField(initial=0)
+
+    # numero_de_hijos_mayores_con_discapacidades
+    number_of_adult_children_with_disabilities = forms.IntegerField(initial=0)
+
+    # salario_minimo_mensual_vigente
+    current_monthly_minimum_wage = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # numero_total_de_hijos_que_cualifican_para_la_bonificacion_familiar = forms.IntegerField(disabled=True,initial = 0)
     # bonificacion_familiar_a_recibir = forms.DecimalField(max_digits=14, decimal_places=2, disabled=True, initial = 0)

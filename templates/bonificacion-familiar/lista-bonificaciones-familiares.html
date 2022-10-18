@@ -2,13 +2,13 @@
 
 <!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
 {% block title %}
-    Lista de Bonificaciones Familiares del Personal
+    List of Large Family Bonus Reports
 {% endblock %}
 
 <!-- Lista de todas las bonificaciones familiares para todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Bonificaciones Familiares del Personal</h1>
+    <h1>List of Large Family Bonus Reports</h1>
     <br>
     <br>
 
@@ -19,7 +19,10 @@
 
 
     <!-- Enlace para agregar una nueva bonificacion familiar -->
-    <a href="{% url 'registrar_bonificacion_familiar' %}" class="text-decoration-none">Agregar Nueva Bonificación Familiar</a>
+    <a href="{% url 'registrar_bonificacion_familiar' %}" class="text-decoration-none">
+<!--        Agregar Nueva Bonificación Familiar-->
+        Add a New Large Family Bonus Report
+    </a>
     <br>
     <br>
 
@@ -28,16 +31,19 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Fecha que recibira el pago
+<!--                Fecha que recibira el pago-->
+                Date when the payment will be made
             </th>
             <th>
-                Bonificación Familiar a Pagar
+<!--                Bonificación Familiar a Pagar-->
+                Large Family bonus to pay
             </th>
             <th>
-                Ver detalles
+<!--                Ver detalles-->
+                View Details
             </th>
             <!-- Esto llama cada bonificacion registrada en la base de datos -->
             {% for bonificacion in bonificaciones_familiares %}
@@ -49,10 +55,10 @@
                         {{bonificacion.fecha_a_pagar}}
                     </td>
                     <td>
-                        {{bonificacion.bonificacion_familiar}} ₲
+                        {{bonificacion.bonificacion_familiar}} $
                     </td>
                     <td>
-                        <a href="{{bonificacion.id}}/ver-bonificacion" class="text-decoration-none">Ver detalles</a>
+                        <a href="{{bonificacion.id}}/ver-bonificacion" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}

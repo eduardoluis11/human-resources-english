@@ -1,7 +1,7 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Ver Bonificacion Familiar
+    Large Family Bonus Report Detailed View
 {% endblock %}
 
 {% block body %}
@@ -9,53 +9,61 @@
     <!-- Esto pondrá el nombre del trabajador en el título de la bonificacion para diferenciar una bonificacion de la
     otra -->
     {% for datos in bonificacion_actual %}
-        <h1>Bonificación Familiar de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Large Family Bonus Report</h1>
         <br>
         <br>
 
         <!-- Datos de la sanción seleccionada -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Número de hijos menores</b></p>
+<!--        Número de hijos menores-->
+        <p><b>Number of underage children</b></p>
         <p>{{datos.hijos_menores}}</p>
 
-        <p><b>Número de hijos mayores con discapacidades</b></p>
+<!--        Número de hijos mayores con discapacidades-->
+        <p><b>Number of adult children with disabilities</b></p>
         <p>{{datos.hijos_mayores_discapacitados}}</p>
 
-        <p><b>Número total de hijos que cualifican para la bonificación familiar</b></p>
+<!--        Número total de hijos que cualifican para la bonificación familiar-->
+        <p><b>Total number of children that qualify for the Large Family Bonus</b></p>
         <p>{{datos.total_hijos_para_bonificacion}}</p>
 
-        <p><b>Salario mínimo mensual vigente</b></p>
-        <p>{{datos.salario_minimo_mensual_vigente}} ₲</p>
+<!--        Salario mínimo mensual vigente-->
+        <p><b>Current monthly minimum wage</b></p>
+        <p>{{datos.salario_minimo_mensual_vigente}} $</p>
 
         <br>
         <hr>
         <br>
 
-        <h3>Bonificación Familiar a Pagar</h3>
+<!--        Bonificación Familiar a Pagar-->
+        <h3>Large Family Bonus amount that will be paid</h3>
         <br>
-        <p><b>{{datos.bonificacion_familiar}} ₲</b></p>
+        <p><b>{{datos.bonificacion_familiar}} $</b></p>
 
         <br>
         <br>
 
-        <p><b>Fecha que recibirá el pago</b></p>
+<!--        Fecha que recibirá el pago-->
+        <p><b>Date when the payment will be made</b></p>
         <p>{{datos.fecha_a_pagar}}</p>
 
-        <p><b>Fecha en la que se registró la bonificación</b></p>
+<!--        Fecha en la que se registró la bonificación-->
+        <p><b>Date when the Large Family Bonus was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 
     <!-- Enlace para volver a la lista de sanciones -->
     <a href="{% url 'lista_bonificaciones_familiares' %}" class="text-decoration-none">
-        Volver a la lista de bonificaciones
+<!--        Volver a la lista de bonificaciones-->
+        Go back to the list of Large Family Bonus reports
     </a>
 
 {% endblock %}

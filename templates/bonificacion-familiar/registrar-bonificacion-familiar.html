@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Una Bonificación Familiar
+    Register a Large Family Bonus Report
 {% endblock %}
 
 <!-- Página para registrar la bonificación familiar del mes actual de un empleado -->
 {% block body %}
 
-    <h1>Registrar Una Bonificación Familiar</h1>
+    <h1>Register a Large Family Bonus Report</h1>
     <br>
     <br>
 
     <p>
-        Añada los datos del trabajador y de su correspondiente bonificación familiar.
+<!--        Añada los datos del trabajador y de su correspondiente bonificación familiar.-->
+        Fill in the employee's data, and the data regarding their corresponding large family bonus payment.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar las bonificaciones familiares -->
@@ -21,11 +22,11 @@
 
         {{formulario.as_p}}   <!-- Django form -->
 
-        <input class="btn btn-primary" type="submit" value="Registrar Bonificación">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Report">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de sanciones -->
         <a href="{% url 'lista_bonificaciones_familiares' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

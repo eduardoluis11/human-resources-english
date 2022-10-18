@@ -314,14 +314,14 @@ def registrar_bonificacion_familiar(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
-        fecha_a_pagar = request.POST["fecha_a_pagar"]
-        hijos_menores = request.POST["numero_de_hijos_menores"]
-        hijos_mayores_discapacitados = request.POST["numero_de_hijos_mayores_con_discapacidades"]
-        salario_minimo_mensual_vigente = request.POST["salario_minimo_mensual_vigente"]
+        fecha_a_pagar = request.POST["date_to_make_the_payment"]
+        hijos_menores = request.POST["number_of_underage_children"]
+        hijos_mayores_discapacitados = request.POST["number_of_adult_children_with_disabilities"]
+        salario_minimo_mensual_vigente = request.POST["current_monthly_minimum_wage"]
 
         # Esto me agarra la fecha y la hora actual
         timestamp = datetime.datetime.now()
@@ -353,7 +353,8 @@ def registrar_bonificacion_familiar(request):
         nueva_bonificacion.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva bonificación familiar correctamente.")
+        # messages.success(request, "Se ha registrado una nueva bonificación familiar correctamente.")
+        messages.success(request, "A new large family bonus report has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_bonificaciones_familiares')
