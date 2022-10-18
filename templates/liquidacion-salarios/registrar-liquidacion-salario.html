@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Liquidación de Salarios
+    Register a Payroll Statement
 {% endblock %}
 
 <!-- Registrar una Liquidación de Salarios -->
 {% block body %}
 
-    <h1>Registrar Liquidación de Salarios</h1>
+    <h1>Register a Payroll Statement</h1>
     <br>
     <br>
 
     <p>
-        Aquí puedes registrar el pago del salario de un trabajador.
+<!--        Aquí puedes registrar el pago del salario de un trabajador.-->
+        Here, you'll be able to create an employee's payroll report, and calculate their wages.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar Liquidación de Salarios.
@@ -24,11 +25,11 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Calcular Liquidación">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Calculate Wages">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de planillas de liquidacion de Salarios -->
         <a href="{% url 'lista_liquidacion_salarios' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>

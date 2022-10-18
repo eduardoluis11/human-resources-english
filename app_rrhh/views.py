@@ -1256,22 +1256,22 @@ def registrar_liquidacion_salario(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
         # Fecha de pago
-        fecha_de_pago = request.POST["fecha_de_pago"]
+        fecha_de_pago = request.POST["payment_date"]
 
         # Salarios a usar y sumar para calcular la liquidación
-        salario_mensual = request.POST["salario_mensual"]
-        ingresos_extras = request.POST["ingresos_extras"]
+        salario_mensual = request.POST["monthly_wage"]
+        ingresos_extras = request.POST["supplemental_income"]
 
         # Descuentos (debo restarlo a los ingresos)
-        descuentos = request.POST["descuentos"]
+        descuentos = request.POST["discounts"]
 
         # Foto del encargado que calculó el total a liquidar
-        foto_firma_encargado_rrhh = request.FILES["firma_del_encargado_que_le_calculo_la_liquidacion"]
+        foto_firma_encargado_rrhh = request.FILES["signature_of_the_manager_that_created_the_payroll_report"]
 
         timestamp = datetime.datetime.now()
 
@@ -1292,7 +1292,8 @@ def registrar_liquidacion_salario(request):
         nueva_liquidacion.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva liquidación de salario correctamente.")
+        # messages.success(request, "Se ha registrado una nueva liquidación de salario correctamente.")
+        messages.success(request, "A new payroll statement has been successfully registered.")
 
         # Esto redirige al usuario a la lista asistencias de ese día
         return redirect('lista_liquidacion_salarios')

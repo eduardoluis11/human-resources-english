@@ -376,22 +376,23 @@ class FormularioLiquidacionDelPersonal(forms.Form):
 No pondré ni el timestamp, ni el salario total a pagar.
 """
 class FormularioLiquidacionDeSalario(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
     # Salarios para sumar para calcular la liquidación
-    salario_mensual = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    ingresos_extras = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    monthly_wage = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    supplemental_income = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # Descuentos (debo restarlo a los ingresos)
-    descuentos = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    discounts = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # Fecha en la que se hará el pago
-    fecha_de_pago = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    payment_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
     # Foto del encargado que calculó el total a liquidar
-    firma_del_encargado_que_le_calculo_la_liquidacion = forms.ImageField()
+    # firma_del_encargado_que_le_calculo_la_liquidacion
+    signature_of_the_manager_that_created_the_payroll_report = forms.ImageField()
 
 """ Crearé 4 formularios para el Legajo. Eso lo haré para asignarle un título distinto a cada grupo de casillas
 de cada formulario (ej: "Datos Personales, Otros Datos de interes", etc.)

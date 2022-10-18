@@ -2,13 +2,14 @@
 
 <!-- Puedo cambiarle el título de la pestaña a una página agregándole el tag “block title” a esa página. -->
 {% block title %}
-    Lista de Planillas de Liquidación de Salarios
+    Payroll Statement List
 {% endblock %}
 
 <!-- Lista de todas las planillas de liquidacion de salarios para todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Planillas de Liquidación de Salarios</h1>
+<!--    Lista de Planillas de Liquidación de Salarios-->
+    <h1>Payroll Statement List</h1>
     <br>
     <br>
 
@@ -19,7 +20,8 @@
 
     <!-- Enlace para agregar un nueva Liquidación de Salarios -->
     <a href="{% url 'registrar_liquidacion_salario' %}" class="text-decoration-none">
-        Agregar Nueva Planilla de Liquidación
+<!--        Agregar Nueva Planilla de Liquidación-->
+        Add a New Payroll Statement
     </a>
     <br>
     <br>
@@ -32,16 +34,19 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Cédula
+                ID Number
             </th>
             <th>
-                Salario a Pagar
+<!--                Salario a Pagar-->
+                Wage to Pay
+
             </th>
             <th>
-                Planilla de Liquidación Para Imprimir
+<!--                Planilla de Liquidación Para Imprimir-->
+                Payroll statement in print preview
             </th>
             <!-- Esto llama cada Liquidación de Salarios registrado en la base de datos -->
             {% for liquidacion in liquidacion_de_salarios %}
@@ -53,11 +58,12 @@
                         {{liquidacion.cedula}}
                     </td>
                     <td>
-                        {{liquidacion.salario_total_a_liquidar}} ₲
+                        {{liquidacion.salario_total_a_liquidar}} $
                     </td>
                     <td>
                         <a href="{{liquidacion.id}}/ver-liquidacion-salario" class="text-decoration-none">
-                            Ver detalles en vista para imprimir
+<!--                            Ver detalles en vista para imprimir-->
+                            View Details in Print Preview
                         </a>
                     </td>
                 </tr>
