@@ -520,16 +520,35 @@ class FormularioDatosDelContrato(forms.Form):
 """ Formulario para Registrar un Informe Web Anual.
 """
 class FormularioInformeWeb(forms.Form):
-    anno_del_informe = forms.IntegerField(initial=0)
-    evaluacion_de_desempeno_anual_de_todo_el_personal = forms.FileField()  # Archivo con clausulas del contrato
-    salario_promedio_de_todo_el_personal = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    tasa_de_absentismo = forms.CharField(max_length=20)
-    trabajadores_contratados = forms.IntegerField(initial=0)
-    trabajadores_que_salieron = forms.IntegerField(initial=0)
-    edad_promedio_del_personal = forms.IntegerField(initial=0)
-    promedio_de_dias_para_contratar_a_alguien_para_un_cargo_vacante = forms.IntegerField(initial=0)
-    annos_que_ha_trabajado_el_trabajador_con_mas_tiempo_en_la_empresa = forms.IntegerField(initial=0)
-    numero_de_cursos_ofrecidos_al_personal = forms.IntegerField(initial=0)
+
+    # anno_del_informe
+    year_of_the_report = forms.IntegerField(initial=0)
+
+    # evaluacion_de_desempeno_anual_de_todo_el_personal
+    annual_performance_appraisal_report_of_the_entire_staff = forms.FileField()  # Archivo con clausulas del contrato
+
+    # salario_promedio_de_todo_el_personal
+    average_monthly_salary_of_the_entire_staff = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # tasa_de_absentismo
+    absence_rate = forms.CharField(max_length=20)
+
+    # trabajadores_contratados
+    number_of_employees_hired = forms.IntegerField(initial=0)
+
+    # trabajadores_que_salieron
+    number_of_employees_that_left_the_company = forms.IntegerField(initial=0)
+
+    average_age_of_the_entire_staff = forms.IntegerField(initial=0)
+
+    # promedio_de_dias_para_contratar_a_alguien_para_un_cargo_vacante
+    average_number_of_days_to_hire_a_recruit_for_a_vacant_position = forms.IntegerField(initial=0)
+
+    # annos_que_ha_trabajado_el_trabajador_con_mas_tiempo_en_la_empresa
+    number_of_years_of_the_longest_job_tenure_in_the_company = forms.IntegerField(initial=0)
+
+    # numero_de_cursos_ofrecidos_al_personal
+    number_of_courses_offered_to_the_staff = forms.IntegerField(initial=0)
 
 """ Aquí pondré los 5 formularios de la planilla "Resumen General" del Ministerio de Trabajo
 El número de los ordenes se meteran automaticamente a la base de datos. NO lo pondre en los formularios.

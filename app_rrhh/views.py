@@ -1515,20 +1515,20 @@ def registrar_informe_web(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        anno = request.POST["anno_del_informe"]
+        anno = request.POST["year_of_the_report"]
 
         # Archivo PDF con el desempeño anual de todo el personal
-        evaluacion_de_desempeno_personal = request.FILES["evaluacion_de_desempeno_anual_de_todo_el_personal"]
+        evaluacion_de_desempeno_personal = request.FILES["annual_performance_appraisal_report_of_the_entire_staff"]
 
-        trabajadores_contratados = request.POST["trabajadores_contratados"]
-        trabajadores_que_salieron = request.POST["trabajadores_que_salieron"]
-        tasa_absentismo = request.POST["tasa_de_absentismo"]
-        salario_promedio_personal = request.POST["salario_promedio_de_todo_el_personal"]
-        promedio_dias_para_ocupar_cargo_vacante = request.POST["promedio_de_dias_para_contratar_a_alguien_para_un_cargo_vacante"]
-        annos_de_trabajador_con_mas_tiempo_en_empresa = request.POST["annos_que_ha_trabajado_el_trabajador_con_mas_tiempo_en_la_empresa"]
-        numero_cursos_ofrecidos_trabajadores = request.POST["numero_de_cursos_ofrecidos_al_personal"]
+        trabajadores_contratados = request.POST["number_of_employees_hired"]
+        trabajadores_que_salieron = request.POST["number_of_employees_that_left_the_company"]
+        tasa_absentismo = request.POST["absence_rate"]
+        salario_promedio_personal = request.POST["average_monthly_salary_of_the_entire_staff"]
+        promedio_dias_para_ocupar_cargo_vacante = request.POST["average_number_of_days_to_hire_a_recruit_for_a_vacant_position"]
+        annos_de_trabajador_con_mas_tiempo_en_empresa = request.POST["number_of_years_of_the_longest_job_tenure_in_the_company"]
+        numero_cursos_ofrecidos_trabajadores = request.POST["number_of_courses_offered_to_the_staff"]
         
-        edad_promedio_personal = request.POST["edad_promedio_del_personal"]
+        edad_promedio_personal = request.POST["average_age_of_the_entire_staff"]
         
         timestamp = datetime.datetime.now()
     
@@ -1547,7 +1547,8 @@ def registrar_informe_web(request):
         
     
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado un nuevo informe web correctamente.")
+        # messages.success(request, "Se ha registrado un nuevo informe web correctamente.")
+        messages.success(request, "A new web report has been successfully registered.")
     
         # Esto redirige al usuario a la lista de contratos
         return redirect('lista_informes')

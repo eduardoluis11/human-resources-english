@@ -1,14 +1,14 @@
 {% extends "disposicion-para-impresoras.html" %}
 
 {% block title %}
-    Ver Informe Web
+    Web Report Detailed View
 {% endblock %}
 
 {% block body %}
 
     <!-- Esto pondrá el año del informe en el título del Informe Web -->
     {% for datos in informe_seleccionado %}
-        <h1>Informe Web del año {{datos.anno}}</h1>
+        <h1>{{datos.anno}}'s Annual Web Report</h1>
         <br>
         <br>
 
@@ -17,44 +17,56 @@
         Tengo que usar el atributo “download” de un <a> en HTML para poder descargar un archivo.
         -->
 
-        <p><b>Evaluación de Desempeño Anual de Todo el Personal</b></p>
+<!--        Evaluación de Desempeño Anual de Todo el Personal-->
+        <p><b>Annual Performance Appraisal Report of the Entire Staff</b></p>
         <a href="{{datos.evaluacion_de_desempeno_personal.url}}" download>
-            Descargar Evaluación de Desempeño
+<!--            Descargar Evaluación de Desempeño-->
+            Download Performance Appraisal Report
         </a>
         <br>
         <br>
 
-        <p><b>Número de trabajadores contratados</b></p>
-        <p>{{datos.trabajadores_contratados}} trabajadores</p>
+<!--        Número de trabajadores contratados-->
+        <p><b>Number of employees hired</b></p>
+        <p>{{datos.trabajadores_contratados}} employees</p>
 
-        <p><b>Número de trabajadores que salieron de la compañía (renuncias y/o despidos)</b></p>
-        <p>{{datos.trabajadores_que_salieron}} trabajadores</p>
+<!--        Número de trabajadores que salieron de la compañía (renuncias y/o despidos)-->
+        <p><b>Number of employees that left the company (by either quitting or by being fired)</b></p>
+        <p>{{datos.trabajadores_que_salieron}} employees</p>
 
-        <p><b>Edad promedio de todos los trabajadores</b></p>
-        <p>{{datos.edad_promedio_personal}} años</p>
+<!--        Edad promedio de todos los trabajadores-->
+        <p><b>Average age of the entire staff</b></p>
+        <p>{{datos.edad_promedio_personal}} years</p>
 
-        <p><b>Tasa de absentismo</b></p>
+<!--        Tasa de absentismo-->
+        <p><b>Absence Rate</b></p>
         <p>{{datos.tasa_absentismo}}</p>
 
-        <p><b>Salario promedio de todos los trabajadores</b></p>
-        <p>{{datos.salario_promedio_personal}} ₲</p>
+<!--        Salario promedio de todos los trabajadores-->
+        <p><b>Average monthly salary of the entire staff</b></p>
+        <p>{{datos.salario_promedio_personal}} $</p>
 
         <p><b>
-            Número promedio de días que pasaron desde que se registró un cargo vacante hasta que se pudo contratar a un
-            trabajador para ese cargo.
+<!--            Número promedio de días que pasaron desde que se registró un cargo vacante hasta que se pudo contratar a un-->
+<!--            trabajador para ese cargo.-->
+            Average number of days that passed between registering a job vacancy and hiring a recruit for that job
+            position.
         </b></p>
-        <p>{{datos.promedio_dias_para_ocupar_cargo_vacante}} días</p>
+        <p>{{datos.promedio_dias_para_ocupar_cargo_vacante}} days</p>
 
         <p><b>
-            Número de años trabajando en la empresa que tiene el empleado que ha trabajado por más tiempo en la
-            compañía.
+<!--            Número de años trabajando en la empresa que tiene el empleado que ha trabajado por más tiempo en la-->
+<!--            compañía.-->
+            Longest job tenure in the company (measured in years).
         </b></p>
-        <p>{{datos.annos_de_trabajador_con_mas_tiempo_en_empresa}} años</p>
+        <p>{{datos.annos_de_trabajador_con_mas_tiempo_en_empresa}} years</p>
 
-        <p><b>Número de cursos ofrecidos a los trabajadores</b></p>
-        <p>{{datos.numero_cursos_ofrecidos_trabajadores}} cursos</p>
+<!--        Número de cursos ofrecidos a los trabajadores-->
+        <p><b>Number of courses offered to the employees</b></p>
+        <p>{{datos.numero_cursos_ofrecidos_trabajadores}} courses</p>
 
-        <p><b>Fecha en la que se registró el Informe Web</b></p>
+<!--        Fecha en la que se registró el Informe Web-->
+        <p><b>Date in which the web report was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 {% endblock %}

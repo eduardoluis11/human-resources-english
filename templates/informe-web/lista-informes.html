@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de informes web
+    Annual Web Report List
 {% endblock %}
 
 <!-- Lista de todos las informe web de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de informes web anuales</h1>
+    <h1>Annual Web Report List</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar un nuevo informe web -->
     <a href="{% url 'registrar_informe_web' %}" class="text-decoration-none">
-        Agregar Nuevo Informe Web
+<!--        Agregar Nuevo Informe Web-->
+        Add a New Web Report
     </a>
     <br>
     <br>
@@ -29,10 +30,12 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Año del Informe
+<!--                Año del Informe-->
+                Year of the report
             </th>
             <th>
-                Ver Detalles en Vista Para Imprimir
+<!--                Ver Detalles en Vista Para Imprimir-->
+                View details in print preview
             </th>
             <!-- Esto llama cada ingreso extra registrado en la base de datos -->
             {% for informe in informes %}
@@ -41,7 +44,10 @@
                         {{informe.anno}}
                     </td>
                     <td>
-                        <a href="{{informe.id}}/ver-informe" class="text-decoration-none">Ver detalles en vista para imprimir</a>
+                        <a href="{{informe.id}}/ver-informe" class="text-decoration-none">
+<!--                            Ver detalles en vista para imprimir-->
+                            View details in print preview
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

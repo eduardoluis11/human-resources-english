@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Informe Web
+    Register an Annual Web Report
 {% endblock %}
 
 <!-- Registrar una Informe Web -->
 {% block body %}
 
-    <h1>Registrar Informe Web Anual</h1>
+    <h1>Register an Annual Web Report</h1>
     <br>
     <br>
 
     <p>
-        Registre el Informe Web anual de la empresa del año actual.
+<!--        Registre el Informe Web anual de la empresa del año actual.-->
+        Register the company's annual web report for the current year.
     </p>
     <br>
     <br>
@@ -28,11 +29,11 @@
         <br>
         <br>
 
-        <input class="btn btn-primary" type="submit" value="Registrar Informe">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Report">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de planillas de Informe Web -->
         <a href="{% url 'lista_informes' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>
