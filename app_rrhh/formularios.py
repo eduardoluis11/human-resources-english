@@ -771,29 +771,46 @@ class FormularioPlanillaIPS(forms.Form):
 
     # Opciones para el campo del código
     CODIGO_CHOICES = [
-        ('1', '1: Entrada'),
-        ('2', '2: Salida'),
-        ('3', '3: Vacaciones'),
-        ('4', '4: Reposo'),
-        ('5', '5: Indemnización'),
-        ('6', '6: Otras Causas'),
+        ('1', '1: Entry'),
+        ('2', '2: Exit'),
+        ('3', '3: Vacation'),
+        ('4', '4: Rest'),
+        ('5', '5: Compensation'),
+        ('6', '6: Other causes')
     ]
 
     # Opciones para el campo del código
     CATEGORIA_CHOICES = [
-        ('Empleador/Mensualero', 'Empleador/Mensualero'),
-        ('Obrero/Destajo', 'Obrero/Destajo'),
+        ('Employer/Supervisor', 'Employer/Supervisor'),
+        ('Employee/Worker/Assistant', 'Employee/Worker/Assistant'),
     ]
 
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    numero_de_asegurado = forms.CharField(max_length=30)
-    numero_de_orden = forms.IntegerField(initial=0)
-    dias_trabajados_mes_anterior = forms.IntegerField(initial=0)
-    dias_trabajados_mes_actual = forms.IntegerField(initial=0)
-    salario_imponible = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    codigo = forms.ChoiceField(choices=CODIGO_CHOICES)
-    categoria = forms.ChoiceField(choices=CATEGORIA_CHOICES)
-    reconocimiento_servicios_anteriores = forms.CharField(widget=forms.Textarea)        # RSA (OPCIONAL)
-    firma_del_encargado_que_creo_la_planilla = forms.ImageField()
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+
+    # numero_de_asegurado
+    social_security_number = forms.CharField(max_length=30)
+
+    # numero_de_orden
+    order_number = forms.IntegerField(initial=0)
+
+    # dias_trabajados_mes_anterior
+    number_of_days_worked_on_the_previous_month = forms.IntegerField(initial=0)
+
+    # dias_trabajados_mes_actual
+    days_worked_on_the_current_month = forms.IntegerField(initial=0)
+
+    # salario_imponible
+    taxable_income = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    code = forms.ChoiceField(choices=CODIGO_CHOICES)
+
+    # categoria
+    category = forms.ChoiceField(choices=CATEGORIA_CHOICES)
+
+    # reconocimiento_servicios_anteriores
+    acknowledgement_of_services_done_prior_to_1974 = forms.CharField(widget=forms.Textarea)        # RSA (OPCIONAL)
+
+    # firma_del_encargado_que_creo_la_planilla
+    signature_of_the_manager_that_created_the_social_security_form = forms.ImageField()

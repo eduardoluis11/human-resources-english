@@ -1996,23 +1996,23 @@ def registrar_ips(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        numero_de_orden = request.POST["numero_de_orden"]
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        numero_de_orden = request.POST["order_number"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
         # Imagen con la firma del encargado de recursos humanos
-        firma_encargado_rrhh = request.FILES["firma_del_encargado_que_creo_la_planilla"]
+        firma_encargado_rrhh = request.FILES["signature_of_the_manager_that_created_the_social_security_form"]
 
-        salario_imponible = request.POST["salario_imponible"]
-        numero_de_asegurado = request.POST["numero_de_asegurado"]
-        categoria = request.POST["categoria"]
-        codigo = request.POST["codigo"]
-        dias_trabajados_mes_anterior = request.POST["dias_trabajados_mes_anterior"]
-        dias_trabajados_mes_actual = request.POST["dias_trabajados_mes_actual"]
+        salario_imponible = request.POST["taxable_income"]
+        numero_de_asegurado = request.POST["social_security_number"]
+        categoria = request.POST["category"]
+        codigo = request.POST["code"]
+        dias_trabajados_mes_anterior = request.POST["number_of_days_worked_on_the_previous_month"]
+        dias_trabajados_mes_actual = request.POST["days_worked_on_the_current_month"]
 
         # RSA
-        reconocimiento_servicios_anteriores = request.POST["reconocimiento_servicios_anteriores"]
+        reconocimiento_servicios_anteriores = request.POST["acknowledgement_of_services_done_prior_to_1974"]
 
         timestamp = datetime.datetime.now()
 
@@ -2028,7 +2028,8 @@ def registrar_ips(request):
         nuevo_ips.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva planilla del IPS correctamente.")
+        # messages.success(request, "Se ha registrado una nueva planilla del IPS correctamente.")
+        messages.success(request, "A new social security form has been successfully registered.")
 
         # Esto redirige al usuario a la lista de contratos
         return redirect('lista_ips')

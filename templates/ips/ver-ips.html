@@ -1,7 +1,7 @@
 {% extends "disposicion-para-impresoras.html" %}
 
 {% block title %}
-    Planilla del IPS
+    Social Security Form
 {% endblock %}
 
 <!-- Planilla del IPS del trabajador seleccionado en formato para imprimir (sin navbar ni footer). -->
@@ -13,55 +13,68 @@
 
     Tenia que poner “.url” al final de “datos.foto_firma_trabajador” para que me imprimiera la imagen -->
     {% for datos in planilla_seleccionada %}
-        <h1>Planilla del IPS de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Social Security Form</h1>
         <br>
         <br>
 
         <!-- Datos de la planilla seleccionada -->
-        <p><b>Numero de orden</b></p>
-        <p>{{datos.numero_de_orden}} de 20</p>
+<!--        Numero de orden-->
+        <p><b>Order number</b></p>
+        <p>{{datos.numero_de_orden}} out of 20</p>
 
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Número de asegurado</b></p>
+<!--        Número de asegurado-->
+        <p><b>Social Security Number</b></p>
         <p>{{datos.numero_de_asegurado}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+<!--        Cédula de identidad-->
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Salario imponible</b></p>
-        <p>{{datos.salario_imponible}} ₲</p>
+<!--        Salario imponible-->
+        <p><b>Taxable Income</b></p>
+        <p>{{datos.salario_imponible}} $</p>
 
-        <p><b>Categoría</b></p>
+<!--        Categoría-->
+        <p><b>Category</b></p>
         <p>{{datos.categoria}}</p>
 
-        <p><b>Código*</b></p>
+<!--        Código*-->
+        <p><b>Code*</b></p>
         <p>{{datos.codigo}}</p>
 
-        <p><b>Días trabajados en el mes anterior</b></p>
+<!--        Días trabajados en el mes anterior-->
+        <p><b>Number of days worked on the previous month</b></p>
         <p>{{datos.dias_trabajados_mes_anterior}}</p>
 
-        <p><b>Días trabajados en el mes actual</b></p>
+<!--        Días trabajados en el mes actual-->
+        <p><b>Days worked on the current month</b></p>
         <p>{{datos.dias_trabajados_mes_actual}}</p>
 
-        <p><b>Reconocimiento de Servicios de Anteriores a 1974</b></p>
+<!--        Reconocimiento de Servicios de Anteriores a 1974-->
+        <p><b>Acknowledgement of Services Done Prior to 1974</b></p>
         <p>{{datos.reconocimiento_servicios_anteriores}}</p>
 
-        <p><b>Firma del encargado que le creó la Planilla del IPS</b></p>
+<!--        Firma del encargado que le creó la Planilla del IPS-->
+        <p><b>Signature of the manager that created the Social Security form</b></p>
         <img src="{{datos.firma_encargado_rrhh.url}}" height="100px">
 
-        <p><b>Fecha en la que se registró la Planilla del IPS</b></p>
+<!--        Fecha en la que se registró la Planilla del IPS-->
+        <p><b>Date in which the Social Security form was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 
 <br>
 <br>
 <p>
-    * Leyenda de los códigos: 1: Entrada, 2: Salida, 3: Vacaciones, 4: Reposo, 5: Indemnización, y 6: Otras Causas.
+<!--    * Leyenda de los códigos: 1: Entrada, 2: Salida, 3: Vacaciones, 4: Reposo, 5: Indemnización, y 6: Otras Causas.
+-->
+    * Code legend: 1: Entry; 2: Exit; 3: Vacation; 4: Rest; 5: Compensation; 6: Other causes.
 </p>
 
 

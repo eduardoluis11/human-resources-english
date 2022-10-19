@@ -1,18 +1,19 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Registrar Planilla IPS
+    Register a Social Security Form
 {% endblock %}
 
 <!-- Página para registrar el IPS de un empleado -->
 {% block body %}
 
-    <h1>Registrar Planilla IPS</h1>
+    <h1>Register a Social Security Form</h1>
     <br>
     <br>
 
     <p>
-        Añada los datos del trabajador y de su correspondiente planilla IPS.
+<!--        Añada los datos del trabajador y de su correspondiente planilla IPS.-->
+        Fill in the employee's data, and the data regarding their corresponding Social Security number.
     </p>
 
     <!-- Esto me llama el formulario de Django para registrar los IPS. -->
@@ -21,11 +22,11 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Registrar IPS">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Form">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de planillas IPS -->
         <a href="{% url 'lista_ips' %}" class="text-decoration-none" style="padding-left: 1rem;">
-            Cancelar
+            Cancel
         </a>
         <br>
         <br>
