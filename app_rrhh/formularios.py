@@ -295,26 +295,28 @@ No voy a poner ni el timestamp ni el total de aguinaldos. Los aguinaldos los cal
 en el lado del servidor.
 """
 class FormularioAguinaldos(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
     # Año en el que se pagarán los aguinaldos
-    anno_al_que_corresponden = forms.IntegerField(initial=0)
+    # anno_al_que_corresponden
+    year_of_the_christmas_bonus_payment = forms.IntegerField(initial=0)
 
     # Salario de cada mes del trabajador
-    salario_enero = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_febrero = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_marzo = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_abril = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_mayo = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_junio = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_julio = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_agosto = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_septiembre = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_octubre = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_noviembre = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    salario_diciembre = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    # salario_enero
+    income_from_january = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_february = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_march = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_april = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_may = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_june = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_july = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_august = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_september = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_october = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_november = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_december = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
 """ Formulario para agregar Días para la Asistencia.
 

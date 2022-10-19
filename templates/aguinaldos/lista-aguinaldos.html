@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Aguinaldos
+    List of Christmas Bonus Forms
 {% endblock %}
 
 <!-- Lista de todos las Aguinaldos de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Aguinaldos</h1>
+    <h1>List of Christmas Bonus Forms</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar unos nuevos Aguinaldos -->
     <a href="{% url 'registrar_aguinaldos' %}" class="text-decoration-none">
-        Agregar Nuevos Aguinaldos
+        <!-- Agregar Nuevos Aguinaldos -->
+        Add a New Christmas Bonus Form
     </a>
     <br>
     <br>
@@ -29,19 +30,21 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Nombre
+                Name
             </th>
             <th>
-                Cédula
+                ID Number
             </th>
             <th>
-                Año
+                Year
             </th>
             <th>
-                Aguinaldos
+                <!-- Aguinaldos -->
+                Christmas Bonus Amount
             </th>
             <th>
-                Ver Planilla de Aguinaldos
+                <!-- Ver Planilla de Aguinaldos -->
+                View Christmas Bonus Form
             </th>
             <!-- Esto llama cada aguinaldo registrado en la base de datos -->
             {% for aguinaldo in aguinaldos %}
@@ -56,10 +59,11 @@
                         {{aguinaldo.anno}}
                     </td>
                     <td>
-                        {{aguinaldo.aguinaldos}} ₲
+                        {{aguinaldo.aguinaldos}} $
                     </td>
                     <td>
-                        <a href="{{aguinaldo.id}}/ver-aguinaldo" class="text-decoration-none">Ver Planilla</a>
+                        <!-- Ver Planilla -->
+                        <a href="{{aguinaldo.id}}/ver-aguinaldo" class="text-decoration-none">View Form</a>
                     </td>
                 </tr>
             {% endfor %}

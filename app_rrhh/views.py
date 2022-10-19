@@ -936,26 +936,26 @@ def registrar_aguinaldos(request):
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
 
         # Año de los aguinaldos
-        anno = request.POST["anno_al_que_corresponden"]
+        anno = request.POST["year_of_the_christmas_bonus_payment"]
 
         # Salario de cada mes
-        salario_enero = request.POST["salario_enero"]
-        salario_febrero = request.POST["salario_febrero"]
-        salario_marzo = request.POST["salario_marzo"]
-        salario_abril = request.POST["salario_abril"]
-        salario_mayo = request.POST["salario_mayo"]
-        salario_junio = request.POST["salario_junio"]
-        salario_julio = request.POST["salario_julio"]
-        salario_agosto = request.POST["salario_agosto"]
-        salario_septiembre = request.POST["salario_septiembre"]
-        salario_octubre = request.POST["salario_octubre"]
-        salario_noviembre = request.POST["salario_noviembre"]
-        salario_diciembre = request.POST["salario_diciembre"]
+        salario_enero = request.POST["income_from_january"]
+        salario_febrero = request.POST["income_from_february"]
+        salario_marzo = request.POST["income_from_march"]
+        salario_abril = request.POST["income_from_april"]
+        salario_mayo = request.POST["income_from_may"]
+        salario_junio = request.POST["income_from_june"]
+        salario_julio = request.POST["income_from_july"]
+        salario_agosto = request.POST["income_from_august"]
+        salario_septiembre = request.POST["income_from_september"]
+        salario_octubre = request.POST["income_from_october"]
+        salario_noviembre = request.POST["income_from_november"]
+        salario_diciembre = request.POST["income_from_december"]
 
 
         # Cálculo de los aguinaldos basado en el salario (sumar los salarios y dividirlos entre 12)
@@ -981,7 +981,8 @@ def registrar_aguinaldos(request):
         nuevos_aguinaldos.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado unos nuevos aguinaldos correctamente.")
+        # messages.success(request, "Se ha registrado unos nuevos aguinaldos correctamente.")
+        messages.success(request, "A new Christmas Bonus report has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
         return redirect('lista_aguinaldos')
