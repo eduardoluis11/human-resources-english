@@ -914,7 +914,8 @@ def ver_curriculum(request, id_curriculum):
 """ Vista para ver Lista de Aguinaldos.
 """
 @login_required
-def lista_aguinaldos(request):
+# lista_aguinaldos
+def list_of_christmas_bonus(request):
 
     return render(request, "aguinaldos/lista-aguinaldos.html", {
         "aguinaldos": Aguinaldo.objects.all()
@@ -986,7 +987,7 @@ def register_christmas_bonus(request):
         messages.success(request, "A new Christmas Bonus report has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_aguinaldos')
+        return redirect('list_of_christmas_bonus')
 
     # Esto renderiza la página para registrar el currículum
     else:
@@ -997,7 +998,8 @@ def register_christmas_bonus(request):
 """ Vista para ver Planilla de Aguinaldos.
 """
 @login_required
-def ver_aguinaldo(request, id_aguinaldo):
+# ver_aguinaldo
+def view_christmas_bonus(request, id_aguinaldo):
 
     # Esto agarra el descuento que quiero ver
     aguinaldo_seleccionado = Aguinaldo.objects.filter(id=id_aguinaldo)

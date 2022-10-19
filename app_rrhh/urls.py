@@ -59,9 +59,9 @@ urlpatterns = [
     path('registrar-curriculum', views.registrar_curriculum, name='registrar_curriculum'),
     path('<str:id_curriculum>/ver-curriculum', views.ver_curriculum, name='ver_curriculum'),
 
-    path('lista-aguinaldos', views.lista_aguinaldos, name='lista_aguinaldos'),
+    path('list-of-christmas-bonus', views.list_of_christmas_bonus, name='list_of_christmas_bonus'),
     path('register-christmas-bonus', views.register_christmas_bonus, name='register_christmas_bonus'),
-    path('<str:id_aguinaldo>/ver-aguinaldo', views.ver_aguinaldo, name='ver_aguinaldo'),
+    path('<str:id_aguinaldo>/view-christmas-bonus', views.view_christmas_bonus, name='view_christmas_bonus'),
 
     path('lista-dias-asistencia', views.lista_dias_asistencia, name='lista_dias_asistencia'),
     path('registrar-dia-asistencia', views.registrar_dia_asistencia, name='registrar_dia_asistencia'),
