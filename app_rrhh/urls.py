@@ -60,7 +60,7 @@ urlpatterns = [
     path('<str:id_curriculum>/ver-curriculum', views.ver_curriculum, name='ver_curriculum'),
 
     path('lista-aguinaldos', views.lista_aguinaldos, name='lista_aguinaldos'),
-    path('registrar-aguinaldos', views.registrar_aguinaldos, name='registrar_aguinaldos'),
+    path('register-christmas-bonus', views.register_christmas_bonus, name='register_christmas_bonus'),
     path('<str:id_aguinaldo>/ver-aguinaldo', views.ver_aguinaldo, name='ver_aguinaldo'),
 
     path('lista-dias-asistencia', views.lista_dias_asistencia, name='lista_dias_asistencia'),

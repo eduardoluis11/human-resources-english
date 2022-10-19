@@ -930,7 +930,8 @@ Para calcular el aguinaldo total, tengo que sumar todos los salarios de todos lo
 Dado a que voy a generar una planilla, prefiero meter los 12 meses de salario.
 """
 @login_required
-def registrar_aguinaldos(request):
+# registrar_aguinaldos
+def register_christmas_bonus(request):
 
     formulario = FormularioAguinaldos
 
