@@ -356,32 +356,51 @@ Pondré un placeholder para “tipo de salario” que diga “mensual, jornal, e
 No pondré ni el timestamp, ni el salario total que debe ser liquidado. Esto ultimo se calcula en el view.
 """
 class FormularioLiquidacionDelPersonal(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
 
-    cargo_del_trabajador = forms.CharField(max_length=100)
+    # cargo_del_trabajador
+    job_position_of_the_employee = forms.CharField(max_length=100)
 
-    fecha_de_inicio_del_contrato = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    fecha_de_fin_del_contrato = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    # fecha_de_inicio_del_contrato
+    start_date_of_the_contract = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
-    motivo_de_la_finalizacion_de_su_contrato = forms.CharField(widget=forms.Textarea)
+    # fecha_de_fin_del_contrato
+    end_date_of_the_contract = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+
+    # motivo_de_la_finalizacion_de_su_contrato
+    reason_for_leaving_the_company = forms.CharField(widget=forms.Textarea)
 
     # Pondre un placeholder (mensuual, jornal, quincenal, etc.)
-    tipo_de_salario = forms.CharField(max_length=200, widget=forms.TextInput({"placeholder": "Ej: Mensual, Jornal, etc"}))
+    # tipo_de_salario
+    salary_type = forms.CharField(max_length=200, widget=forms.TextInput({
+        "placeholder": "Ej: Mensual, Jornal, etc"
+    }))
 
     # Salarios para sumar para calcular la liquidación
-    salario_mensual = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    # salario_mensual
+    monthly_salary = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # vacaciones_no_disfrutadas
     vacaciones_no_disfrutadas = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    aguinaldos = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # aguinaldos
+    accrued_christmas_bonus = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+
     salario_por_horas_extras = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
-    otros_ingresos = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+
+    # otros_ingresos
+    other_supplemental_income = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # Descuentos (debo restarlo a los ingresos)
-    descuentos_en_total = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    # descuentos_en_total
+    total_amount_to_discount = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # Foto del encargado que calculó el total a liquidar
-    firma_del_encargado_que_le_calculo_la_liquidacion = forms.ImageField()
+    # firma_del_encargado_que_le_calculo_la_liquidacion
+    signature_of_the_manager_that_authorized_the_final_pay = forms.ImageField()
 
 """ Formulario para Liquidación de Salarios.
 

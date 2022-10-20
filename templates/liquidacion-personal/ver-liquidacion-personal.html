@@ -1,7 +1,7 @@
 {% extends "disposicion-para-impresoras.html" %}
 
 {% block title %}
-    Liquidación del Personal
+    Final Pay Report
 {% endblock %}
 
 <!-- Liquidación del Personal del trabajador seleccionado en formato para imprimir (sin navbar ni footer). -->
@@ -13,66 +13,82 @@
 
     Tenia que poner “.url” al final de “datos.foto_firma_trabajador” para que me imprimiera la imagen -->
     {% for datos in liquidacion_seleccionada %}
-        <h1>Liquidación de {{datos.nombre}} {{datos.apellidos}}</h1>
+        <h1>{{datos.nombre}} {{datos.apellidos}}'s Final Pay</h1>
         <br>
         <br>
 
         <!-- Datos de la sanción seleccionada -->
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula de identidad</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Cargo del Trabajador</b></p>
+<!--        Cargo del Trabajador-->
+        <p><b>Employee's Job Position</b></p>
         <p>{{datos.nombre_del_cargo}}</p>
 
-        <p><b>Fecha de inicio de contrato</b></p>
+<!--        Fecha de inicio de contrato-->
+        <p><b>Contract's Start Date</b></p>
         <p>{{datos.fecha_inicio_contrato}}</p>
 
-        <p><b>Fecha de fin de contrato</b></p>
+<!--        Fecha de fin de contrato-->
+        <p><b>Contract's End Date</b></p>
         <p>{{datos.fecha_fin_contrato}}</p>
 
-        <p><b>Motivo de la finalización de su contrato</b></p>
+<!--        Motivo de la finalización de su contrato-->
+        <p><b>Reason for leaving the company</b></p>
         <p>{{datos.motivo_de_finalizacion_contrato}}</p>
 
-        <p><b>Tipo de salario (mensual, jornal, quincencal, etc)</b></p>
+<!--        Tipo de salario (mensual, jornal, quincenal, etc)-->
+        <p><b>Salary type (monthly, biweekly, daily, etc)</b></p>
         <p>{{datos.tipo_de_salario}}</p>
 
-        <p><b>Salario mensual</b></p>
-        <p>{{datos.salario_mensual}} ₲</p>
+        <p><b>Monthly Salary</b></p>
+        <p>{{datos.salario_mensual}} $</p>
 
-        <p><b>Aguinaldos de lo que va de año</b></p>
-        <p>{{datos.aguinaldos}} ₲</p>
+        <!-- Vacaciones no disfrutadas -->
+        <p><b>Income from unused vacation days</b></p>
+        <p>{{datos.vacaciones_no_disfrutadas}} $</p>
 
-        <p><b>Salario percibido por horas extras</b></p>
-        <p>{{datos.salario_por_horas_extras}} ₲</p>
+<!--        Aguinaldos de lo que va de año-->
+        <p><b>Accrued Christmas Bonus</b></p>
+        <p>{{datos.aguinaldos}} $</p>
 
-        <p><b>Otros ingresos extras</b></p>
-        <p>{{datos.otros_ingresos}} ₲</p>
+<!--        Salario percibido por horas extras-->
+        <p><b>Income from working extra hours</b></p>
+        <p>{{datos.salario_por_horas_extras}} $</p>
 
-        <p><b>Descuentos en total (si los tiene)</b></p>
-        <p>{{datos.descuentos_en_total}} ₲</p>
+<!--        Otros ingresos extras-->
+        <p><b>Other supplemental income</b></p>
+        <p>{{datos.otros_ingresos}} $</p>
+
+<!--        Descuentos en total (si los tiene)-->
+        <p><b>Total amount to discount</b></p>
+        <p>{{datos.descuentos_en_total}} $</p>
 
         <hr>
         <br>
         <br>
 
         <!-- Total a liquidar -->
-        <h3>Salario total a liquidar</h3>
+<!--        Salario total a liquidar-->
+        <h3>Total amount to pay</h3>
         <br>
-        <p><b>{{datos.salario_total_a_liquidar}} ₲</b></p>
+        <p><b>{{datos.salario_total_a_liquidar}} $</b></p>
 
         <br>
         <br>
 
-        <p><b>Firma del encargado que le concedió la Liquidación del Trabajador</b></p>
+<!--        Firma del encargado que le concedió la Liquidación del Trabajador-->
+        <p><b>Signature of the manager that authorized the Final Pay</b></p>
         <img src="{{datos.foto_firma_encargado_rrhh.url}}" height="100px">
 
-        <p><b>Fecha en la que se registró la Liquidación del Trabajador</b></p>
+<!--        Fecha en la que se registró la Liquidación del Trabajador-->
+        <p><b>Date in which the Final Pay was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 {% endblock %}

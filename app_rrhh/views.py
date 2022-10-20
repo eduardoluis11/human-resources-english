@@ -1221,7 +1221,8 @@ def registrar_liquidacion_personal(request):
         nueva_liquidacion.save()
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado una nueva liquidación de personal correctamente.")
+        # messages.success(request, "Se ha registrado una nueva liquidación de personal correctamente.")
+        messages.success(request, "A new Final Pay report has been successfully registered.")
 
         # Esto redirige al usuario a la lista asistencias de ese día
         return redirect('lista_liquidacion_personal')
