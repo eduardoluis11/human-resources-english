@@ -375,7 +375,7 @@ class FormularioLiquidacionDelPersonal(forms.Form):
     # Pondre un placeholder (mensuual, jornal, quincenal, etc.)
     # tipo_de_salario
     salary_type = forms.CharField(max_length=200, widget=forms.TextInput({
-        "placeholder": "Ej: Mensual, Jornal, etc"
+        "placeholder": "i.e: Monthly, Daily, etc"
     }))
 
     # Salarios para sumar para calcular la liquidación
@@ -383,13 +383,13 @@ class FormularioLiquidacionDelPersonal(forms.Form):
     monthly_salary = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # vacaciones_no_disfrutadas
-    vacaciones_no_disfrutadas = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    income_from_unused_vacation_days = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # aguinaldos
     accrued_christmas_bonus = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
-
-    salario_por_horas_extras = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
+    # salario_por_horas_extras
+    income_from_working_extra_hours = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)
 
     # otros_ingresos
     other_supplemental_income = forms.DecimalField(max_digits=14, decimal_places=2, initial=0)

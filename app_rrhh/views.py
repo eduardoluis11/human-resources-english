@@ -1167,34 +1167,35 @@ def lista_asistencias(request, id_dia):
 Recuerda usar "request.FILES" para la firma del encargado.
 """
 @login_required
-def registrar_liquidacion_personal(request):
+# registrar_liquidacion_personal
+def register_final_pay(request):
 
     formulario = FormularioLiquidacionDelPersonal
 
     # Si el usuario envía el formulario
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
-        nombre_del_cargo = request.POST["cargo_del_trabajador"]
-        fecha_inicio_contrato = request.POST["fecha_de_inicio_del_contrato"]
-        fecha_fin_contrato = request.POST["fecha_de_fin_del_contrato"]
-        motivo_de_finalizacion_contrato = request.POST["motivo_de_la_finalizacion_de_su_contrato"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
+        nombre_del_cargo = request.POST["job_position_of_the_employee"]
+        fecha_inicio_contrato = request.POST["start_date_of_the_contract"]
+        fecha_fin_contrato = request.POST["end_date_of_the_contract"]
+        motivo_de_finalizacion_contrato = request.POST["reason_for_leaving_the_company"]
 
-        tipo_de_salario = request.POST["tipo_de_salario"]
+        tipo_de_salario = request.POST["salary_type"]
 
         # Salarios a usar y sumar para calcular la liquidación
-        salario_mensual = request.POST["salario_mensual"]
-        vacaciones_no_disfrutadas = request.POST["vacaciones_no_disfrutadas"]
-        aguinaldos = request.POST["aguinaldos"]
-        salario_por_horas_extras = request.POST["salario_por_horas_extras"]
-        otros_ingresos = request.POST["otros_ingresos"]
+        salario_mensual = request.POST["monthly_salary"]
+        vacaciones_no_disfrutadas = request.POST["income_from_unused_vacation_days"]
+        aguinaldos = request.POST["accrued_christmas_bonus"]
+        salario_por_horas_extras = request.POST["income_from_working_extra_hours"]
+        otros_ingresos = request.POST["other_supplemental_income"]
 
         # Descuentos (debo restarlo a los ingresos)
-        descuentos_en_total = request.POST["descuentos_en_total"]
+        descuentos_en_total = request.POST["total_amount_to_discount"]
 
         # Foto del encargado que calculó el total a liquidar
-        foto_firma_encargado_rrhh = request.FILES["firma_del_encargado_que_le_calculo_la_liquidacion"]
+        foto_firma_encargado_rrhh = request.FILES["signature_of_the_manager_that_authorized_the_final_pay"]
 
         timestamp = datetime.datetime.now()
 
@@ -1225,7 +1226,7 @@ def registrar_liquidacion_personal(request):
         messages.success(request, "A new Final Pay report has been successfully registered.")
 
         # Esto redirige al usuario a la lista asistencias de ese día
-        return redirect('lista_liquidacion_personal')
+        return redirect('final_pay_forms_list')
 
     # Esto renderiza la página para registrar la liquidacion del personal
     else:
@@ -1236,7 +1237,8 @@ def registrar_liquidacion_personal(request):
 """ Vista para ver Lista de Planillas de Liquidación del Personal.
 """
 @login_required
-def lista_liquidacion_personal(request):
+# lista_liquidacion_personal
+def final_pay_forms_list(request):
 
     return render(request, "liquidacion-personal/lista-liquidaciones-personales.html", {
         "liquidacion_de_todo_el_personal": LiquidacionDelPersonal.objects.all()
@@ -1245,7 +1247,8 @@ def lista_liquidacion_personal(request):
 """ Vista para ver una planilla de Liquidacion de Personal en detalle.
 """
 @login_required
-def ver_liquidacion_personal(request, id_liquidacion):
+# ver_liquidacion_personal
+def view_final_pay_form(request, id_liquidacion):
 
     # Esto agarra el descuento que quiero ver
     liquidacion_seleccionada = LiquidacionDelPersonal.objects.filter(id=id_liquidacion)

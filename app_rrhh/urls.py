@@ -68,9 +68,9 @@ urlpatterns = [
     path('<str:id_dia>/registrar-asistencia', views.registrar_asistencia, name='registrar_asistencia'),
     path('<str:id_dia>/lista-asistencias', views.lista_asistencias, name='lista_asistencias'),
 
-    path('lista-liquidacion-personal', views.lista_liquidacion_personal, name='lista_liquidacion_personal'),
-    path('registrar-liquidacion-personal', views.registrar_liquidacion_personal, name='registrar_liquidacion_personal'),
-    path('<str:id_liquidacion>/ver-liquidacion-personal', views.ver_liquidacion_personal, name='ver_liquidacion_personal'),
+    path('final-pay-forms-list', views.final_pay_forms_list, name='final_pay_forms_list'),
+    path('register-final-pay', views.register_final_pay, name='register_final_pay'),
+    path('<str:id_liquidacion>/view-final-pay-form', views.view_final_pay_form, name='view_final_pay_form'),
 
     path('lista-liquidacion-salarios', views.lista_liquidacion_salarios, name='lista_liquidacion_salarios'),
     path('registrar-liquidacion-salario', views.registrar_liquidacion_salario, name='registrar_liquidacion_salario'),
