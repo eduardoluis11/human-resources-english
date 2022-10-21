@@ -1942,7 +1942,8 @@ def registrar_planillas_ministerio_trabajo(request):
         nueva_planilla_resumen.save()     # Fin de Planilla Resumen
 
         # Mensaje flash de confirmación
-        messages.success(request, "Se ha registrado unas nuevas Planillas del Ministerio de Trabajo  correctamente.")
+        # messages.success(request, "Se ha registrado unas nuevas Planillas del Ministerio de Trabajo  correctamente.")
+        messages.success(request, "A new Department of Labor form has been successfully registered.")
 
         # Esto redirige al usuario a la lista de contratos
         return redirect('lista_ministerio_trabajo')

@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Lista de Planillas del Ministerio de Trabajo
+    Department of Labor Forms List
 {% endblock %}
 
 <!-- Lista de todos las Planilla del Ministerio de Trabajo de todos los trabajadores -->
 {% block body %}
 
-    <h1>Lista de Planillas del Ministerio de Trabajo</h1>
+    <h1>Department of Labor Forms List</h1>
     <br>
     <br>
 
@@ -19,7 +19,8 @@
 
     <!-- Enlace para agregar un nuevo Planilla del Ministerio de Trabajo -->
     <a href="{% url 'registrar_planillas_ministerio_trabajo' %}" class="text-decoration-none">
-        Agregar Nueva Planilla
+<!--        Agregar Nueva Planilla-->
+        Add a New Form
     </a>
     <br>
     <br>
@@ -34,10 +35,12 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Fecha de la Planilla
+<!--                Fecha de la Planilla-->
+                Form's Date
             </th>
             <th>
-                Planilla de Sueldos y Jornales
+<!--                Planilla de Sueldos y Jornales-->
+                Salary Form
             </th>
 <!--            <th>-->
 <!--                Planilla de Empleados y Obreros-->
@@ -52,7 +55,10 @@
                         {{sueldo.timestamp}}
                     </td>
                     <td>
-                        <a href="{{sueldo.id}}/ver-planilla-sueldo-ministerio" class="text-decoration-none">Ver Planilla de Sueldos</a>
+                        <a href="{{sueldo.id}}/ver-planilla-sueldo-ministerio" class="text-decoration-none">
+<!--                            Ver Planilla de Sueldos-->
+                            View Salary Form
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
@@ -66,10 +72,12 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Fecha de la Planilla
+<!--                Fecha de la Planilla-->
+                Form's Date
             </th>
             <th>
-                Planilla de Empleados y Obreros
+<!--                Planilla de Empleados y Obreros-->
+                Employees Form
             </th>
 
 <!--             Esto llama cada empleado registrado en la base de datos-->
@@ -79,7 +87,10 @@
                         {{empleado.timestamp}}
                     </td>
                     <td>
-                        <a href="{{empleado.id}}/ver-planilla-empleado-ministerio" class="text-decoration-none">Ver Planilla de Empleados</a>
+                        <a href="{{empleado.id}}/ver-planilla-empleado-ministerio" class="text-decoration-none">
+<!--                            Ver Planilla de Empleados-->
+                            View Employees Form
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
@@ -93,10 +104,12 @@
         <tbody>
             <!-- Esto le agregará los títulos a las tablas -->
             <th>
-                Fecha de la Planilla
+<!--                Fecha de la Planilla-->
+                Form's Date
             </th>
             <th>
-                Planilla de Resumen General
+<!--                Planilla de Resumen General-->
+                Summary Form
             </th>
 
 <!--             Esto llama cada empleado registrado en la base de datos-->
@@ -106,7 +119,10 @@
                         {{resumen.timestamp}}
                     </td>
                     <td>
-                        <a href="{{resumen.id}}/ver-planilla-resumen-ministerio" class="text-decoration-none">Ver Planilla de Resumen</a>
+                        <a href="{{resumen.id}}/ver-planilla-resumen-ministerio" class="text-decoration-none">
+<!--                            Ver Planilla de Resumen-->
+                            Summary Form
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

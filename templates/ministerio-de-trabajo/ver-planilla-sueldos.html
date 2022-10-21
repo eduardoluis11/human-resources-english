@@ -1,7 +1,7 @@
 {% extends "disposicion-para-impresoras.html" %}
 
 {% block title %}
-    Ver Planilla de Sueldos y Jornales
+    Salary Form Detailed View
 {% endblock %}
 
 {% block body %}
@@ -9,119 +9,133 @@
 
     <!-- Esto pondrá el año del informe en el título de Planilla de Sueldos y Jornales -->
     {% for datos in planilla_seleccionada %}
-        <h1>Planilla de Sueldos y Jornales del {{datos.timestamp}}</h1>
+        <h1>Salary Form from {{datos.timestamp}}</h1>
         <br>
         <br>
 
         <!-- Datos de la Planilla de Sueldos y Jornales seleccionada.
         -->
-        <p><b>Número patronal</b></p>
+<!--        Número patronal-->
+        <p><b>Employer Identification Number (EIN)</b></p>
         <p>{{datos.numero_patronal}}</p>
 
-        <p><b>Cédula</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Forma de pago</b></p>
+<!--        Forma de pago-->
+        <p><b>Pay frecuency</b></p>
         <p>{{datos.forma_de_pago}}</p>
 
-        <p><b>Importe unitario</b></p>
+<!--        Importe unitario-->
+        <p><b>Salary per day</b></p>
         <p>{{datos.importe_unitario}}</p>
 
         <!-- Horas trabajadas y salario percibido en el año -->
-        <p><b>Horas trabajadas enero</b></p>
+        <p><b>Hours worked in January</b></p>
         <p>{{datos.horas_trabajadas_enero}}</p>
-        <p><b>Salario percibido enero</b></p>
+        <p><b>Salary received in January</b></p>
         <p>{{datos.salario_percibido_enero}}</p>
 
-        <p><b>Horas trabajadas febrero</b></p>
+        <p><b>Hours worked in February</b></p>
         <p>{{datos.horas_trabajadas_febrero}}</p>
-        <p><b>Salario percibido febrero</b></p>
+        <p><b>Salary received in February</b></p>
         <p>{{datos.salario_percibido_febrero}}</p>
 
-        <p><b>Horas trabajadas marzo</b></p>
+        <p><b>Hours worked in March</b></p>
         <p>{{datos.horas_trabajadas_marzo}}</p>
-        <p><b>Salario percibido marzo</b></p>
+        <p><b>Salary received in March</b></p>
         <p>{{datos.salario_percibido_marzo}}</p>
 
-        <p><b>Horas trabajadas abril</b></p>
+        <p><b>Hours worked in April</b></p>
         <p>{{datos.horas_trabajadas_abril}}</p>
-        <p><b>Salario percibido abril</b></p>
+        <p><b>Salary received in April</b></p>
         <p>{{datos.salario_percibido_abril}}</p>
 
-        <p><b>Horas trabajadas mayo</b></p>
+        <p><b>Hours worked in May</b></p>
         <p>{{datos.horas_trabajadas_mayo}}</p>
-        <p><b>Salario percibido mayo</b></p>
+        <p><b>Salary received in May</b></p>
         <p>{{datos.salario_percibido_mayo}}</p>
 
-        <p><b>Horas trabajadas junio</b></p>
+        <p><b>Hours worked in June</b></p>
         <p>{{datos.horas_trabajadas_junio}}</p>
-        <p><b>Salario percibido junio</b></p>
+        <p><b>Salary received in June</b></p>
         <p>{{datos.salario_percibido_junio}}</p>
 
-        <p><b>Horas trabajadas julio</b></p>
+        <p><b>Hours worked in July</b></p>
         <p>{{datos.horas_trabajadas_julio}}</p>
-        <p><b>Salario percibido julio</b></p>
+        <p><b>Salary received in July</b></p>
         <p>{{datos.salario_percibido_julio}}</p>
 
-        <p><b>Horas trabajadas agosto</b></p>
+        <p><b>Hours worked in August</b></p>
         <p>{{datos.horas_trabajadas_agosto}}</p>
-        <p><b>Salario percibido agosto</b></p>
+        <p><b>Salary received in August</b></p>
         <p>{{datos.salario_percibido_agosto}}</p>
 
-        <p><b>Horas trabajadas septiembre</b></p>
+        <p><b>Hours worked in September</b></p>
         <p>{{datos.horas_trabajadas_septiembre}}</p>
-        <p><b>Salario percibido septiembre</b></p>
+        <p><b>Salary received in September</b></p>
         <p>{{datos.salario_percibido_septiembre}}</p>
 
-        <p><b>Horas trabajadas octubre</b></p>
+        <p><b>Hours worked in October</b></p>
         <p>{{datos.horas_trabajadas_octubre}}</p>
-        <p><b>Salario percibido octubre</b></p>
+        <p><b>Salary received in October</b></p>
         <p>{{datos.salario_percibido_octubre}}</p>
 
-        <p><b>Horas trabajadas noviembre</b></p>
+        <p><b>Hours worked in November</b></p>
         <p>{{datos.horas_trabajadas_noviembre}}</p>
-        <p><b>Salario percibido noviembre</b></p>
+        <p><b>Salary received in November</b></p>
         <p>{{datos.salario_percibido_noviembre}}</p>
 
-        <p><b>Horas trabajadas diciembre</b></p>
+        <p><b>Hours worked in December</b></p>
         <p>{{datos.horas_trabajadas_diciembre}}</p>
-        <p><b>Salario percibido diciembre</b></p>
-        <p>{{datos.salario_percibido_diciembre}}</p>    <!-- Fin de Horas trabajadas y salario percibido en el año -->
+        <p><b>Salary received in December</b></p>
+        <p>{{datos.salario_percibido_diciembre}}</p>    <!-- Fin de Hours worked in y Salary received en el año -->
 
-        <p><b>Horas extras 50% durante el año</b></p>
+<!--        Horas extras 50% durante el año-->
+        <p><b>Fifty percent of extra hours worked during the year</b></p>
         <p>{{datos.horas_extras_50_por_ciento_durante_anno}}</p>
 
-        <p><b>Salario percibido horas extras 50% año</b></p>
+<!--        Salario percibido por horas extras 50% año-->
+        <p><b>Fifty percent of salary received from working extra hours during the year</b></p>
         <p>{{datos.salario_percibido_horas_extras_50_por_ciento_anno}}</p>
 
-        <p><b>Horas extras 100% durante el año</b></p>
+<!--        Horas extras 100% durante el año-->
+        <p><b>One hundred percent of extra hours worked during the year</b></p>
         <p>{{datos.horas_extras_100_por_ciento_durante_anno}}</p>
 
-        <p><b>Salario percibido horas extras 100% año</b></p>
+        <p><b>One hundred percent of salary received from working extra hours</b></p>
         <p>{{datos.salario_percibido_horas_extras_100_por_ciento_anno}}</p>
 
-        <p><b>Aguinaldo</b></p>
+<!--        Aguinaldo-->
+        <p><b>Christmas bonus</b></p>
         <p>{{datos.aguinaldo}}</p>
 
-        <p><b>Beneficios</b></p>
+<!--        Beneficios-->
+        <p><b>Severance pay</b></p>
         <p>{{datos.beneficios}}</p>
 
-        <p><b>Bonificaciones</b></p>
+<!--        Bonificaciones Familiares-->
+        <p><b>Large Family Bonus</b></p>
         <p>{{datos.bonificaciones}}</p>
 
-        <p><b>Vacaciones</b></p>
+<!--        Vacaciones-->
+        <p><b>Accrued vacations</b></p>
         <p>{{datos.vacaciones}}</p>
 
-        <p><b>Horas trabajadas incluyendo horas extras</b></p>
+<!--        Horas trabajadas incluyendo horas extras-->
+        <p><b>Hours worked including extra hours</b></p>
         <p>{{datos.horas_trabajadas_incluyendo_horas_extras}}</p>
 
-        <p><b>Total recibido en concepto de salario sin ingresos extras</b></p>
+<!--        Total recibido en concepto de salario sin ingresos extras-->
+        <p><b>Total amount received from salary without supplemental income</b></p>
         <p>{{datos.total_recibido_en_concepto_de_salario}}</p>
 
-        <p><b>Total percibido, incluyendo aguinaldo, beneficios, bonificaciones, y vacaciones</b></p>
+<!--        Total percibido, incluyendo aguinaldo, beneficios, bonificaciones, y vacaciones-->
+        <p><b>Total amount received, including Christmas bonus, severance pay, larga family bonus, and vacations</b></p>
         <p>{{datos.total_incluyendo_ingresos_extras}}</p>
 
-        <p><b>Fecha en la que se registró la Planilla de Sueldos y Jornales</b></p>
+<!--        Fecha en la que se registró la Planilla de Sueldos y Jornales-->
+        <p><b>Date in which the Salary Form was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 {% endblock %}

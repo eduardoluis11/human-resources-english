@@ -1,7 +1,7 @@
 {% extends "disposicion-para-impresoras.html" %}
 
 {% block title %}
-    Ver Planilla de Empleados y Obreros
+    Employees Form Detailed View
 {% endblock %}
 
 {% block body %}
@@ -9,73 +9,88 @@
 
     <!-- Esto pondrá el año del informe en el título de Planilla de Empleados y Obreros -->
     {% for datos in planilla_seleccionada %}
-        <h1>Planilla de Empleados y Obreros del {{datos.timestamp}}</h1>
+<!--        Planilla de Empleados y Obreros del %%datos.timestamp%%-->
+        <h1>Employees Form from {{datos.timestamp}}</h1>
         <br>
         <br>
 
         <!-- Datos de la Planilla de Empleados y Obreros seleccionada.
         -->
-        <p><b>Número patronal</b></p>
+<!--        Número patronal-->
+        <p><b>Employer Identification Number (EIN)</b></p>
         <p>{{datos.numero_patronal}}</p>
 
-        <p><b>Nombre</b></p>
+        <p><b>Name</b></p>
         <p>{{datos.nombre}}</p>
 
-        <p><b>Apellidos</b></p>
+        <p><b>Last Name</b></p>
         <p>{{datos.apellidos}}</p>
 
-        <p><b>Cédula</b></p>
+        <p><b>ID Number</b></p>
         <p>{{datos.cedula}}</p>
 
-        <p><b>Sexo</b></p>
+        <p><b>Gender</b></p>
         <p>{{datos.sexo}}</p>
 
-        <p><b>Fecha de nacimiento</b></p>
+        <p><b>Date of Birth</b></p>
         <p>{{datos.fecha_nacimiento}}</p>
 
-        <p><b>Domicilio</b></p>
+        <p><b>Address</b></p>
         <p>{{datos.domicilio}}</p>
 
-        <p><b>Cantidad de hijos menores</b></p>
+<!--        Cantidad de hijos menores-->
+        <p><b>Number of underage children</b></p>
         <p>{{datos.cantidad_hijos_menores}}</p>
 
-        <p><b>Fecha de nacimiento del menor</b></p>
+<!--        Fecha de nacimiento del menor-->
+        <p><b>Date of birth of the youngest child</b></p>
         <p>{{datos.fecha_nacimiento_del_menor}}</p>
 
-        <p><b>Estado civil</b></p>
+<!--        Estado civil-->
+        <p><b>Marital status</b></p>
         <p>{{datos.estado_civil}}</p>
 
-        <p><b>Nacionalidad</b></p>
+<!--        Nacionalidad-->
+        <p><b>Nationality</b></p>
         <p>{{datos.nacionalidad}}</p>
 
-        <p><b>Horario de trabajo</b></p>
+<!--        Horario de trabajo-->
+        <p><b>Work schedule</b></p>
         <p>{{datos.horario_de_trabajo}}</p>
 
-        <p><b>Cargo</b></p>
+<!--        Cargo-->
+        <p><b>Job title</b></p>
         <p>{{datos.cargo}}</p>
 
-        <p><b>Profesion</b></p>
+<!--        Profesion-->
+        <p><b>Profession</b></p>
         <p>{{datos.profesion}}</p>
 
-        <p><b>Fecha inicio trabajo del menor</b></p>
+<!--        Fecha inicio trabajo del menor-->
+        <p><b>Employment start date of the youngest child (if applicable)</b></p>
         <p>{{datos.fecha_inicio_trabajo_del_menor}}</p>
 
-        <p><b>Situación escolar menor</b></p>
+<!--        Situación escolar menor-->
+        <p><b>School grade in which the youngest child is enrolled (if applicable)</b></p>
         <p>{{datos.situacion_escolar_menor}}</p>
 
-        <p><b>Fecha entrada</b></p>
+<!--        Fecha entrada-->
+        <p><b>Date of hire</b></p>
         <p>{{datos.fecha_entrada}}</p>
 
-        <p><b>Fecha salida</b></p>
+<!--        Fecha salida-->
+        <p><b>Date in which they left the company</b></p>
         <p>{{datos.fecha_salida}}</p>
 
-        <p><b>Motivo de salida</b></p>
+<!--        Motivo de salida-->
+        <p><b>Reason for leaving the company</b></p>
         <p>{{datos.motivo_de_salida}}</p>
 
-        <p><b>Estado</b></p>
-        <p>{{datos.estado}}</p>
+<!--        <p><b>Estado</b></p>-->
+<!--        <p>%%datos.estado%%</p>-->
 
-        <p><b>Fecha en la que se registró la Planilla de Empleados y Obreros</b></p>
+<!--        Fecha en la que se registró la Planilla de Empleados y Obreros-->
+        <p><b>Date in which the Employees Form was registered</b></p>
         <p>{{datos.timestamp}}</p>
     {% endfor %}
 {% endblock %}
