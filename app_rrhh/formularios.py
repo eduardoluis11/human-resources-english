@@ -580,73 +580,95 @@ específico tiene que agarrar para meterlo a la base de datos.
 
 # Orden 1: Cantidad de empleados
 class FormularioResumenGeneralOrden1(forms.Form):
-    numero_patronal_orden_1 = forms.IntegerField(initial=0)
-    anno_orden_1 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_varones_orden_1 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_mujeres_orden_1 = forms.IntegerField(initial=0)
-    empleados_varones_orden_1 = forms.IntegerField(initial=0)
-    empleados_mujeres_orden_1 = forms.IntegerField(initial=0)
-    empleadas_mujeres_orden_1 = forms.IntegerField(initial=0)
-    obreros_hombres_orden_1 = forms.IntegerField(initial=0)
-    obreras_mujeres_orden_1 = forms.IntegerField(initial=0)
-    menores_varones_orden_1 = forms.IntegerField(initial=0)
-    menores_mujeres_orden_1 = forms.IntegerField(initial=0)
+
+    # numero_patronal_orden_1
+    employer_identification_number_for_order_1_form = forms.IntegerField(initial=0)
+
+    # anno_for_order_1_form
+    year_for_order_1_form = forms.IntegerField(initial=0)
+
+    # supervisores_o_jefes_varones_orden_1
+    male_managers_or_bosses_for_order_1_form = forms.IntegerField(initial=0)
+
+    # supervisores_o_jefes_mujeres_for_order_1_form
+    female_managers_or_bosses_for_order_1_form = forms.IntegerField(initial=0)
+
+    # empleados_varones_for_order_1_form
+    male_assistants_for_order_1_form = forms.IntegerField(initial=0)
+
+    # empleados_mujeres_for_order_1_form
+    # female_assistants_for_order_1_form = forms.IntegerField(initial=0)
+
+    # empleadas_mujeres_for_order_1_form
+    female_assistants_for_order_1_form = forms.IntegerField(initial=0)
+
+    # obreros_hombres_for_order_1_form
+    male_laborers_for_order_1_form = forms.IntegerField(initial=0)
+
+    # obreras_mujeres_for_order_1_form
+    female_laborers_for_order_1_form = forms.IntegerField(initial=0)
+
+    # menores_varones_for_order_1_form
+    underage_males_for_order_1_form = forms.IntegerField(initial=0)
+
+    # menores_mujeres_for_order_1_form
+    underage_females_for_order_1_form = forms.IntegerField(initial=0)
 
 # Orden 2: Horas trabajadas
 class FormularioResumenGeneralOrden2(forms.Form):
-    numero_patronal_orden_2 = forms.IntegerField(initial=0)
-    anno_orden_2 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_varones_orden_2 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_mujeres_orden_2 = forms.IntegerField(initial=0)
-    empleados_varones_orden_2 = forms.IntegerField(initial=0)
-    empleados_mujeres_orden_2 = forms.IntegerField(initial=0)
-    empleadas_mujeres_orden_2 = forms.IntegerField(initial=0)
-    obreros_hombres_orden_2 = forms.IntegerField(initial=0)
-    obreras_mujeres_orden_2 = forms.IntegerField(initial=0)
-    menores_varones_orden_2 = forms.IntegerField(initial=0)
-    menores_mujeres_orden_2 = forms.IntegerField(initial=0)
+    employer_identification_number_for_order_2_form = forms.IntegerField(initial=0)
+    year_for_order_2_form = forms.IntegerField(initial=0)
+    male_managers_or_bosses_for_order_2_form = forms.IntegerField(initial=0)
+    female_managers_or_bosses_for_order_2_form = forms.IntegerField(initial=0)
+    male_assistants_for_order_2_form = forms.IntegerField(initial=0)
+    # empleados_mujeres_orden_2 = forms.IntegerField(initial=0)
+    female_assistants_for_order_2_form = forms.IntegerField(initial=0)
+    male_laborers_for_order_2_form = forms.IntegerField(initial=0)
+    female_laborers_for_order_2_form = forms.IntegerField(initial=0)
+    underage_males_for_order_2_form = forms.IntegerField(initial=0)
+    underage_females_for_order_2_form = forms.IntegerField(initial=0)
 
 # Orden 3: Sueldos o jornales
 class FormularioResumenGeneralOrden3(forms.Form):
-    numero_patronal_orden_3 = forms.IntegerField(initial=0)
-    anno_orden_3 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_varones_orden_3 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_mujeres_orden_3 = forms.IntegerField(initial=0)
-    empleados_varones_orden_3 = forms.IntegerField(initial=0)
-    empleados_mujeres_orden_3 = forms.IntegerField(initial=0)
-    empleadas_mujeres_orden_3 = forms.IntegerField(initial=0)
-    obreros_hombres_orden_3 = forms.IntegerField(initial=0)
-    obreras_mujeres_orden_3 = forms.IntegerField(initial=0)
-    menores_varones_orden_3 = forms.IntegerField(initial=0)
-    menores_mujeres_orden_3 = forms.IntegerField(initial=0)
+    employer_identification_number_for_order_3_form = forms.IntegerField(initial=0)
+    year_for_order_3_form = forms.IntegerField(initial=0)
+    male_managers_or_bosses_for_order_3_form = forms.IntegerField(initial=0)
+    female_managers_or_bosses_for_order_3_form = forms.IntegerField(initial=0)
+    male_assistants_for_order_3_form = forms.IntegerField(initial=0)
+    # empleados_mujeres_orden_3 = forms.IntegerField(initial=0)
+    female_assistants_for_order_3_form = forms.IntegerField(initial=0)
+    male_laborers_for_order_3_form = forms.IntegerField(initial=0)
+    female_laborers_for_order_3_form = forms.IntegerField(initial=0)
+    underage_males_for_order_3_form = forms.IntegerField(initial=0)
+    underage_females_for_order_3_form = forms.IntegerField(initial=0)
 
 # Orden 4: Cantidad de ingresos
 class FormularioResumenGeneralOrden4(forms.Form):
-    numero_patronal_orden_4 = forms.IntegerField(initial=0)
-    anno_orden_4 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_varones_orden_4 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_mujeres_orden_4 = forms.IntegerField(initial=0)
-    empleados_varones_orden_4 = forms.IntegerField(initial=0)
-    empleados_mujeres_orden_4 = forms.IntegerField(initial=0)
-    empleadas_mujeres_orden_4 = forms.IntegerField(initial=0)
-    obreros_hombres_orden_4 = forms.IntegerField(initial=0)
-    obreras_mujeres_orden_4 = forms.IntegerField(initial=0)
-    menores_varones_orden_4 = forms.IntegerField(initial=0)
-    menores_mujeres_orden_4 = forms.IntegerField(initial=0)
+    employer_identification_number_for_order_4_form = forms.IntegerField(initial=0)
+    year_for_order_4_form = forms.IntegerField(initial=0)
+    male_managers_or_bosses_for_order_4_form = forms.IntegerField(initial=0)
+    female_managers_or_bosses_for_order_4_form = forms.IntegerField(initial=0)
+    male_assistants_for_order_4_form = forms.IntegerField(initial=0)
+    # empleados_mujeres_orden_4 = forms.IntegerField(initial=0)
+    female_assistants_for_order_4_form = forms.IntegerField(initial=0)
+    male_laborers_for_order_4_form = forms.IntegerField(initial=0)
+    female_laborers_for_order_4_form = forms.IntegerField(initial=0)
+    underage_males_for_order_4_form = forms.IntegerField(initial=0)
+    underage_females_for_order_4_form = forms.IntegerField(initial=0)
 
 # Orden 5: Cantidad de egresos
 class FormularioResumenGeneralOrden5(forms.Form):
-    numero_patronal_orden_5 = forms.IntegerField(initial=0)
-    anno_orden_5 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_varones_orden_5 = forms.IntegerField(initial=0)
-    supervisores_o_jefes_mujeres_orden_5 = forms.IntegerField(initial=0)
-    empleados_varones_orden_5 = forms.IntegerField(initial=0)
-    empleados_mujeres_orden_5 = forms.IntegerField(initial=0)
-    empleadas_mujeres_orden_5 = forms.IntegerField(initial=0)
-    obreros_hombres_orden_5 = forms.IntegerField(initial=0)
-    obreras_mujeres_orden_5 = forms.IntegerField(initial=0)
-    menores_varones_orden_5 = forms.IntegerField(initial=0)
-    menores_mujeres_orden_5 = forms.IntegerField(initial=0)
+    employer_identification_number_for_order_5_form = forms.IntegerField(initial=0)
+    year_for_order_5_form = forms.IntegerField(initial=0)
+    male_managers_or_bosses_for_order_5_form = forms.IntegerField(initial=0)
+    female_managers_or_bosses_for_order_5_form = forms.IntegerField(initial=0)
+    male_assistants_for_order_5_form = forms.IntegerField(initial=0)
+    # empleados_mujeres_orden_5 = forms.IntegerField(initial=0)
+    female_assistants_for_order_5_form = forms.IntegerField(initial=0)
+    male_laborers_for_order_5_form = forms.IntegerField(initial=0)
+    female_laborers_for_order_5_form = forms.IntegerField(initial=0)
+    underage_males_for_order_5_form = forms.IntegerField(initial=0)
+    underage_females_for_order_5_form = forms.IntegerField(initial=0)
 
 # Fin de los 5 formularios para la planilla "Resumen General" del Ministerio de Trabajo
 
@@ -671,46 +693,55 @@ initial=0001-01-01
 class FormularioEmpleadosMinisterioDeTrabajo(forms.Form):
     # Opciones para el campo que pregunta si el trabajador es hombre o mujer
     SEXO_CHOICES = [
-        ('M', 'Masculino'),
-        ('F', 'Femenino'),
+        ('M', 'Male'),
+        ('F', 'Female'),
     ]
 
     # Opciones para el campo que pregunta el estado civil
     ESTADO_CIVIL_CHOICES = [
-        ('S', 'Soltero'),
-        ('C', 'Casado'),
-        ('D', 'Divorciado'),
-        ('V', 'Viuda'),
+        ('S', 'Single'),
+        ('M', 'Married'),
+        ('D', 'Divorced'),
+        ('W', 'Widow(er)'),
     ]
 
-    numero_patronal_de_planilla_empleados = forms.IntegerField(initial=0)
-    nombre = forms.CharField(max_length=50)
-    apellidos = forms.CharField(max_length=50)
-    cedula_de_identidad = forms.CharField(max_length=15)
-    fecha_de_nacimiento = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
-    sexo = forms.ChoiceField(choices=SEXO_CHOICES)
-    domicilio = forms.CharField(widget=forms.Textarea)
-    cargo = forms.CharField(max_length=100)
-    profesion = forms.CharField(max_length=100)
-    nacionalidad = forms.CharField(max_length=20)
+    # numero_patronal_de_planilla_empleados
+    employer_identification_number = forms.IntegerField(initial=0)
 
-    estado_civil = forms.ChoiceField(choices=ESTADO_CIVIL_CHOICES)
+    name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    id_number = forms.CharField(max_length=15)
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    gender = forms.ChoiceField(choices=SEXO_CHOICES)
+    address = forms.CharField(widget=forms.Textarea)
 
-    fecha_entrada = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    # cargo
+    job_title = forms.CharField(max_length=100)
 
-    # OPCIONAL
-    fecha_salida = forms.DateField(initial='0001-01-01', required=False, widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    profession = forms.CharField(max_length=100)
 
-    cantidad_hijos_menores = forms.IntegerField(required=False, initial=0)  # OPCIONAL
-    motivo_de_salida = forms.CharField(required=False, max_length=100)  # OPCIONAL
-    horario_de_trabajo = forms.CharField(max_length=20)
-    situacion_escolar_menor = forms.CharField(required=False, max_length=20)    # OPCIONAL
+    nationality = forms.CharField(max_length=20)
+
+    marital_status = forms.ChoiceField(choices=ESTADO_CIVIL_CHOICES)
+
+    date_of_hire = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
     # OPCIONAL
-    fecha_nacimiento_del_menor = forms.DateField(initial='0001-01-01', required=False, widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    date_in_which_they_left_the_company = forms.DateField(initial='0001-01-01', required=False, widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+
+    number_of_underage_children = forms.IntegerField(required=False, initial=0)  # OPCIONAL
+
+    reason_for_leaving_the_company = forms.CharField(required=False, max_length=100)  # OPCIONAL
+
+    work_schedule = forms.CharField(max_length=20)
+
+    school_grade_in_which_the_youngest_child_is_enrolled = forms.CharField(required=False, max_length=20)    # OPCIONAL
 
     # OPCIONAL
-    fecha_inicio_trabajo_del_menor = forms.DateField(initial='0001-01-01', required=False, widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    date_of_birth_of_the_youngest_child = forms.DateField(initial='0001-01-01', required=False, widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+
+    # OPCIONAL
+    employment_start_date_of_the_youngest_child = forms.DateField(initial='0001-01-01', required=False, widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 
 
 """ Planilla de Sueldos y Jornales del Ministerio de Trabajo.
@@ -730,53 +761,86 @@ TODO lo demas se tendra que escribir en el formulario.
 class FormularioSueldosMinisterioDeTrabajo(forms.Form):
     # Opciones para el campo que pregunta la forma de pago
     FORMA_PAGO_CHOICES = [
-        ('M', 'Mensual'),
-        ('J', 'Jornal'),
+        ('M', 'Monthly'),
+        ('D', 'Daily')
     ]
 
-    numero_patronal_de_planilla_sueldos = forms.IntegerField(initial=0)
-    forma_de_pago = forms.ChoiceField(choices=FORMA_PAGO_CHOICES)
-    cedula_planilla_sueldos = forms.CharField(max_length=15)
+    # numero_patronal_de_planilla_sueldos
+    employer_identification_number_for_the_salary_form = forms.IntegerField(initial=0)
 
-    importe_unitario = forms.IntegerField(initial=0)
+    # forma_de_pago
+    pay_frequency = forms.ChoiceField(choices=FORMA_PAGO_CHOICES)
+
+    # cedula_planilla_sueldos
+    id_number_for_the_salary_form = forms.CharField(max_length=15)
+
+    # importe_unitario
+    salary_per_day = forms.IntegerField(initial=0)
 
     # Horas trabajadas y salarios percibidos en el año
-    horas_trabajadas_enero = forms.IntegerField(initial=0)
-    salario_percibido_enero = forms.IntegerField(initial=0)
-    horas_trabajadas_febrero = forms.IntegerField(initial=0)
-    salario_percibido_febrero = forms.IntegerField(initial=0)
-    horas_trabajadas_marzo = forms.IntegerField(initial=0)
-    salario_percibido_marzo = forms.IntegerField(initial=0)
-    horas_trabajadas_abril = forms.IntegerField(initial=0)
-    salario_percibido_abril = forms.IntegerField(initial=0)
-    horas_trabajadas_mayo = forms.IntegerField(initial=0)
-    salario_percibido_mayo = forms.IntegerField(initial=0)
-    horas_trabajadas_junio = forms.IntegerField(initial=0)
-    salario_percibido_junio = forms.IntegerField(initial=0)
-    horas_trabajadas_julio = forms.IntegerField(initial=0)
-    salario_percibido_julio = forms.IntegerField(initial=0)
-    horas_trabajadas_agosto = forms.IntegerField(initial=0)
-    salario_percibido_agosto = forms.IntegerField(initial=0)
-    horas_trabajadas_septiembre = forms.IntegerField(initial=0)
-    salario_percibido_septiembre = forms.IntegerField(initial=0)
-    horas_trabajadas_octubre = forms.IntegerField(initial=0)
-    salario_percibido_octubre = forms.IntegerField(initial=0)
-    horas_trabajadas_noviembre = forms.IntegerField(initial=0)
-    salario_percibido_noviembre = forms.IntegerField(initial=0)
-    horas_trabajadas_diciembre = forms.IntegerField(initial=0)
-    salario_percibido_diciembre = forms.IntegerField(initial=0) # Fin salarios y horas durante el año
+    # horas_trabajadas_enero
+    hours_worked_in_january = forms.IntegerField(initial=0)
 
-    horas_extras_100_por_ciento_durante_anno = forms.IntegerField(initial=0)
-    salario_percibido_horas_extras_100_por_ciento_anno = forms.IntegerField(initial=0)
+    # salario_percibido_enero
+    salary_received_in_january = forms.IntegerField(initial=0)
 
-    aguinaldo = forms.IntegerField(initial=0)
-    beneficios = forms.IntegerField(initial=0)
-    bonificaciones = forms.IntegerField(initial=0)
-    vacaciones = forms.IntegerField(initial=0)
-    horas_trabajadas_incluyendo_horas_extras = forms.IntegerField(initial=0)
+    hours_worked_in_february = forms.IntegerField(initial=0)
+    salary_received_in_february = forms.IntegerField(initial=0)
+
+    hours_worked_in_march = forms.IntegerField(initial=0)
+    salary_received_in_march = forms.IntegerField(initial=0)
+
+    hours_worked_in_april = forms.IntegerField(initial=0)
+    salary_received_in_april = forms.IntegerField(initial=0)
+
+    hours_worked_in_may = forms.IntegerField(initial=0)
+    salary_received_in_may = forms.IntegerField(initial=0)
+
+    hours_worked_in_june = forms.IntegerField(initial=0)
+    salary_received_in_june = forms.IntegerField(initial=0)
+
+    hours_worked_in_july = forms.IntegerField(initial=0)
+    salary_received_in_july = forms.IntegerField(initial=0)
+
+    hours_worked_in_august = forms.IntegerField(initial=0)
+    salary_received_in_august = forms.IntegerField(initial=0)
+
+    hours_worked_in_september = forms.IntegerField(initial=0)
+    salary_received_in_september = forms.IntegerField(initial=0)
+
+    hours_worked_in_october = forms.IntegerField(initial=0)
+    salary_received_in_october = forms.IntegerField(initial=0)
+
+    hours_worked_in_november = forms.IntegerField(initial=0)
+    salary_received_in_november = forms.IntegerField(initial=0)
+
+    hours_worked_in_december = forms.IntegerField(initial=0)
+    salary_received_in_december = forms.IntegerField(initial=0)  # Fin salarios y horas durante el año
+
+    # horas_extras_100_por_ciento_durante_anno
+    one_hundred_percent_of_extra_hours_worked_during_the_year = forms.IntegerField(initial=0)
+
+    # salario_percibido_horas_extras_100_por_ciento_anno
+    one_hundred_percent_of_salary_received_from_working_extra_hours = forms.IntegerField(initial=0)
+
+    # aguinaldo
+    christmas_bonus = forms.IntegerField(initial=0)
+
+    # beneficios
+    severance_pay = forms.IntegerField(initial=0)
+
+    # bonificaciones
+    large_family_bonus = forms.IntegerField(initial=0)
+
+    # vacaciones
+    accrued_vacations = forms.IntegerField(initial=0)
+
+    # horas_trabajadas_incluyendo_horas_extras
+    hours_worked_including_extra_hours = forms.IntegerField(initial=0)
 
     # Este es el salario total SIN los ingresos extras
-    total_recibido_en_concepto_de_salario_sin_ingresos_extras = forms.IntegerField(initial=0)
+    # total_recibido_en_concepto_de_salario_sin_ingresos_extras
+    total_amount_received_from_salary_without_supplemental_income = forms.IntegerField(initial=0)
 
 
 """ Formulario para Generar Planillas del IPS.
