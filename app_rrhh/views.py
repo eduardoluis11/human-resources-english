@@ -1642,25 +1642,25 @@ def registrar_planillas_ministerio_trabajo(request):
     if request.method == "POST":
 
         # Planilla de Empleados
-        numero_patronal_de_planilla_empleados = request.POST["numero_patronal_de_planilla_empleados"]
-        nombre = request.POST["nombre"]
-        apellidos = request.POST["apellidos"]
-        cedula = request.POST["cedula_de_identidad"]
-        sexo = request.POST["sexo"]
-        fecha_de_nacimiento = request.POST["fecha_de_nacimiento"]
-        domicilio = request.POST["domicilio"]
-        cantidad_hijos_menores = request.POST["cantidad_hijos_menores"]
-        fecha_nacimiento_del_menor = request.POST["fecha_nacimiento_del_menor"]
-        estado_civil = request.POST["estado_civil"]
-        nacionalidad = request.POST["nacionalidad"]
-        horario_de_trabajo = request.POST["horario_de_trabajo"]
-        cargo = request.POST["cargo"]
-        profesion = request.POST["profesion"]
-        fecha_inicio_trabajo_del_menor = request.POST["fecha_inicio_trabajo_del_menor"]
-        situacion_escolar_menor = request.POST["situacion_escolar_menor"]
-        fecha_entrada = request.POST["fecha_entrada"]
-        fecha_salida = request.POST["fecha_salida"]
-        motivo_de_salida = request.POST["motivo_de_salida"]
+        numero_patronal_de_planilla_empleados = request.POST["employer_identification_number"]
+        nombre = request.POST["name"]
+        apellidos = request.POST["last_name"]
+        cedula = request.POST["id_number"]
+        sexo = request.POST["gender"]
+        fecha_de_nacimiento = request.POST["date_of_birth"]
+        domicilio = request.POST["address"]
+        cantidad_hijos_menores = request.POST["number_of_underage_children"]
+        fecha_nacimiento_del_menor = request.POST["date_of_birth_of_the_youngest_child"]
+        estado_civil = request.POST["marital_status"]
+        nacionalidad = request.POST["nationality"]
+        horario_de_trabajo = request.POST["work_schedule"]
+        cargo = request.POST["job_title"]
+        profesion = request.POST["profession"]
+        fecha_inicio_trabajo_del_menor = request.POST["employment_start_date_of_the_youngest_child"]
+        situacion_escolar_menor = request.POST["school_grade_in_which_the_youngest_child_is_enrolled"]
+        fecha_entrada = request.POST["date_of_hire"]
+        fecha_salida = request.POST["date_in_which_they_left_the_company"]
+        motivo_de_salida = request.POST["reason_for_leaving_the_company"]
 
         # El estado lo dejaré vacío
         estado = ''
@@ -1687,57 +1687,57 @@ def registrar_planillas_ministerio_trabajo(request):
 
 
         # Planilla de Sueldos
-        numero_patronal_de_planilla_sueldos = request.POST["numero_patronal_de_planilla_sueldos"]
-        forma_de_pago = request.POST["forma_de_pago"]
-        cedula_planilla_sueldos = request.POST["cedula_planilla_sueldos"]
-        importe_unitario = request.POST["importe_unitario"]
+        numero_patronal_de_planilla_sueldos = request.POST["employer_identification_number_for_the_salary_form"]
+        forma_de_pago = request.POST["pay_frequency"]
+        cedula_planilla_sueldos = request.POST["id_number_for_the_salary_form"]
+        importe_unitario = request.POST["salary_per_day"]
 
-        horas_trabajadas_enero = request.POST["horas_trabajadas_enero"]
-        salario_percibido_enero = request.POST["salario_percibido_enero"]
+        horas_trabajadas_enero = request.POST["hours_worked_in_january"]
+        salario_percibido_enero = request.POST["salary_received_in_january"]
 
-        horas_trabajadas_febrero = request.POST["horas_trabajadas_febrero"]
-        salario_percibido_febrero = request.POST["salario_percibido_febrero"]
+        horas_trabajadas_febrero = request.POST["hours_worked_in_february"]
+        salario_percibido_febrero = request.POST["salary_received_in_february"]
 
-        horas_trabajadas_marzo = request.POST["horas_trabajadas_marzo"]
-        salario_percibido_marzo = request.POST["salario_percibido_marzo"]
+        horas_trabajadas_marzo = request.POST["hours_worked_in_march"]
+        salario_percibido_marzo = request.POST["salary_received_in_march"]
 
-        horas_trabajadas_abril = request.POST["horas_trabajadas_abril"]
-        salario_percibido_abril = request.POST["salario_percibido_abril"]
+        horas_trabajadas_abril = request.POST["hours_worked_in_april"]
+        salario_percibido_abril = request.POST["salary_received_in_april"]
 
-        horas_trabajadas_mayo = request.POST["horas_trabajadas_mayo"]
-        salario_percibido_mayo = request.POST["salario_percibido_mayo"]
+        horas_trabajadas_mayo = request.POST["hours_worked_in_may"]
+        salario_percibido_mayo = request.POST["salary_received_in_may"]
 
-        horas_trabajadas_junio = request.POST["horas_trabajadas_junio"]
-        salario_percibido_junio = request.POST["salario_percibido_junio"]
+        horas_trabajadas_junio = request.POST["hours_worked_in_june"]
+        salario_percibido_junio = request.POST["salary_received_in_june"]
 
-        horas_trabajadas_julio = request.POST["horas_trabajadas_julio"]
-        salario_percibido_julio = request.POST["salario_percibido_julio"]
+        horas_trabajadas_julio = request.POST["hours_worked_in_july"]
+        salario_percibido_julio = request.POST["salary_received_in_july"]
 
-        horas_trabajadas_agosto = request.POST["horas_trabajadas_agosto"]
-        salario_percibido_agosto = request.POST["salario_percibido_agosto"]
+        horas_trabajadas_agosto = request.POST["hours_worked_in_august"]
+        salario_percibido_agosto = request.POST["salary_received_in_august"]
 
-        horas_trabajadas_septiembre = request.POST["horas_trabajadas_septiembre"]
-        salario_percibido_septiembre = request.POST["salario_percibido_septiembre"]
+        horas_trabajadas_septiembre = request.POST["hours_worked_in_september"]
+        salario_percibido_septiembre = request.POST["salary_received_in_september"]
 
-        horas_trabajadas_octubre = request.POST["horas_trabajadas_octubre"]
-        salario_percibido_octubre = request.POST["salario_percibido_octubre"]
+        horas_trabajadas_octubre = request.POST["hours_worked_in_october"]
+        salario_percibido_octubre = request.POST["salary_received_in_october"]
 
-        horas_trabajadas_noviembre = request.POST["horas_trabajadas_noviembre"]
-        salario_percibido_noviembre = request.POST["salario_percibido_noviembre"]
+        horas_trabajadas_noviembre = request.POST["hours_worked_in_november"]
+        salario_percibido_noviembre = request.POST["salary_received_in_november"]
 
-        horas_trabajadas_diciembre = request.POST["horas_trabajadas_diciembre"]
-        salario_percibido_diciembre = request.POST["salario_percibido_diciembre"]
+        horas_trabajadas_diciembre = request.POST["hours_worked_in_december"]
+        salario_percibido_diciembre = request.POST["salary_received_in_december"]
 
-        horas_extras_100_por_ciento_durante_anno = request.POST["horas_extras_100_por_ciento_durante_anno"]
-        salario_percibido_horas_extras_100_por_ciento_anno = request.POST["salario_percibido_horas_extras_100_por_ciento_anno"]
-        aguinaldo = request.POST["aguinaldo"]
-        beneficios = request.POST["beneficios"]
-        bonificaciones = request.POST["bonificaciones"]
-        vacaciones = request.POST["vacaciones"]
-        horas_trabajadas_incluyendo_horas_extras = request.POST["horas_trabajadas_incluyendo_horas_extras"]
+        horas_extras_100_por_ciento_durante_anno = request.POST["one_hundred_percent_of_extra_hours_worked_during_the_year"]
+        salario_percibido_horas_extras_100_por_ciento_anno = request.POST["one_hundred_percent_of_salary_received_from_working_extra_hours"]
+        aguinaldo = request.POST["christmas_bonus"]
+        beneficios = request.POST["severance_pay"]
+        bonificaciones = request.POST["large_family_bonus"]
+        vacaciones = request.POST["accrued_vacations"]
+        horas_trabajadas_incluyendo_horas_extras = request.POST["hours_worked_including_extra_hours"]
 
         # Salario total recibido sin ingresos extras
-        total_recibido_en_concepto_de_salario = request.POST["total_recibido_en_concepto_de_salario_sin_ingresos_extras"]
+        total_recibido_en_concepto_de_salario = request.POST["total_amount_received_from_salary_without_supplemental_income"]
 
         # Estos 2 campos se calculan dividiendo las horas extras y el salario al 100% entre 2
         horas_extras_50_por_ciento_durante_anno = float(horas_extras_100_por_ciento_durante_anno) / 2
@@ -1793,81 +1793,81 @@ def registrar_planillas_ministerio_trabajo(request):
 
         # Planilla de Resumen en General
         # Orden 1: Cantidad de empleados
-        numero_patronal_orden_1 = request.POST["numero_patronal_orden_1"]
-        anno_orden_1 = request.POST["anno_orden_1"]
-        supervisores_o_jefes_varones_orden_1 = request.POST["supervisores_o_jefes_varones_orden_1"]
-        supervisores_o_jefes_mujeres_orden_1 = request.POST["supervisores_o_jefes_mujeres_orden_1"]
-        empleados_varones_orden_1 = request.POST["empleados_varones_orden_1"]
-        empleados_mujeres_orden_1 = request.POST["empleados_mujeres_orden_1"]
-        empleadas_mujeres_orden_1 = request.POST["empleadas_mujeres_orden_1"]
-        obreros_hombres_orden_1 = request.POST["obreros_hombres_orden_1"]
-        obreras_mujeres_orden_1 = request.POST["obreras_mujeres_orden_1"]
-        menores_varones_orden_1 = request.POST["menores_varones_orden_1"]
-        menores_mujeres_orden_1 = request.POST["menores_mujeres_orden_1"]
+        numero_patronal_orden_1 = request.POST["employer_identification_number_for_order_1_form"]
+        anno_orden_1 = request.POST["year_for_order_1_form"]
+        supervisores_o_jefes_varones_orden_1 = request.POST["male_managers_or_bosses_for_order_1_form"]
+        supervisores_o_jefes_mujeres_orden_1 = request.POST["female_managers_or_bosses_for_order_1_form"]
+        empleados_varones_orden_1 = request.POST["male_assistants_for_order_1_form"]
+        empleados_mujeres_orden_1 = request.POST["female_assistants_for_order_1_form"]
+        empleadas_mujeres_orden_1 = request.POST["female_assistants_for_order_1_form"]
+        obreros_hombres_orden_1 = request.POST["male_laborers_for_order_1_form"]
+        obreras_mujeres_orden_1 = request.POST["female_laborers_for_order_1_form"]
+        menores_varones_orden_1 = request.POST["underage_males_for_order_1_form"]
+        menores_mujeres_orden_1 = request.POST["underage_females_for_order_1_form"]
 
         # Orden 1. Solo meteré un 1
         orden_1 = 1
 
         # Orden 2: Horas trabajadas
-        numero_patronal_orden_2 = request.POST["numero_patronal_orden_2"]
-        anno_orden_2 = request.POST["anno_orden_2"]
-        supervisores_o_jefes_varones_orden_2 = request.POST["supervisores_o_jefes_varones_orden_2"]
-        supervisores_o_jefes_mujeres_orden_2 = request.POST["supervisores_o_jefes_mujeres_orden_2"]
-        empleados_varones_orden_2 = request.POST["empleados_varones_orden_2"]
-        empleados_mujeres_orden_2 = request.POST["empleados_mujeres_orden_2"]
-        empleadas_mujeres_orden_2 = request.POST["empleadas_mujeres_orden_2"]
-        obreros_hombres_orden_2 = request.POST["obreros_hombres_orden_2"]
-        obreras_mujeres_orden_2 = request.POST["obreras_mujeres_orden_2"]
-        menores_varones_orden_2 = request.POST["menores_varones_orden_2"]
-        menores_mujeres_orden_2 = request.POST["menores_mujeres_orden_2"]
+        numero_patronal_orden_2 = request.POST["employer_identification_number_for_order_2_form"]
+        anno_orden_2 = request.POST["year_for_order_2_form"]
+        supervisores_o_jefes_varones_orden_2 = request.POST["male_managers_or_bosses_for_order_2_form"]
+        supervisores_o_jefes_mujeres_orden_2 = request.POST["female_managers_or_bosses_for_order_2_form"]
+        empleados_varones_orden_2 = request.POST["male_assistants_for_order_2_form"]
+        empleados_mujeres_orden_2 = request.POST["female_assistants_for_order_2_form"]
+        empleadas_mujeres_orden_2 = request.POST["female_assistants_for_order_2_form"]
+        obreros_hombres_orden_2 = request.POST["male_laborers_for_order_2_form"]
+        obreras_mujeres_orden_2 = request.POST["female_laborers_for_order_2_form"]
+        menores_varones_orden_2 = request.POST["underage_males_for_order_2_form"]
+        menores_mujeres_orden_2 = request.POST["underage_females_for_order_2_form"]
 
         # Orden 2. Solo meteré un 2
         orden_2 = 2
 
         # Orden 3: Sueldos o jornales
-        numero_patronal_orden_3 = request.POST["numero_patronal_orden_3"]
-        anno_orden_3 = request.POST["anno_orden_3"]
-        supervisores_o_jefes_varones_orden_3 = request.POST["supervisores_o_jefes_varones_orden_3"]
-        supervisores_o_jefes_mujeres_orden_3 = request.POST["supervisores_o_jefes_mujeres_orden_3"]
-        empleados_varones_orden_3 = request.POST["empleados_varones_orden_3"]
-        empleados_mujeres_orden_3 = request.POST["empleados_mujeres_orden_3"]
-        empleadas_mujeres_orden_3 = request.POST["empleadas_mujeres_orden_3"]
-        obreros_hombres_orden_3 = request.POST["obreros_hombres_orden_3"]
-        obreras_mujeres_orden_3 = request.POST["obreras_mujeres_orden_3"]
-        menores_varones_orden_3 = request.POST["menores_varones_orden_3"]
-        menores_mujeres_orden_3 = request.POST["menores_mujeres_orden_3"]
+        numero_patronal_orden_3 = request.POST["employer_identification_number_for_order_3_form"]
+        anno_orden_3 = request.POST["year_for_order_3_form"]
+        supervisores_o_jefes_varones_orden_3 = request.POST["male_managers_or_bosses_for_order_3_form"]
+        supervisores_o_jefes_mujeres_orden_3 = request.POST["female_managers_or_bosses_for_order_3_form"]
+        empleados_varones_orden_3 = request.POST["male_assistants_for_order_3_form"]
+        empleados_mujeres_orden_3 = request.POST["female_assistants_for_order_3_form"]
+        empleadas_mujeres_orden_3 = request.POST["female_assistants_for_order_3_form"]
+        obreros_hombres_orden_3 = request.POST["male_laborers_for_order_3_form"]
+        obreras_mujeres_orden_3 = request.POST["female_laborers_for_order_3_form"]
+        menores_varones_orden_3 = request.POST["underage_males_for_order_3_form"]
+        menores_mujeres_orden_3 = request.POST["underage_females_for_order_3_form"]
 
         # Orden 3. Solo meteré un 3
         orden_3 = 3
 
         # Orden 4: Cantidad de ingresos
-        numero_patronal_orden_4 = request.POST["numero_patronal_orden_4"]
-        anno_orden_4 = request.POST["anno_orden_4"]
-        supervisores_o_jefes_varones_orden_4 = request.POST["supervisores_o_jefes_varones_orden_4"]
-        supervisores_o_jefes_mujeres_orden_4 = request.POST["supervisores_o_jefes_mujeres_orden_4"]
-        empleados_varones_orden_4 = request.POST["empleados_varones_orden_4"]
-        empleados_mujeres_orden_4 = request.POST["empleados_mujeres_orden_4"]
-        empleadas_mujeres_orden_4 = request.POST["empleadas_mujeres_orden_4"]
-        obreros_hombres_orden_4 = request.POST["obreros_hombres_orden_4"]
-        obreras_mujeres_orden_4 = request.POST["obreras_mujeres_orden_4"]
-        menores_varones_orden_4 = request.POST["menores_varones_orden_4"]
-        menores_mujeres_orden_4 = request.POST["menores_mujeres_orden_4"]
+        numero_patronal_orden_4 = request.POST["employer_identification_number_for_order_4_form"]
+        anno_orden_4 = request.POST["year_for_order_4_form"]
+        supervisores_o_jefes_varones_orden_4 = request.POST["male_managers_or_bosses_for_order_4_form"]
+        supervisores_o_jefes_mujeres_orden_4 = request.POST["female_managers_or_bosses_for_order_4_form"]
+        empleados_varones_orden_4 = request.POST["male_assistants_for_order_4_form"]
+        empleados_mujeres_orden_4 = request.POST["female_assistants_for_order_4_form"]
+        empleadas_mujeres_orden_4 = request.POST["female_assistants_for_order_4_form"]
+        obreros_hombres_orden_4 = request.POST["male_laborers_for_order_4_form"]
+        obreras_mujeres_orden_4 = request.POST["female_laborers_for_order_4_form"]
+        menores_varones_orden_4 = request.POST["underage_males_for_order_4_form"]
+        menores_mujeres_orden_4 = request.POST["underage_females_for_order_4_form"]
 
         # Orden 4. Solo meteré un 4
         orden_4 = 4
 
         # Orden 5: Cantidad de egresos
-        numero_patronal_orden_5 = request.POST["numero_patronal_orden_5"]
-        anno_orden_5 = request.POST["anno_orden_5"]
-        supervisores_o_jefes_varones_orden_5 = request.POST["supervisores_o_jefes_varones_orden_5"]
-        supervisores_o_jefes_mujeres_orden_5 = request.POST["supervisores_o_jefes_mujeres_orden_5"]
-        empleados_varones_orden_5 = request.POST["empleados_varones_orden_5"]
-        empleados_mujeres_orden_5 = request.POST["empleados_mujeres_orden_5"]
-        empleadas_mujeres_orden_5 = request.POST["empleadas_mujeres_orden_5"]
-        obreros_hombres_orden_5 = request.POST["obreros_hombres_orden_5"]
-        obreras_mujeres_orden_5 = request.POST["obreras_mujeres_orden_5"]
-        menores_varones_orden_5 = request.POST["menores_varones_orden_5"]
-        menores_mujeres_orden_5 = request.POST["menores_mujeres_orden_5"]
+        numero_patronal_orden_5 = request.POST["employer_identification_number_for_order_5_form"]
+        anno_orden_5 = request.POST["year_for_order_5_form"]
+        supervisores_o_jefes_varones_orden_5 = request.POST["male_managers_or_bosses_for_order_5_form"]
+        supervisores_o_jefes_mujeres_orden_5 = request.POST["female_managers_or_bosses_for_order_5_form"]
+        empleados_varones_orden_5 = request.POST["male_assistants_for_order_5_form"]
+        empleados_mujeres_orden_5 = request.POST["female_assistants_for_order_5_form"]
+        empleadas_mujeres_orden_5 = request.POST["female_assistants_for_order_5_form"]
+        obreros_hombres_orden_5 = request.POST["male_laborers_for_order_5_form"]
+        obreras_mujeres_orden_5 = request.POST["female_laborers_for_order_5_form"]
+        menores_varones_orden_5 = request.POST["underage_males_for_order_5_form"]
+        menores_mujeres_orden_5 = request.POST["underage_females_for_order_5_form"]
 
         # Orden 5. Solo meteré un 5
         orden_5 = 5
