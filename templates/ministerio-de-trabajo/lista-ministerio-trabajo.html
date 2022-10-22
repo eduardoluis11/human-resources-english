@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar un nuevo Planilla del Ministerio de Trabajo -->
-    <a href="{% url 'registrar_planillas_ministerio_trabajo' %}" class="text-decoration-none">
+    <a href="{% url 'register_department_of_labor_forms' %}" class="text-decoration-none">
 <!--        Agregar Nueva Planilla-->
         Add a New Form
     </a>
@@ -55,7 +55,7 @@
                         {{sueldo.timestamp}}
                     </td>
                     <td>
-                        <a href="{{sueldo.id}}/ver-planilla-sueldo-ministerio" class="text-decoration-none">
+                        <a href="{{sueldo.id}}/view-salary-form-department-of-labor" class="text-decoration-none">
 <!--                            Ver Planilla de Sueldos-->
                             View Salary Form
                         </a>
@@ -87,7 +87,7 @@
                         {{empleado.timestamp}}
                     </td>
                     <td>
-                        <a href="{{empleado.id}}/ver-planilla-empleado-ministerio" class="text-decoration-none">
+                        <a href="{{empleado.id}}/view-employees-form-department-of-labor" class="text-decoration-none">
 <!--                            Ver Planilla de Empleados-->
                             View Employees Form
                         </a>
@@ -119,7 +119,7 @@
                         {{resumen.timestamp}}
                     </td>
                     <td>
-                        <a href="{{resumen.id}}/ver-planilla-resumen-ministerio" class="text-decoration-none">
+                        <a href="{{resumen.id}}/view-summary-form-department-of-labor" class="text-decoration-none">
 <!--                            Ver Planilla de Resumen-->
                             Summary Form
                         </a>

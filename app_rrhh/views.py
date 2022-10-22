@@ -1597,7 +1597,8 @@ cada una de esas planillas en formato para imprimir.)
 El primer campo de la planilla será “fecha”. 
 """
 @login_required
-def lista_ministerio_trabajo(request):
+# lista_ministerio_trabajo
+def department_labor_form_list(request):
 
     return render(request, "ministerio-de-trabajo/lista-ministerio-trabajo.html", {
         # "informes": InformeWeb.objects.all()
@@ -1622,7 +1623,8 @@ Lo del numero patronal: para evitar confusiones, le pondré otro nombre de varia
 le cambiare el nombre en los formularios.
 """
 @login_required
-def registrar_planillas_ministerio_trabajo(request):
+# registrar_planillas_ministerio_trabajo
+def register_department_of_labor_forms(request):
 
     # Formularios de Resumen General
     formulario_orden_1 = FormularioResumenGeneralOrden1
@@ -1942,11 +1944,11 @@ def registrar_planillas_ministerio_trabajo(request):
         nueva_planilla_resumen.save()     # Fin de Planilla Resumen
 
         # Mensaje flash de confirmación
-        # messages.success(request, "Se ha registrado unas nuevas Planillas del Ministerio de Trabajo  correctamente.")
-        messages.success(request, "A new Department of Labor form has been successfully registered.")
+        # messages.success(request, "Se ha registrado unas nuevas Planillas del Ministerio de Trabajo correctamente.")
+        messages.success(request, "A new set of Department of Labor forms have been successfully registered.")
 
         # Esto redirige al usuario a la lista de contratos
-        return redirect('lista_ministerio_trabajo')
+        return redirect('department_labor_form_list')
 
     # Esto renderiza la página para registrar los contratos
     else:
@@ -1963,7 +1965,8 @@ def registrar_planillas_ministerio_trabajo(request):
 """ Vista para ver Planilla de Empleados del Ministerio de Trabajo
 """
 @login_required
-def ver_planilla_empleado_ministerio(request, id_planilla):
+# ver_planilla_empleado_ministerio
+def view_employees_form_department_of_labor(request, id_planilla):
 
     # Esto agarra el descuento que quiero ver
     planilla_seleccionada = PlanillaEmpleadosMinisterioDeTrabajo.objects.filter(id=id_planilla)
@@ -1975,7 +1978,8 @@ def ver_planilla_empleado_ministerio(request, id_planilla):
 """ Vista para ver Planilla de Resumen del Ministerio de Trabajo
 """
 @login_required
-def ver_planilla_resumen_ministerio(request, id_planilla):
+# ver_planilla_resumen_ministerio
+def view_summary_form_department_of_labor(request, id_planilla):
 
     # Esto agarra el descuento que quiero ver
     planilla_seleccionada = PlanillaResumenGeneralMinisterioDeTrabajo.objects.filter(id=id_planilla)
@@ -1987,7 +1991,8 @@ def ver_planilla_resumen_ministerio(request, id_planilla):
 """ Vista para ver Planilla de Sueldo del Ministerio de Trabajo.
 """
 @login_required
-def ver_planilla_sueldo_ministerio(request, id_planilla):
+# ver_planilla_sueldo_ministerio
+def view_salary_form_department_of_labor(request, id_planilla):
 
     # Esto agarra el descuento que quiero ver
     planilla_seleccionada = PlanillaSueldosMinisterioDeTrabajo.objects.filter(id=id_planilla)
