@@ -833,7 +833,8 @@ def ver_vacacion(request, id_vacacion):
 """ Vista de lista de Currículums.
 """
 @login_required
-def lista_curriculums(request):
+# lista_curriculums
+def list_of_resumes(request):
 
     return render(request, "curriculum/lista-curriculums.html", {
         "curriculums": Curriculum.objects.all()
@@ -844,7 +845,8 @@ def lista_curriculums(request):
 Recuerda usar "request.FILES" para el campo que agarra el PDF.
 """
 @login_required
-def registrar_curriculum(request):
+# registrar_curriculum
+def register_a_resume(request):
 
     formulario = FormularioCurriculum
 
@@ -890,7 +892,7 @@ def registrar_curriculum(request):
         messages.success(request, "A new resume has been submitted successfully.")
 
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_curriculums')
+        return redirect('list_of_resumes')
 
     # Esto renderiza la pagina para registrar el currículum
     else:
@@ -901,7 +903,8 @@ def registrar_curriculum(request):
 """ Vista para Ver un Currículum. 
 """
 @login_required
-def ver_curriculum(request, id_curriculum):
+# ver_curriculum
+def view_resume(request, id_curriculum):
 
     # Esto agarra el descuento que quiero ver
     curriculum_seleccionado = Curriculum.objects.filter(id=id_curriculum)

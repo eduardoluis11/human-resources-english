@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar unos nuevos Currículums -->
-    <a href="{% url 'registrar_curriculum' %}" class="text-decoration-none">
+    <a href="{% url 'register_a_resume' %}" class="text-decoration-none">
         Add New Resume
     </a>
     <br>
@@ -47,7 +47,7 @@
                         {{curriculum.cedula}}
                     </td>
                     <td>
-                        <a href="{{curriculum.id}}/ver-curriculum" class="text-decoration-none">View Resume</a>
+                        <a href="{{curriculum.id}}/view-resume" class="text-decoration-none">View Resume</a>
                     </td>
                 </tr>
             {% endfor %}

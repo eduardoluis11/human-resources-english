@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Submit Resume
+    Register a Resume
 {% endblock %}
 
 <!-- Página para registrar el Currículum de un empleado -->
 {% block body %}
 
-    <h1>Submit Resume</h1>
+    <h1>Register a Resume</h1>
     <br>
     <br>
 
@@ -27,7 +27,7 @@
         <input class="btn btn-primary" type="submit" value="Submit Resume">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de Currículum -->
-        <a href="{% url 'lista_curriculums' %}" class="text-decoration-none" style="padding-left: 1rem;">
+        <a href="{% url 'list_of_resumes' %}" class="text-decoration-none" style="padding-left: 1rem;">
             Cancel
         </a>
         <br>

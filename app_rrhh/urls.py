@@ -55,9 +55,9 @@ urlpatterns = [
     path('registrar-vacaciones', views.registrar_vacaciones, name='registrar_vacaciones'),
     path('<str:id_vacacion>/ver-vacacion', views.ver_vacacion, name='ver_vacacion'),
 
-    path('lista-curriculums', views.lista_curriculums, name='lista_curriculums'),
-    path('registrar-curriculum', views.registrar_curriculum, name='registrar_curriculum'),
-    path('<str:id_curriculum>/ver-curriculum', views.ver_curriculum, name='ver_curriculum'),
+    path('list-of-resumes', views.list_of_resumes, name='list_of_resumes'),
+    path('register-a-resume', views.register_a_resume, name='register_a_resume'),
+    path('<str:id_curriculum>/view-resume', views.view_resume, name='view_resume'),
 
     path('list-of-christmas-bonus', views.list_of_christmas_bonus, name='list_of_christmas_bonus'),
     path('register-christmas-bonus', views.register_christmas_bonus, name='register_christmas_bonus'),
