@@ -80,9 +80,9 @@ urlpatterns = [
     path('registrar-legajo', views.registrar_legajo, name='registrar_legajo'),
     path('<str:id_legajo>/ver-legajo', views.ver_legajo, name='ver_legajo'),
 
-    path('lista-contratos', views.lista_contratos, name='lista_contratos'),
-    path('registrar-contrato', views.registrar_contrato, name='registrar_contrato'),
-    path('<str:id_contrato>/ver-contrato', views.ver_contrato, name='ver_contrato'),
+    path('contract-list', views.contract_list, name='contract_list'),
+    path('register-contract', views.register_contract, name='register_contract'),
+    path('<str:id_contrato>/view-contract', views.view_contract, name='view_contract'),
 
     path('lista-informes-web', views.lista_informes, name='lista_informes'),
     path('registrar-informe-web', views.registrar_informe_web, name='registrar_informe_web'),

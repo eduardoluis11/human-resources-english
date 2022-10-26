@@ -18,7 +18,7 @@
     {% endfor %}
 
     <!-- Enlace para agregar un nuevo contrato -->
-    <a href="{% url 'registrar_contrato' %}" class="text-decoration-none">
+    <a href="{% url 'register_contract' %}" class="text-decoration-none">
         Add New Contract
     </a>
     <br>
@@ -56,7 +56,7 @@
                     </td>
                     <td>
 <!--                        Ver detalles en vista para imprimir-->
-                        <a href="{{contrato.id}}/ver-contrato" class="text-decoration-none">
+                        <a href="{{contrato.id}}/view-contract" class="text-decoration-none">
                             View details in print preview
                         </a>
                     </td>

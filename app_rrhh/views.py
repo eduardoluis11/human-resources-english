@@ -1439,7 +1439,8 @@ def ver_legajo(request, id_legajo):
 Son 17 campos.
 """
 @login_required
-def registrar_contrato(request):
+# registrar_contrato
+def register_contract(request):
 
     formulario_datos_personales = FormularioDatosPersonalesContrato
     formulario_datos_contrato = FormularioDatosDelContrato
@@ -1488,7 +1489,7 @@ def registrar_contrato(request):
         messages.success(request, "A new contract has been successfully registered.")
     
         # Esto redirige al usuario a la lista de contratos
-        return redirect('lista_contratos')
+        return redirect('contract_list')
 
     # Esto renderiza la página para registrar los contratos
     else:
@@ -1500,7 +1501,8 @@ def registrar_contrato(request):
 """ Vista para ver Lista de Contratos.
 """
 @login_required
-def lista_contratos(request):
+# lista_contratos
+def contract_list(request):
 
     return render(request, "contrato/lista-contratos.html", {
         "contratos": Contrato.objects.all()
@@ -1509,7 +1511,8 @@ def lista_contratos(request):
 """ Vista para Ver un Contrato en Detalle
 """
 @login_required
-def ver_contrato(request, id_contrato):
+# ver_contrato
+def view_contract(request, id_contrato):
 
     # Esto agarra el descuento que quiero ver
     contrato_seleccionado = Contrato.objects.filter(id=id_contrato)
