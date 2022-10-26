@@ -223,23 +223,20 @@ Therefore, I need to use a second argument, which will take the ID of the sancti
 @login_required
 # borrar_sancion
 def delete_sanction(request, id_sancion):
-
-    # Esto agarra la sanción que quiero borrar
+    # This retrieves the sanction I want to delete
     sancion_actual = Sancion.objects.filter(id=id_sancion)
 
-    # Si el usuario hace clic en "Borrar", se borrará la sanción
+    # If the user clicks on "Delete", the sanction will be deleted
     if request.method == "POST":
-        sancion_actual.delete()   # Esto borra la sanción de la base de datos
+        sancion_actual.delete()   # This deletes the sanction from the database
 
-        # Mensaje flash de confirmación
+        # Flash confirmation message
         messages.success(request, "The selected sanction has been deleted.")
 
-        # messages.success(request, "Se ha borrado la sanción seleccionada.")
-
-        # Esto redirige al usuario a la lista de sanciones
+        # This redirects the user to the sanctions list
         return redirect('sanctions_list')
 
-    # Esto renderiza la página que te pregunta si quieres borrar la sanción
+    # This renders the page that asks you if you want to delete the sanction
     else:
         return render(request, "sancion/borrar-sancion.html", {
             "sancion_actual": sancion_actual
@@ -257,10 +254,10 @@ of that sanction.
 # ver_sancion
 def view_sanction(request, id_sancion):
 
-    # Esto agarra la sanción que quiero borrar
+    # This gets the sanction I want to delete.
     sancion_actual = Sancion.objects.filter(id=id_sancion)
 
-    # Esto renderiza la página y todos los datos de la sancion
+    # This renders the page and all the data from the sanction.
     return render(request, "sancion/ver-sancion.html", {
         "sancion_actual": sancion_actual
     })
@@ -275,20 +272,20 @@ def lista_bonificaciones_familiares(request):
         "bonificaciones_familiares": BonificacionFamiliar.objects.all()
     })
 
-""" Vista para registrar una bonificación familiar.
+""" View for registering a Large Family Bonus.
 
-Haré el cálculo del número total de hijos que cualifican para la bonificacion familiar, y el calculo de la 
-bonificacion familiar directamente desde aquí, y lo meteré a la base de datos.
+I will calculate the total number of children who qualify for the family bonus, and the calculation of the
+family bonus directly from here, and I will put it in the database.
 
-Cuando uso "reverse redirect", debo poner el nombre del view, NO de la URL.
+When I use "reverse redirect", I must put the name of the view, NOT the URL.
 """
 @login_required
 def registrar_bonificacion_familiar(request):
 
-    # Esto me llama el formulario de Django para registrar sanciones
+    # This is the Django form for registering sanctions.
     formulario = FormularioRegistrarBonificacion()
 
-    # Si el usuario envía el formulario
+    # If the user submits the form.
     if request.method == "POST":
         nombre = request.POST["name"]
         apellidos = request.POST["last_name"]
@@ -299,25 +296,18 @@ def registrar_bonificacion_familiar(request):
         hijos_mayores_discapacitados = request.POST["number_of_adult_children_with_disabilities"]
         salario_minimo_mensual_vigente = request.POST["current_monthly_minimum_wage"]
 
-        # Esto me agarra la fecha y la hora actual
+        # This gets the current date and time
         timestamp = datetime.datetime.now()
 
-        # El numero total de hijos y la bonificacion familiar las debo calcular
+        # I must calculate the total number of children and the family bonus
 
-        # Esto suma la cantidad de hios menores y mayores
+        # This adds the number of underage and adult children
         total_hijos_para_bonificacion = int(hijos_menores) + int(hijos_mayores_discapacitados)
 
-        # Para debuggear
-        # print(total_hijos_para_bonificacion)
-
-        # Esto calcula la bonificacion familiar (5% salario minimo multiplicado por el numero de hijos)
+        # This calculates the family bonus (5% minimum wage multiplied by the number of children)
         bonificacion_familiar = total_hijos_para_bonificacion * (5 / 100) * float(salario_minimo_mensual_vigente)
 
-        # Para debuggear
-        # print(bonificacion_familiar)
-
-
-        # Esto prepara los datos antes de meterlos a la base de datos
+        # This prepares the data before inserting it into the database
         nueva_bonificacion = BonificacionFamiliar(nombre=nombre, apellidos=apellidos, cedula=cedula,
                                 fecha_a_pagar=fecha_a_pagar, hijos_menores=hijos_menores,
                                 hijos_mayores_discapacitados=hijos_mayores_discapacitados,
@@ -325,17 +315,16 @@ def registrar_bonificacion_familiar(request):
                                 total_hijos_para_bonificacion=total_hijos_para_bonificacion,
                                 bonificacion_familiar=bonificacion_familiar, timestamp=timestamp)
 
-        # Esto inserta los campos en la base de datos
+        # This inserts the fields into the database
         nueva_bonificacion.save()
 
-        # Mensaje flash de confirmación
-        # messages.success(request, "Se ha registrado una nueva bonificación familiar correctamente.")
+        # Flash confirmation message
         messages.success(request, "A new large family bonus report has been successfully registered.")
 
-        # Esto redirige al usuario a la lista de bonificaciones
+        # This redirects the user to the list of bonuses
         return redirect('lista_bonificaciones_familiares')
 
-    # Esto renderiza la pagina para registrar sanciones
+    # This renders the page to register sanctions
     else:
         return render(request, "bonificacion-familiar/registrar-bonificacion-familiar.html", {
             "formulario": formulario,
@@ -357,7 +346,8 @@ def ver_bonificacion(request, id_bonificacion):
 """ Vista para ver todos los permisos de todo el personal.
 """
 @login_required
-def lista_permisos(request):
+# lista_permisos
+def list_of_permissions(request):
 
     return render(request, "permisos/lista-permisos.html", {
         "permisos": Permiso.objects.all()
@@ -415,7 +405,7 @@ def registrar_permiso(request):
         messages.success(request, "A new permission to leave has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_permisos')
+        return redirect('list_of_permissions')
 
     # Esto renderiza la pagina para registrar sanciones
     else:

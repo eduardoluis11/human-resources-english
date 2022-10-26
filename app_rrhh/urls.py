@@ -34,7 +34,7 @@ urlpatterns = [
     path('registrar-bonificacion', views.registrar_bonificacion_familiar, name='registrar_bonificacion_familiar'),
     path('<str:id_bonificacion>/ver-bonificacion/', views.ver_bonificacion, name='ver_bonificacion'),
 
-    path('lista-permisos', views.lista_permisos, name='lista_permisos'),
+    path('list-of-permissions', views.list_of_permissions, name='list_of_permissions'),
     path('registrar-permiso', views.registrar_permiso, name='registrar_permiso'),
     path('<str:id_permiso>/ver-permiso/', views.ver_permiso, name='ver_permiso'),
 
