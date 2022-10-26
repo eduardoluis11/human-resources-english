@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar un nuevo ingresos extras -->
-    <a href="{% url 'registrar_ingresos_extras' %}" class="text-decoration-none">
+    <a href="{% url 'register_supplemental_income_statement' %}" class="text-decoration-none">
 <!--        Agregar Nuevos Ingresos Extras-->
         Add a New Supplemental Income Statement
     </a>
@@ -56,7 +56,9 @@
                         {{ingreso.ingresos_extras_totales}} $
                     </td>
                     <td>
-                        <a href="{{ingreso.id}}/ver-ingreso-extra" class="text-decoration-none">View Details</a>
+                        <a href="{{ingreso.id}}/view-supplemental-income-statement" class="text-decoration-none">
+                            View Details
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

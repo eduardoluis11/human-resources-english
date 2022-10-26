@@ -692,7 +692,8 @@ def view_discount_statement(request, id_descuento):
 """ Vista de lista de Ingresos extras del personal.
 """
 @login_required
-def lista_ingresos_extras(request):
+# lista_ingresos_extras
+def supplemental_income_statements_list(request):
 
     return render(request, "ingresos-extras/lista-ingresos-extras.html", {
         "ingresos_extras": IngresoExtra.objects.all()
@@ -701,7 +702,8 @@ def lista_ingresos_extras(request):
 """ Vista para registrar Ingresos Extras
 """
 @login_required
-def registrar_ingresos_extras(request):
+# registrar_ingresos_extras
+def register_supplemental_income_statement(request):
 
     formulario = FormularioIngresosExtras()
 
@@ -737,7 +739,7 @@ def registrar_ingresos_extras(request):
         messages.success(request, "A new supplemental income statement has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_ingresos_extras')
+        return redirect('supplemental_income_statements_list')
 
     else:
         return render(request, "ingresos-extras/registrar-ingresos-extras.html", {
@@ -747,7 +749,8 @@ def registrar_ingresos_extras(request):
 """ Vista para ver los Ingresos Extras de manera detallada.
 """
 @login_required
-def ver_ingreso_extra(request, id_ingreso):
+# ver_ingreso_extra
+def view_supplemental_income_statement(request, id_ingreso):
 
     # Esto agarra el descuento que quiero ver
     ingreso_seleccionado = IngresoExtra.objects.filter(id=id_ingreso)

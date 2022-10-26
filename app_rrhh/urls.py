@@ -50,9 +50,12 @@ urlpatterns = [
     path('register-discounts', views.register_discounts, name='register_discounts'),
     path('<str:id_descuento>/view-discount-statement', views.view_discount_statement, name='view_discount_statement'),
 
-    path('lista-ingresos-extras', views.lista_ingresos_extras, name='lista_ingresos_extras'),
-    path('registrar-ingresos-extras', views.registrar_ingresos_extras, name='registrar_ingresos_extras'),
-    path('<str:id_ingreso>/ver-ingreso-extra', views.ver_ingreso_extra, name='ver_ingreso_extra'),
+    path('supplemental-income-statements-list', views.supplemental_income_statements_list,
+         name='supplemental_income_statements_list'),
+    path('register-supplemental-income-statement', views.register_supplemental_income_statement,
+         name='register_supplemental_income_statement'),
+    path('<str:id_ingreso>/view-supplemental-income-statement', views.view_supplemental_income_statement,
+         name='view_supplemental_income_statement'),
 
     path('lista-vacaciones', views.lista_vacaciones, name='lista_vacaciones'),
     path('registrar-vacaciones', views.registrar_vacaciones, name='registrar_vacaciones'),
