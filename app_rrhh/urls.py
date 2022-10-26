@@ -35,9 +35,9 @@ urlpatterns = [
     path('registrar-permiso', views.registrar_permiso, name='registrar_permiso'),
     path('<str:id_permiso>/ver-permiso/', views.ver_permiso, name='ver_permiso'),
 
-    path('lista-de-perfiles', views.lista_perfiles_cargos, name='lista_perfiles_cargos'),
-    path('registrar-perfil-cargo', views.registrar_perfil_cargo, name='registrar_perfil_cargo'),
-    path('<str:id_cargo>/ver-perfil-cargo', views.ver_cargo, name='ver_cargo'),
+    path('job-profile-list', views.job_profile_list, name='job_profile_list'),
+    path('register-job-profile', views.register_job_profile, name='register_job_profile'),
+    path('<str:id_cargo>/view-job-profile', views.view_job_profile, name='view_job_profile'),
 
     path('lista-justificaciones', views.lista_justificaciones, name='lista_justificaciones'),
     path('registrar-justificacion', views.registrar_justificacion_permiso, name='registrar_justificacion_permiso'),

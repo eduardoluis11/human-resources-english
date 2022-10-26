@@ -19,7 +19,7 @@
 
 
     <!-- Enlace para agregar un nuevo cargo -->
-    <a href="{% url 'registrar_perfil_cargo' %}" class="text-decoration-none">Add A New Job Profile</a>
+    <a href="{% url 'register_job_profile' %}" class="text-decoration-none">Add A New Job Profile</a>
     <br>
     <br>
 
@@ -40,7 +40,7 @@
                         {{perfil.nombre_del_cargo}}
                     </td>
                     <td>
-                        <a href="{{perfil.id}}/ver-perfil-cargo" class="text-decoration-none">View Details</a>
+                        <a href="{{perfil.id}}/view-job-profile" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}

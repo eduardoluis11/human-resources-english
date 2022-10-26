@@ -463,7 +463,8 @@ def ver_permiso(request, id_permiso):
 """ Vista de Perfiles de Cargos.
 """
 @login_required
-def lista_perfiles_cargos(request):
+# lista_perfiles_cargos
+def job_profile_list(request):
 
     return render(request, "perfil-de-cargo/lista-perfiles-cargos.html", {
         "perfiles": PerfilDeCargo.objects.all()
@@ -472,7 +473,8 @@ def lista_perfiles_cargos(request):
 """ Vista para registrar un nuevo Perfil de Cargo
 """
 @login_required
-def registrar_perfil_cargo(request):
+# registrar_perfil_cargo
+def register_job_profile(request):
 
     # Esto me llama el formulario de Django para registrar perfiles de cargo
     formulario = FormularioPerfilDeCargo()
@@ -502,8 +504,8 @@ def registrar_perfil_cargo(request):
         # Mensaje flash de confirmación
         messages.success(request, "A new job profile has been successfully registered.")
 
-        # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_perfiles_cargos')
+        # Esto redirige al usuario a la lista de perfiles de cargo
+        return redirect('job_profile_list')
 
     # Esto renderiza la pagina para registrar sanciones
     else:
@@ -514,7 +516,8 @@ def registrar_perfil_cargo(request):
 """ Vista para ver detalladamente un Perfil de Cargo
 """
 @login_required
-def ver_cargo(request, id_cargo):
+# ver_cargo
+def view_job_profile(request, id_cargo):
 
     # Esto agarra la bonificacion que quiero borrar
     cargo_seleccionado = PerfilDeCargo.objects.filter(id=id_cargo)
