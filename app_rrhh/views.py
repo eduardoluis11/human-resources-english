@@ -615,7 +615,8 @@ def view_proof_of_leave(request, id_justificacion):
 """ Vista de Lista de Descuentos
 """
 @login_required
-def lista_descuentos(request):
+# lista_descuentos
+def discount_list(request):
 
     return render(request, "descuentos/lista-descuentos.html", {
         "descuentos": Descuentos.objects.all()
@@ -624,7 +625,8 @@ def lista_descuentos(request):
 """ Vista para registrar Descuentos
 """
 @login_required
-def registrar_descuentos(request):
+# registrar_descuentos
+def register_discounts(request):
 
     formulario = FormularioDescuentos()
 
@@ -666,7 +668,7 @@ def registrar_descuentos(request):
         # messages.success(request, "Se han registrado nuevos descuentos correctamente.")
 
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_descuentos')
+        return redirect('discount_list')
 
     else:
         return render(request, "descuentos/registrar-descuentos.html", {
@@ -676,7 +678,8 @@ def registrar_descuentos(request):
 """ Vista para ver los Descuentos 
 """
 @login_required
-def ver_descuentos(request, id_descuento):
+# ver_descuentos
+def view_discount_statement(request, id_descuento):
 
     # Esto agarra el descuento que quiero ver
     descuento_seleccionado = Descuentos.objects.filter(id=id_descuento)

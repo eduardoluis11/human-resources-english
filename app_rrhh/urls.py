@@ -46,9 +46,9 @@ urlpatterns = [
     path('register-proof-of-leave', views.register_proof_of_leave, name='register_proof_of_leave'),
     path('<str:id_justificacion>/view-proof-of-leave', views.view_proof_of_leave, name='view_proof_of_leave'),
 
-    path('lista-descuentos', views.lista_descuentos, name='lista_descuentos'),
-    path('registrar-descuentos', views.registrar_descuentos, name='registrar_descuentos'),
-    path('<str:id_descuento>/ver-descuento', views.ver_descuentos, name='ver_descuentos'),
+    path('discount-list', views.discount_list, name='discount_list'),
+    path('register-discounts', views.register_discounts, name='register_discounts'),
+    path('<str:id_descuento>/view-discount-statement', views.view_discount_statement, name='view_discount_statement'),
 
     path('lista-ingresos-extras', views.lista_ingresos_extras, name='lista_ingresos_extras'),
     path('registrar-ingresos-extras', views.registrar_ingresos_extras, name='registrar_ingresos_extras'),

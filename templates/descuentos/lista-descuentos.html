@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar un nuevo descuento -->
-    <a href="{% url 'registrar_descuentos' %}" class="text-decoration-none">
+    <a href="{% url 'register_discounts' %}" class="text-decoration-none">
 <!--        Agregar Nuevo Descuento-->
         Add a New Discount
     </a>
@@ -58,7 +58,7 @@
                         {{descuento.descuentos_totales}} $
                     </td>
                     <td>
-                        <a href="{{descuento.id}}/ver-descuento" class="text-decoration-none">View Details</a>
+                        <a href="{{descuento.id}}/view-discount-statement" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}
