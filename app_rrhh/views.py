@@ -530,7 +530,8 @@ def view_job_profile(request, id_cargo):
 """ Vista de Lista de Justificaciones de Permisos
 """
 @login_required
-def lista_justificaciones(request):
+# lista_justificaciones
+def list_of_proofs_of_leaves(request):
 
     return render(request, "justificacion-de-permiso/lista-justificaciones.html", {
         "justificaciones": JustificacionDePermiso.objects.all()
@@ -543,7 +544,8 @@ similar al ImageField de los formularios de Django (tengo que usar “request.FI
 <form> en HTML).
 """
 @login_required
-def registrar_justificacion_permiso(request):
+# registrar_justificacion_permiso
+def register_proof_of_leave(request):
 
     # Esto me llama el formulario de Django para registrar perfiles de cargo
     formulario = FormularioJustificacion
@@ -583,7 +585,7 @@ def registrar_justificacion_permiso(request):
         messages.success(request, "A new proof of leave of absence has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_justificaciones')
+        return redirect('list_of_proofs_of_leaves')
 
     # Esto renderiza la pagina para registrar sanciones
     else:
@@ -594,7 +596,8 @@ def registrar_justificacion_permiso(request):
 """ Vista para Ver de manera detallada una Justificacion de un Permiso
 """
 @login_required
-def ver_justificacion(request, id_justificacion):
+# ver_justificacion
+def view_proof_of_leave(request, id_justificacion):
 
     # Esto agarra la justificacion que quiero ver
     justificacion_seleccionada = JustificacionDePermiso.objects.filter(id=id_justificacion)

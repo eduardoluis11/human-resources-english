@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar una nueva justificacion -->
-    <a href="{% url 'registrar_justificacion_permiso' %}" class="text-decoration-none">
+    <a href="{% url 'register_proof_of_leave' %}" class="text-decoration-none">
 <!--        Agregar Nueva Justificación de Permiso-->
         Add New Proof of Leave of Absence
     </a>
@@ -56,7 +56,7 @@
                         {{justificacion.fecha_reincorporacion}}
                     </td>
                     <td>
-                        <a href="{{justificacion.id}}/ver-justificacion" class="text-decoration-none">View Details</a>
+                        <a href="{{justificacion.id}}/view-proof-of-leave" class="text-decoration-none">View Details</a>
                     </td>
                 </tr>
             {% endfor %}

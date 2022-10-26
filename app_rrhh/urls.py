@@ -39,9 +39,9 @@ urlpatterns = [
     path('register-job-profile', views.register_job_profile, name='register_job_profile'),
     path('<str:id_cargo>/view-job-profile', views.view_job_profile, name='view_job_profile'),
 
-    path('lista-justificaciones', views.lista_justificaciones, name='lista_justificaciones'),
-    path('registrar-justificacion', views.registrar_justificacion_permiso, name='registrar_justificacion_permiso'),
-    path('<str:id_justificacion>/ver-justificacion', views.ver_justificacion, name='ver_justificacion'),
+    path('list-of-proofs-of-leaves', views.list_of_proofs_of_leaves, name='list_of_proofs_of_leaves'),
+    path('register-proof-of-leave', views.register_proof_of_leave, name='register_proof_of_leave'),
+    path('<str:id_justificacion>/view-proof-of-leave', views.view_proof_of_leave, name='view_proof_of_leave'),
 
     path('lista-descuentos', views.lista_descuentos, name='lista_descuentos'),
     path('registrar-descuentos', views.registrar_descuentos, name='registrar_descuentos'),
