@@ -1,34 +1,33 @@
 from django.shortcuts import render
 
-""" Tarde o tempreano tendré que usar la biblioteca HTTP Response Redirect, por lo que la voy a incluir de una vez
-(fuente: https://docs.djangoproject.com/en/4.1/topics/http/urls/ .)
+""" I will have to use the HTTP Response Redirect feature, so it will be included right now (source: 
+https://docs.djangoproject.com/en/4.1/topics/http/urls/ .)
 """
 from django.http import HttpResponseRedirect
 
-# Las bibliotecas "authenticate" a "IntegrityError" las aprendí a usar de aquí:
+# I learned how to use "authenticate" a "IntegrityError" from here:
 # https://cdn.cs50.net/web/2020/spring/projects/4/network.zip
 
-# Esto me deja iniciar y cerrar sesión
+# This lets me sign in and sign out.
 from django.contrib.auth import authenticate, login, logout
 
-# Esto me deja volver a la página de inicio de manera más rápida
+# This allows me to go back to the home page more quickly.
 from django.urls import reverse
 
-# Esto me detecta si hay dos usuarios con el mismo nombre de usuario
+# This detects if there are two users with the same username.
 from django.db import IntegrityError
 
-# Esto me deja poner el decorator que requiere que inicies sesión para ver una vista/view
+# This allows me to use the decorator that asks the user to log in to see a view.
 from django.contrib.auth.decorators import login_required
 
-# Esto me dejará agarrar la fecha y hora actual
+# This will let me get the current date and time.
 import datetime
 
-# Esto me deja mostrar mensajes flash, y redirigir al usuario a otra página (fuente: https://youtu.be/8kBo91L8JTY )
+# This allows me to show flash messages and redirect the user to another page (source: https://youtu.be/8kBo91L8JTY )
 from django.contrib import messages
 from django.shortcuts import redirect
 
-
-# esto me dejará usar los formularios de Django de formularios.py
+# This will allow me to use the Django forms from forms.py
 from .formularios import FormularioRegistrarSancion, FormularioRegistrarBonificacion, FormularioRegistrarPermiso, \
     FormularioPerfilDeCargo, FormularioJustificacion, FormularioDescuentos, FormularioIngresosExtras, \
     FormularioVacaciones, FormularioCurriculum, FormularioAguinaldos, FormularioFechas, FormularioAsistencias, \
@@ -40,9 +39,7 @@ from .formularios import FormularioRegistrarSancion, FormularioRegistrarBonifica
     FormularioResumenGeneralOrden5, FormularioPlanillaIPS
 
 
-
-
-# Esto me importa los modelos (fuente: https://docs.djangoproject.com/en/4.1/topics/db/models/ )
+# This imports the models (source: https://docs.djangoproject.com/en/4.1/topics/db/models/ )
 from .models import User, Sancion, BonificacionFamiliar, Permiso, PerfilDeCargo, JustificacionDePermiso, Descuentos, \
     IngresoExtra, Vacacion, Curriculum, Aguinaldo, FechaAsistencia, Asistencia, LiquidacionDelPersonal, \
     LiquidacionDeSalario, Legajo, Contrato, InformeWeb, PlanillaEmpleadosMinisterioDeTrabajo, \
@@ -51,51 +48,50 @@ from .models import User, Sancion, BonificacionFamiliar, Permiso, PerfilDeCargo,
 
 # Create your views here.
 
-""" Home o página de inicio.
+""" Home page
 """
 def index(request):
     return render(request, 'index.html')
 
-""" Función para registrar un usuario.
+""" Function for letting a user to create an account.
 
-Esta función me dejará tanto entrar a la página registrar.html, como para crearle una cuenta a un usuario (tendré
-que usar un "else").
+This function will allow me to both enter into the register.html page, as well as create a user account for a user (I 
+will have to use "else"). 
 
-Tengo que agarrar los datos de los 4 campos del formulario POST de registrar.html.
+I need to grab the data from the 4 fields on the form POST of register.html. 
 
-El request.method detectará si hice un POST request (fuente: 
-https://docs.djangoproject.com/en/4.1/ref/request-response/ ).
+The request.method will detect whether I did a POST request (source: 
+https://docs.djangoproject.com/en/4.1/ref/request-response/ ). 
 
-Si el usuario escribe 2 contraseñas distintas en "contraseña" y en "confirmar contraseña", voy a mostrar un mensaje
-de error.
+If the user writes 2 different passwords in "password"  and in "confirm password," I will show an error message. 
 
-Si el usuario rellena los 4 campos de manera correcta y clica en "Registrarse", voy a verificar que el nombre de 
-usuario que esté usando no esté repetido. De lo contrario, le mostraré un error. Para ello, usaré un "try" y "except".
-Si alguien más está usando ese nombre de usuario, ejecutaré un error dentro del snippet que tenga la línea "except"
-(fuente: https://www.w3schools.com/python/python_try_except.asp .)
+If the user fills in the 4 fields correctly and clicks 
+"Register," I will check to see if the user's name is not already registered. If it is, I will show an error message. 
+To do this, I will use a "try" and "except." If someone else is using that user name, I will execute an error in the 
+snippet that has the line "except" (source: https://www.w3schools.com/python/python_try_except.asp .) 
 
-El resto del código (el create_user, el IntegrityError, y el login) fueron tomados de 
-https://cdn.cs50.net/web/2020/spring/projects/4/network.zip , el cual viene de este enlace: 
-https://cs50.harvard.edu/web/2020/projects/4/network/ .
+The rest of the code (the create_user, the IntegrityError, and the login) were taken from 
+https://cdn.cs50.net/web/2020/spring/projects/4/network.zip , which comes from this link: 
+https://cs50.harvard.edu/web/2020/projects/4/network/
 """
 def registrar(request):
 
-    # Esto detecta si el usuario clicó en "Registrarse" (si envió el formulario para registrarse)
+    # This detects if the user clicked on "Register" (if they submitted the Sign Up form)
     if request.method == "POST":
 
-        # Esto agarra la información tecleada en cada una de las 4 casillas del formulario
+        # This gets the information typed into each of the four input fields on the form.
         nombre_usuario = request.POST["nombre_usuario"]
         email = request.POST["email"]
         contrasena = request.POST["contrasena"]
         confirmar_contrasena = request.POST["confirmar_contrasena"]
 
-        # Esto verifica que las 2 contraseñas escritas en el formulario sean las mismas
+        # This checks that the two passwords written in the form are the same.
         if contrasena != confirmar_contrasena:
             return render(request, "registrar.html", {
                 "mensaje": "Las dos contraseñas deben ser iguales."
             })
 
-        # Esto creará un usuario, o imprimirá un mensaje de error si el usuario usa un nombre de usuario repetido
+        # This will create a user, or print an error message if the user uses a username that is repeated
         try:
             usuario = User.objects.create_user(nombre_usuario, email, contrasena)
             usuario.save()
@@ -106,34 +102,34 @@ def registrar(request):
         login(request, usuario)
         return HttpResponseRedirect(reverse("index"))
 
-    # Esto renderizará la pagina registrar.html (la página para registrarse)
+    # This will render the page register.html (the page for signing up)
     else:
         return render(request, 'registrar.html')
 
-""" Vista/view para iniciar sesión.
+""" Log In view
 
-Este view va a ser más o menos similar al de registrarse. Tendrá un if con dos condiciones: si el usuario no ha enviado 
-una petición POST, simplemente me mostrará la página para iniciar sesión; mientras tanto, si envía el POST, entonces
-el usuario iniciará sesión, y será redirigido a la página de inicio.
+This view will be somewhat similar to registering. There is an if statement with two conditions: if the user has not 
+sent a POST request, they will be shown the login page; while if they send a POST request, the user will be logged in, 
+and redirected to the home page.
 
-El "authenticate" lee el nombre de usuario y contraseña, y chequea si existen en la base de datos (fuente: 
+The "authenticate" function reads the username and password, and checks to see if it is in the database (source: 
 https://docs.djangoproject.com/en/dev/topics/auth/default/ .)
 
-La función "login" le permitirá al usuario iniciar sesión.
+The "login" function will allow the user to login.
 
-El "is not None" verifica que existe un registro con el nombre de usuario y contraseña de ese usuario.
+The "is not None" check will see if there is a record with that username and password for that user.
 """
 def iniciar_sesion(request):
 
-    # Si el usuario clica en el botón submit de "Iniciar Sesión", se activará esto
+    # If the user clicks the "Log In" submit button, this will be activated.
     if request.method == "POST":
         nombre_usuario = request.POST["nombre_usuario"]
         contrasena = request.POST["contrasena"]
 
-        # Buscar en la base de datos si este usuario existe
+        # Search the database for this user if they exist.
         usuario = authenticate(request, username=nombre_usuario, password=contrasena)
 
-        # Si el usuario existe, este podrá iniciar sesión
+        # If the user exists, this user can log in
         if usuario is not None:
             login(request, usuario)
             return HttpResponseRedirect(reverse("index"))
@@ -142,26 +138,26 @@ def iniciar_sesion(request):
                 "mensaje": "Nombre de usuario y/o contraseña incorrectos."
             })
 
-    # Esto abre la página de inicio de sesión si el usuario entra a la URL de esta página
+    # This opens the log in page if the user enters the URL of this page.
     else:
         return render(request, 'iniciar-sesion.html')
 
-""" Vista/view para cerrar la sesión del usuario.
+""" View for closing the user's session.
 
-La función logout() te deja cerrar sesión (fuente: https://docs.djangoproject.com/en/dev/topics/auth/default/ ).
+The "logout()" function will close the session (source: https://docs.djangoproject.com/en/dev/topics/auth/default/ ).
 """
 def cerrar_sesion(request):
     logout(request)
 
-    # Esto redirige el usuario a la página de inicio
+    # This redirects the user to the home page.
     return HttpResponseRedirect(reverse("index"))
 
-""" Vista para ver la lista de sanciones de todos los trabajadores.
+""" View for displaying the list of sanctions for all employees.
 
-A todas las 18 funciones les voy a poner el decorator “login required”, ya que quiero que el usuario solo pueda ver el 
-contenido y los datos de los empleados si tiene una cuenta.
+I am going to put the “login required” decorator on all 18 functions so that only registered users can see the web app's
+content and data for all employees.
 
-Para renderizar todas las sanciones, usaré: “Tabla.objects.all()”.
+To render all the sanctions, I will use: “Tabla.objects.all()”.
 """
 @login_required
 # lista_sanciones
@@ -171,13 +167,13 @@ def sanctions_list(request):
         "sanciones": Sancion.objects.all()
     })
 
-""" Vista para registrar sanciones.
+""" View for registering sanctions.
 
-Tengo que modificar el view para que me meta los datos del formulario en la bbdd.
+I have to modify the view so that it enters the form data into the database.
 
-Si le quiero mostrar un flash message al usuario y redirigirlo a otra página al mismo tiempo, debo usar "messages"
-y "redirect". En el "redirect", tengo que poner la URL de la página a la que quiero redirigir al usuario, NO
-el nombre el archivo HTML.
+If I want to show a flash message to the user and redirect them to another page at the same time, I must use "messages"
+and "redirect". In the "redirect", I have to put the URL of the page to which I want to redirect the user, NOT
+the name of the HTML file.
 
 """
 @login_required
@@ -185,13 +181,8 @@ el nombre el archivo HTML.
 def register_sanction(request):
 
     # Esto me llama el formulario de Django para registrar sanciones
+    # This calls the Django form for registering sanctions
     formulario = FormularioRegistrarSancion()
-
-    # DEBUGGEO. BORRAR. Esto agarra el formulario para subir una imagen
-    # formulario_imagen = FormularioRegistrarPermiso()
-
-    # Mensaje de confirmacion si el usuario registra una sancion
-    # confirmacion_nueva_sancion = ''
 
     if request.method == "POST":
         nombre = request.POST["name"]
@@ -201,53 +192,33 @@ def register_sanction(request):
         sancion_a_aplicar = request.POST["sanction_that_will_be_applied"]
         fecha_del_incidente = request.POST["date_of_the_incident"]
 
-        # PARA DEBUGGEAR: esto metera una imagen en la base de datos. BORRAR
-        # foto_firma_trabajador = request.FILES["foto_firma_trabajador"]
-
-        # Esto me agarra la fecha y la hora actual
+        # This gets the current date and time.
         timestamp = datetime.datetime.now()
 
-        # Esto prepara los datos antes de meterlos a la base de datos
+        # This will prepare the data before inserting it into the database.
         nueva_sancion = Sancion(nombre=nombre, apellidos=apellidos, cedula=cedula, motivo_de_sancion=motivo_de_sancion,
                                 sancion_a_aplicar=sancion_a_aplicar, fecha_del_incidente=fecha_del_incidente,
                                 timestamp=timestamp)
 
-        # Esto inserta los campos en la base de datos
+        # This inserts the fields into the database.
         nueva_sancion.save()
 
-        # Mensaje flash de confirmación
+        # Flash confirmation message
         messages.success(request, "A new sanction has been successfully registered.")
 
-        # messages.success(request, "Se ha registrado una nueva sanción correctamente.")
-
-        # PARA DEBUGGEAR. Esto preparará la imagen para meterla a la bbdd. BORRAR.
-        # nueva_imagen = Permiso(foto_firma_trabajador=foto_firma_trabajador)
-        # nueva_imagen.save()
-
-
-        # Esto redirige al usuario a la lista de sanciones
+        # This redirects the user to the list of sanctions.
         return redirect('sanctions_list')
 
-
-        # confirmacion_nueva_sancion = 'Se ha registrado una nueva sanción correctamente.'
-
-        # Esto redirige al usuario a la página con la lista de sanciones
-        # return render(request, "sancion/lista-sanciones.html", {
-        #     "confirmacion_nueva_sancion": confirmacion_nueva_sancion
-        # })
-
-    # Esto renderiza la pagina para registrar sanciones
-    # BORRAR el formulario_imagen. Es solo para debuggeo
+    # This renders the page for registering sanctions.
     else:
         return render(request, "sancion/registrar-sancion.html", {
             "formulario": formulario,
-            # "formulario_imagen": formulario_imagen,
         })
 
-""" Vista para borrar sanciones.
+""" View for deleting sanctions.
 
-Necesito la ID de la sancion para borrar esa sanción en específico, y no borar las otras sanciones por accidente. 
-Por lo tanto, necesito usar un segundo argumento, el cual agarrará la ID de la sanción.
+I need the ID of the sanction to delete that sanction specifically, and not delete the other sanctions by accident. 
+Therefore, I need to use a second argument, which will take the ID of the sanction.
 """
 @login_required
 # borrar_sancion
@@ -274,13 +245,13 @@ def delete_sanction(request, id_sancion):
             "sancion_actual": sancion_actual
         })
 
-""" Vista para ver todos los detalles de una sanción.
+""" View that displays all the details of a sanction.
 
-Para entrar a ella, haré que el usuario clique en “ver detalles”. 
+To enter to this page, I will make the user click on "Detailed View".
 
-Una de las cosas que tengo que hacer es como el “borrar sanción”: tengo que poner el numero de la sanción en la URL y 
-en el segundo argumento en el view para ver la sancion de manera detallada. Del resto, será mostrar todos los datos 
-de esa sanción.
+One of the things I have to do is like in "delete sanction": I have to put the number of the sanction in the URL and
+in the second argument of the view to see the sanction in detail. After that, I will to show all the data
+of that sanction.
 """
 @login_required
 # ver_sancion
@@ -294,7 +265,7 @@ def view_sanction(request, id_sancion):
         "sancion_actual": sancion_actual
     })
 
-""" Vista de lista de bonificaciones familiares de cada mes de todo el personal.
+""" View that displays the list of Large Family Bonuses for each month for all employees. 
 """
 @login_required
 # lista_bonificaciones_familiares
@@ -1071,33 +1042,33 @@ def attendance_dates_list(request):
         "fechas": FechaAsistencia.objects.all()
     })
 
-""" Vista con el formulario para registrar Asistencias.
+""" View for registering Attendances.
 
-Para registrar asistencias en un dia, tendre que pasar un argumento, el cual sera la id de esa fecha. Ahi, es donde 
-podre registrar cuales empleados fueron a trabajar ese dia
+To register attendance on one day, I will have to pass an argument, which will be the id of that date. That is where 
+I will be able to register which employees were working that day.
 
-Por ejemplo, para ver la lista de empleados que fueron a ttabajar el 19 de agosto, y como el 19 de agosto tiene de id 
-"1", entonces la lista de empleados que asistio ese dia estara en la URL "1/lista-asistencias"
+For example, to see the list of employees who went to work on August 19, and since August 19 has the id 
+"1", then the list of employees who attended that day will be in the URL "1/list-of-attendances"
 
-Y, para registrar a un empleado que asistio ese dia, lo pondre en "1/registrar-asistencia" (para registrarle la 
-asistencia).
+And, to register an employee who attended that day, I will put it in "1/register-attendance" (to register 
+attendance).
 
-Para usar una clave foranea, tengo que usar notacion como esta:
-variable = Tabla_FK.objects.filter(campo_FK__campo_de_la_tabla_original=valor_deseado)
+To use a foreign key, I have to use notation like this:
+variable = Table_FK.objects.filter (FK_field__field_of_the_original_table = desired_value)
 
-Documentacion de return redirect: https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/
+Documentation of "return redirect": https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/
 
-Ahora que me recuerdo: esto que estoy haciendo con las FK solo sirve si ya tengo al menos un registro en la tabla de 
-asistencias. Y yo NO TENGO NINGUN REGISTRO EN ESA TABLA. La FK me serviria es para las listas y mostrar las asistencias 
-de esa lista. Para agarrar la fecha de asistencia, tendre que usar otro metodo 
-(por ejemplo, fecha_asistencia = id_dia).
+Now that I remember: this that I am doing with the FK only works if I already have at least one record in the 
+Attendance table. And I HAVE NO RECORD IN THAT TABLE. The FK would serve me is for the lists and show the attendance 
+of that list. To get the date of attendance, I will have to use another method 
+(for example, attendance_date = day_id).
 
-Agarrare con un "get()" una instancia de una fecha de la tabla Fecha Asistencia. La fecha que agarrare sera la que 
-tenga como ID la ID que aparezca en la URL (el 2do parámetro). Luego, meteré esa instancia como la fecha
-en la tabla Asistencias.
+I will take with a "get ()" an instance of a date from the Date Attendance table. The date I will take will be the one 
+that has as ID the ID that appears in the URL (the 2nd parameter). Then, I will put that instance as the date 
+in the Attendances table.
 
-Si lamo una vista para mostrar la lista de asistencias despues de registrar a un empleado, no voy a poder registrar mas 
-empleados. Entonces, simplemente voy a redirigir al usuario a la lista de dias con redirect.
+If I call a view to show the list of attendance after registering an employee, I will not be able to register more 
+employees. So, I'm just going to redirect the user to the list of days with redirect.
 """
 @login_required
 # registrar_asistencia
