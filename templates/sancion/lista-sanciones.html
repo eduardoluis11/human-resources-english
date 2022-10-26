@@ -19,7 +19,7 @@
 
 
     <!-- Enlace para agregar una nueva sanción -->
-    <a href="{% url 'registrar_sancion' %}" class="text-decoration-none">Add a New Sanction</a>
+    <a href="{% url 'register_sanction' %}" class="text-decoration-none">Add a New Sanction</a>
     <br>
     <br>
 
@@ -52,9 +52,9 @@
                         {{sancion.sancion_a_aplicar}}
                     </td>
                     <td>
-                        <a href="{{sancion.id}}/ver-sancion" class="text-decoration-none">Detailed View</a>
+                        <a href="{{sancion.id}}/view-sanction" class="text-decoration-none">Detailed View</a>
                         /
-                        <a href="{{sancion.id}}/borrar-sancion" class="text-decoration-none">Delete</a>
+                        <a href="{{sancion.id}}/delete-sanction" class="text-decoration-none">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

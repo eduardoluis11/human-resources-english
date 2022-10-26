@@ -24,13 +24,16 @@ urlpatterns = [
     path('registrar', views.registrar, name='registrar'),
     path('iniciar-sesion', views.iniciar_sesion, name='iniciar_sesion'),
     path('cerrar-sesion', views.cerrar_sesion, name='cerrar_sesion'),
-    path('lista-sanciones', views.lista_sanciones, name='lista_sanciones'),
-    path('registrar-sancion', views.registrar_sancion, name='registrar_sancion'),
-    path('<str:id_sancion>/borrar-sancion/', views.borrar_sancion, name='borrar_sancion'),
-    path('<str:id_sancion>/ver-sancion/', views.ver_sancion, name='ver_sancion'),
+
+    path('sanctions-list', views.sanctions_list, name='sanctions_list'),
+    path('register-sanction', views.register_sanction, name='register_sanction'),
+    path('<str:id_sancion>/delete-sanction/', views.delete_sanction, name='delete_sanction'),
+    path('<str:id_sancion>/view-sanction/', views.view_sanction, name='view_sanction'),
+
     path('lista-bonificaciones', views.lista_bonificaciones_familiares, name='lista_bonificaciones_familiares'),
     path('registrar-bonificacion', views.registrar_bonificacion_familiar, name='registrar_bonificacion_familiar'),
     path('<str:id_bonificacion>/ver-bonificacion/', views.ver_bonificacion, name='ver_bonificacion'),
+
     path('lista-permisos', views.lista_permisos, name='lista_permisos'),
     path('registrar-permiso', views.registrar_permiso, name='registrar_permiso'),
     path('<str:id_permiso>/ver-permiso/', views.ver_permiso, name='ver_permiso'),

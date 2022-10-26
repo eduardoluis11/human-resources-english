@@ -22,7 +22,7 @@
     <form method="post">
         {% csrf_token %}
         <input class="btn btn-primary" type="submit" value="Delete">
-        <a href="{% url 'lista_sanciones' %}" class="text-decoration-none" style="padding-left: 1rem;">
+        <a href="{% url 'sanctions_list' %}" class="text-decoration-none" style="padding-left: 1rem;">
             Cancel
         </a>
     </form>

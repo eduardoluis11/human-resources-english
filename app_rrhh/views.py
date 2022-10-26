@@ -164,7 +164,8 @@ contenido y los datos de los empleados si tiene una cuenta.
 Para renderizar todas las sanciones, usaré: “Tabla.objects.all()”.
 """
 @login_required
-def lista_sanciones(request):
+# lista_sanciones
+def sanctions_list(request):
 
     return render(request, "sancion/lista-sanciones.html", {
         "sanciones": Sancion.objects.all()
@@ -180,7 +181,8 @@ el nombre el archivo HTML.
 
 """
 @login_required
-def registrar_sancion(request):
+# registrar_sancion
+def register_sanction(request):
 
     # Esto me llama el formulario de Django para registrar sanciones
     formulario = FormularioRegistrarSancion()
@@ -224,7 +226,7 @@ def registrar_sancion(request):
 
 
         # Esto redirige al usuario a la lista de sanciones
-        return redirect('lista_sanciones')
+        return redirect('sanctions_list')
 
 
         # confirmacion_nueva_sancion = 'Se ha registrado una nueva sanción correctamente.'
@@ -248,7 +250,8 @@ Necesito la ID de la sancion para borrar esa sanción en específico, y no borar
 Por lo tanto, necesito usar un segundo argumento, el cual agarrará la ID de la sanción.
 """
 @login_required
-def borrar_sancion(request, id_sancion):
+# borrar_sancion
+def delete_sanction(request, id_sancion):
 
     # Esto agarra la sanción que quiero borrar
     sancion_actual = Sancion.objects.filter(id=id_sancion)
@@ -263,7 +266,7 @@ def borrar_sancion(request, id_sancion):
         # messages.success(request, "Se ha borrado la sanción seleccionada.")
 
         # Esto redirige al usuario a la lista de sanciones
-        return redirect('lista_sanciones')
+        return redirect('sanctions_list')
 
     # Esto renderiza la página que te pregunta si quieres borrar la sanción
     else:
@@ -280,7 +283,8 @@ en el segundo argumento en el view para ver la sancion de manera detallada. Del 
 de esa sanción.
 """
 @login_required
-def ver_sancion(request, id_sancion):
+# ver_sancion
+def view_sanction(request, id_sancion):
 
     # Esto agarra la sanción que quiero borrar
     sancion_actual = Sancion.objects.filter(id=id_sancion)
@@ -293,6 +297,7 @@ def ver_sancion(request, id_sancion):
 """ Vista de lista de bonificaciones familiares de cada mes de todo el personal.
 """
 @login_required
+# lista_bonificaciones_familiares
 def lista_bonificaciones_familiares(request):
 
     return render(request, "bonificacion-familiar/lista-bonificaciones-familiares.html", {
