@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar unas nuevas Fechas de Asistencia -->
-    <a href="{% url 'registrar_dia_asistencia' %}" class="text-decoration-none">
+    <a href="{% url 'register_attendance_date' %}" class="text-decoration-none">
         Add A New Date
     </a>
     <br>
@@ -41,7 +41,7 @@
                         {{fecha.fecha_asistencias}}
                     </td>
                     <td>
-                        <a href="{{fecha.id}}/lista-asistencias" class="text-decoration-none">
+                        <a href="{{fecha.id}}/attendance-list" class="text-decoration-none">
                             View Attendance Entries
                         </a>
                     </td>

@@ -1018,7 +1018,8 @@ def view_christmas_bonus(request, id_aguinaldo):
 """ Esto me dejará Registrar las Fechas para las Asistencias.
 """
 @login_required
-def registrar_dia_asistencia(request):
+# registrar_dia_asistencia
+def register_attendance_date(request):
 
     formulario = FormularioFechas
 
@@ -1038,7 +1039,7 @@ def registrar_dia_asistencia(request):
         messages.success(request, "A new date has been successfully registered.")
 
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_dias_asistencia')
+        return redirect('attendance_dates_list')
 
     # Esto renderiza la página para registrar el currículum
     # else:
@@ -1049,7 +1050,8 @@ def registrar_dia_asistencia(request):
 """ Lista de fechas en las que se tomó asistencia.
 """
 @login_required
-def lista_dias_asistencia(request):
+# lista_dias_asistencia
+def attendance_dates_list(request):
 
     return render(request, "asistencias/lista-dias.html", {
         "fechas": FechaAsistencia.objects.all()
@@ -1084,7 +1086,8 @@ Si lamo una vista para mostrar la lista de asistencias despues de registrar a un
 empleados. Entonces, simplemente voy a redirigir al usuario a la lista de dias con redirect.
 """
 @login_required
-def registrar_asistencia(request, id_dia):
+# registrar_asistencia
+def register_attendance_entry(request, id_dia):
 
     formulario = FormularioAsistencias
 
@@ -1133,7 +1136,7 @@ def registrar_asistencia(request, id_dia):
         print("Se almacenó correctamente el mensaje de confirmación de asistencias.")
 
         # Esto redirige al usuario a la lista asistencias de ese día
-        return redirect('lista_dias_asistencia')
+        return redirect('attendance_dates_list')
 
         # HAY UN BUG AQUI.
 
@@ -1162,7 +1165,8 @@ guardadas en la base de datos. Entonces, tendré que poner un filtro que me mues
 de un día en específico (que en mi caso, es del segundo parámetro que pasaré en esta vista.)
 """
 @login_required
-def lista_asistencias(request, id_dia):
+# lista_asistencias
+def attendance_list(request, id_dia):
     return render(request, "asistencias/lista-asistencias-por-dia.html", {
         "asistencias_del_dia": Asistencia.objects.filter(fecha_asistencia__id=id_dia),
         "dia": id_dia

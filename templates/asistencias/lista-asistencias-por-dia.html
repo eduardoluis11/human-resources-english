@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar unas nuevas Asistencias -->
-    <a href="/{{dia}}/registrar-asistencia" class="text-decoration-none">
+    <a href="/{{dia}}/register-attendance-entry" class="text-decoration-none">
 <!--        Agregar Nueva Asistencia-->
         Register A New Attendance Entry
     </a>
@@ -68,7 +68,7 @@
     </table>    <!-- Fin de la tabla -->
 
     <!-- Esto regresará al usuario a la lista de dias de Asistencias -->
-    <a href="{% url 'lista_dias_asistencia' %}" class="text-decoration-none" style="padding-left: 1rem;">
+    <a href="{% url 'attendance_dates_list' %}" class="text-decoration-none" style="padding-left: 1rem;">
 <!--        Regresar a Lista de Días-->
         Go Back to the Date List
     </a>

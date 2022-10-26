@@ -63,10 +63,10 @@ urlpatterns = [
     path('register-christmas-bonus', views.register_christmas_bonus, name='register_christmas_bonus'),
     path('<str:id_aguinaldo>/view-christmas-bonus', views.view_christmas_bonus, name='view_christmas_bonus'),
 
-    path('lista-dias-asistencia', views.lista_dias_asistencia, name='lista_dias_asistencia'),
-    path('registrar-dia-asistencia', views.registrar_dia_asistencia, name='registrar_dia_asistencia'),
-    path('<str:id_dia>/registrar-asistencia', views.registrar_asistencia, name='registrar_asistencia'),
-    path('<str:id_dia>/lista-asistencias', views.lista_asistencias, name='lista_asistencias'),
+    path('attendance-dates-list', views.attendance_dates_list, name='attendance_dates_list'),
+    path('register-attendance-date', views.register_attendance_date, name='register_attendance_date'),
+    path('<str:id_dia>/register-attendance-entry', views.register_attendance_entry, name='register_attendance_entry'),
+    path('<str:id_dia>/attendance-list', views.attendance_list, name='attendance_list'),
 
     path('final-pay-forms-list', views.final_pay_forms_list, name='final_pay_forms_list'),
     path('register-final-pay', views.register_final_pay, name='register_final_pay'),
