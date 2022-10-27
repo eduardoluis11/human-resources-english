@@ -1325,7 +1325,8 @@ def ver_liquidacion_salario(request, id_liquidacion):
 """ Vista para Registrar un Legajo.
 """
 @login_required
-def registrar_legajo(request):
+# registrar_legajo
+def register_dossier(request):
 
     formulario_datos_personales = FormularioDatosPersonalesLegajo
     formulario_informacion_juridica = FormularioInformacionJuridicaLegajo
@@ -1383,7 +1384,7 @@ def registrar_legajo(request):
         messages.success(request, "A new dossier has been successfully registered.")
 
         # Esto redirige al usuario a la lista de legajos
-        return redirect('lista_legajos')
+        return redirect('dossier_list')
 
     # Esto renderiza la página para registrar los legajos
     else:
@@ -1397,7 +1398,8 @@ def registrar_legajo(request):
 """ Vista para ver Lista de Legajos.
 """
 @login_required
-def lista_legajos(request):
+# lista_legajos
+def dossier_list(request):
 
     return render(request, "legajo/lista-legajos.html", {
         "legajos": Legajo.objects.all()
@@ -1406,7 +1408,8 @@ def lista_legajos(request):
 """ Vista para Ver un Legajo en Detalle.
 """
 @login_required
-def ver_legajo(request, id_legajo):
+# ver_legajo
+def view_dossier(request, id_legajo):
 
     # Esto agarra el descuento que quiero ver
     legajo_seleccionado = Legajo.objects.filter(id=id_legajo)

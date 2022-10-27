@@ -18,7 +18,7 @@
     {% endfor %}
 
     <!-- Enlace para agregar un nueva Liquidación de Salarios -->
-    <a href="{% url 'registrar_legajo' %}" class="text-decoration-none">
+    <a href="{% url 'register_dossier' %}" class="text-decoration-none">
 <!--        Agregar Nuevo Legajo-->
         Add a New Dossier
     </a>
@@ -51,7 +51,7 @@
                         {{legajo.cedula}}
                     </td>
                     <td>
-                        <a href="{{legajo.id}}/ver-legajo" class="text-decoration-none">
+                        <a href="{{legajo.id}}/view-dossier" class="text-decoration-none">
 <!--                            Ver detalles en vista para imprimir-->
                             View Details In Print Preview
                         </a>

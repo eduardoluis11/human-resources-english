@@ -82,9 +82,9 @@ urlpatterns = [
     path('registrar-liquidacion-salario', views.registrar_liquidacion_salario, name='registrar_liquidacion_salario'),
     path('<str:id_liquidacion>/ver-liquidacion-salario', views.ver_liquidacion_salario, name='ver_liquidacion_salario'),
 
-    path('lista-legajos', views.lista_legajos, name='lista_legajos'),
-    path('registrar-legajo', views.registrar_legajo, name='registrar_legajo'),
-    path('<str:id_legajo>/ver-legajo', views.ver_legajo, name='ver_legajo'),
+    path('dossier-list', views.dossier_list, name='dossier_list'),
+    path('register-dossier', views.register_dossier, name='register_dossier'),
+    path('<str:id_legajo>/view-dossier', views.view_dossier, name='view_dossier'),
 
     path('contract-list', views.contract_list, name='contract_list'),
     path('register-contract', views.register_contract, name='register_contract'),
