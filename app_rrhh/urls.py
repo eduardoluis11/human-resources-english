@@ -60,9 +60,9 @@ urlpatterns = [
     path('<str:id_ingreso>/view-supplemental-income-statement', views.view_supplemental_income_statement,
          name='view_supplemental_income_statement'),
 
-    path('lista-vacaciones', views.lista_vacaciones, name='lista_vacaciones'),
-    path('registrar-vacaciones', views.registrar_vacaciones, name='registrar_vacaciones'),
-    path('<str:id_vacacion>/ver-vacacion', views.ver_vacacion, name='ver_vacacion'),
+    path('vacation-report-list', views.vacation_report_list, name='vacation_report_list'),
+    path('register-vacation-report', views.register_vacation_report, name='register_vacation_report'),
+    path('<str:id_vacacion>/view-vacation-report', views.view_vacation_report, name='view_vacation_report'),
 
     path('list-of-resumes', views.list_of_resumes, name='list_of_resumes'),
     path('register-a-resume', views.register_a_resume, name='register_a_resume'),

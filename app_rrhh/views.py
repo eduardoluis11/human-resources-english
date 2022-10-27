@@ -728,7 +728,8 @@ def view_supplemental_income_statement(request, id_ingreso):
 """ Vista de lista de Ingresos extras del personal.
 """
 @login_required
-def lista_vacaciones(request):
+# lista_vacaciones
+def vacation_report_list(request):
 
     return render(request, "vacaciones/lista-vacaciones.html", {
         "vacaciones": Vacacion.objects.all()
@@ -743,7 +744,8 @@ Los días de vacaciones que le quedarán al empleado después de tomar sus vacac
 de días de vacaciones que tenía inicialmente y el número de días de vacaciones que tomó.
 """
 @login_required
-def registrar_vacaciones(request):
+# registrar_vacaciones
+def register_vacation_report(request):
 
     # Esto me llama el formulario de Django para registrar perfiles de cargo
     formulario = FormularioVacaciones
@@ -791,7 +793,7 @@ def registrar_vacaciones(request):
         messages.success(request, "A new vacation record has been successfully registered.")
     
         # Esto redirige al usuario a la lista de bonificaciones
-        return redirect('lista_vacaciones')
+        return redirect('vacation_report_list')
 
     # Esto renderiza la pagina para registrar vacaciones
     else:
@@ -802,7 +804,8 @@ def registrar_vacaciones(request):
 """ Vista para Ver Vacaciones seleccionadas.
 """
 @login_required
-def ver_vacacion(request, id_vacacion):
+# ver_vacacion
+def view_vacation_report(request, id_vacacion):
 
     # Esto agarra el descuento que quiero ver
     vacacion_seleccionada = Vacacion.objects.filter(id=id_vacacion)

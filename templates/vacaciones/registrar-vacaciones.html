@@ -1,13 +1,13 @@
 {% extends "disposicion.html" %}
 
 {% block title %}
-    Register a Vacation Record
+    Register a Vacation Report
 {% endblock %}
 
 <!-- Página para registrar el descuento de un empleado -->
 {% block body %}
 
-    <h1>Register a Vacation Record</h1>
+    <h1>Register a Vacation Report</h1>
     <br>
     <br>
 
@@ -22,10 +22,10 @@
 
         {{formulario.as_p}}
 
-        <input class="btn btn-primary" type="submit" value="Register Vacation Record">  <!-- Botón de enviar/submit -->
+        <input class="btn btn-primary" type="submit" value="Register Vacation Report">  <!-- Botón de enviar/submit -->
 
         <!-- Esto regresará al usuario a la lista de vacaciones -->
-        <a href="{% url 'lista_vacaciones' %}" class="text-decoration-none" style="padding-left: 1rem;">
+        <a href="{% url 'vacation_report_list' %}" class="text-decoration-none" style="padding-left: 1rem;">
             Cancel
         </a>
         <br>
