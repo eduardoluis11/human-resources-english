@@ -104,7 +104,8 @@ urlpatterns = [
     path('<str:id_planilla>/view-salary-form-department-of-labor', views.view_salary_form_department_of_labor,
          name='view_salary_form_department_of_labor'),
 
-    path('lista-planillas-ips', views.lista_ips, name='lista_ips'),
-    path('registrar-planilla-ips', views.registrar_ips, name='registrar_ips'),
-    path('<str:id_planilla>/ver-planilla-ips', views.ver_planilla_ips, name='ver_planilla_ips'),
+    path('social-security-forms-list', views.social_security_forms_list, name='social_security_forms_list'),
+    path('register-social-security-form', views.register_social_security_form, name='register_social_security_form'),
+    path('<str:id_planilla>/view-social-security-form', views.view_social_security_form,
+         name='view_social_security_form'),
 ]

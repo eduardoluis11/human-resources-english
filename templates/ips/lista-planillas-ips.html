@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar un nuevo Planillas del IPS -->
-    <a href="{% url 'registrar_ips' %}" class="text-decoration-none">
+    <a href="{% url 'register_social_security_form' %}" class="text-decoration-none">
 <!--        Agregar Nueva Planilla del IPS-->
         Add a New Social Security Form
     </a>
@@ -49,7 +49,7 @@
                         {{planilla.cedula}}
                     </td>
                     <td>
-                        <a href="{{planilla.id}}/ver-planilla-ips" class="text-decoration-none">View Form</a>
+                        <a href="{{planilla.id}}/view-social-security-form" class="text-decoration-none">View Form</a>
                     </td>
                 </tr>
             {% endfor %}

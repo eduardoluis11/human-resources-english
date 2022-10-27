@@ -1997,7 +1997,8 @@ def view_salary_form_department_of_labor(request, id_planilla):
 """ Vista para Registrar una Planilla del IPS
 """
 @login_required
-def registrar_ips(request):
+# registrar_ips
+def register_social_security_form(request):
 
     formulario = FormularioPlanillaIPS
 
@@ -2039,7 +2040,7 @@ def registrar_ips(request):
         messages.success(request, "A new social security form has been successfully registered.")
 
         # Esto redirige al usuario a la lista de contratos
-        return redirect('lista_ips')
+        return redirect('social_security_forms_list')
 
     # Esto renderiza la página para registrar los contratos
     else:
@@ -2050,7 +2051,8 @@ def registrar_ips(request):
 """ Vista para mostrar Lista de Planillas del IPS
 """
 @login_required
-def lista_ips(request):
+# lista_ips
+def social_security_forms_list(request):
 
     return render(request, "ips/lista-planillas-ips.html", {
         "planillas": PlanillaIPS.objects.all(),
@@ -2059,7 +2061,8 @@ def lista_ips(request):
 """ Vista para Ver Detalladamente las Planillas del IPS
 """
 @login_required
-def ver_planilla_ips(request, id_planilla):
+# ver_planilla_ips
+def view_social_security_form(request, id_planilla):
 
     # Esto agarra el descuento que quiero ver
     planilla_seleccionada = PlanillaIPS.objects.filter(id=id_planilla)
