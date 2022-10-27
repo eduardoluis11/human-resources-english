@@ -358,7 +358,8 @@ def list_of_permissions(request):
 Recuerda que para las imagenes, debo usar "request.FILE", NO "request.POST".
 """
 @login_required
-def registrar_permiso(request):
+# registrar_permiso
+def register_permission(request):
 
     # Esto me llama el formulario de Django para registrar sanciones
     formulario = FormularioRegistrarPermiso()
@@ -416,7 +417,8 @@ def registrar_permiso(request):
 """ Vista para ver permiso de manera detallada
 """
 @login_required
-def ver_permiso(request, id_permiso):
+# ver_permiso
+def view_permission(request, id_permiso):
 
     # Esto agarra la bonificacion que quiero borrar
     permiso_seleccionado = Permiso.objects.filter(id=id_permiso)

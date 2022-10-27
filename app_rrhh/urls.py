@@ -35,8 +35,8 @@ urlpatterns = [
     path('<str:id_bonificacion>/ver-bonificacion/', views.ver_bonificacion, name='ver_bonificacion'),
 
     path('list-of-permissions', views.list_of_permissions, name='list_of_permissions'),
-    path('registrar-permiso', views.registrar_permiso, name='registrar_permiso'),
-    path('<str:id_permiso>/ver-permiso/', views.ver_permiso, name='ver_permiso'),
+    path('register-permission', views.register_permission, name='register_permission'),
+    path('<str:id_permiso>/view-permission/', views.view_permission, name='view_permission'),
 
     path('job-profile-list', views.job_profile_list, name='job_profile_list'),
     path('register-job-profile', views.register_job_profile, name='register_job_profile'),

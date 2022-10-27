@@ -19,7 +19,7 @@
 
     <!-- Enlace para agregar un nuevo permiso -->
 <!--    Agregar Nueva Planilla de Permiso-->
-    <a href="{% url 'registrar_permiso' %}" class="text-decoration-none">Add a New Permission Form</a>
+    <a href="{% url 'register_permission' %}" class="text-decoration-none">Add a New Permission Form</a>
     <br>
     <br>
 
@@ -47,7 +47,7 @@
                         {{permiso.cedula}}
                     </td>
                     <td>
-                        <a href="{{permiso.id}}/ver-permiso" class="text-decoration-none">
+                        <a href="{{permiso.id}}/view-permission" class="text-decoration-none">
 <!--                            Ver detalles en vista para imprimir-->
                             View details in print preview
                         </a>
