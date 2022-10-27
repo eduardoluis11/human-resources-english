@@ -266,7 +266,7 @@ def view_sanction(request, id_sancion):
 """
 @login_required
 # lista_bonificaciones_familiares
-def lista_bonificaciones_familiares(request):
+def large_family_bonus_reports_list(request):
 
     return render(request, "bonificacion-familiar/lista-bonificaciones-familiares.html", {
         "bonificaciones_familiares": BonificacionFamiliar.objects.all()
@@ -280,7 +280,8 @@ family bonus directly from here, and I will put it in the database.
 When I use "reverse redirect", I must put the name of the view, NOT the URL.
 """
 @login_required
-def registrar_bonificacion_familiar(request):
+# registrar_bonificacion_familiar
+def register_large_family_bonus_report(request):
 
     # This is the Django form for registering sanctions.
     formulario = FormularioRegistrarBonificacion()
@@ -322,7 +323,7 @@ def registrar_bonificacion_familiar(request):
         messages.success(request, "A new large family bonus report has been successfully registered.")
 
         # This redirects the user to the list of bonuses
-        return redirect('lista_bonificaciones_familiares')
+        return redirect('large_family_bonus_reports_list')
 
     # This renders the page to register sanctions
     else:
@@ -333,7 +334,8 @@ def registrar_bonificacion_familiar(request):
 """ Vista para ver en detalle la bonificación familiar de un trabajador
 """
 @login_required
-def ver_bonificacion(request, id_bonificacion):
+# ver_bonificacion
+def view_large_family_bonus_report(request, id_bonificacion):
 
     # Esto agarra la bonificacion que quiero borrar
     bonificacion_actual = BonificacionFamiliar.objects.filter(id=id_bonificacion)

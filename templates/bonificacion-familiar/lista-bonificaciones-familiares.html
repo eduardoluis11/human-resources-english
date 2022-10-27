@@ -19,7 +19,7 @@
 
 
     <!-- Enlace para agregar una nueva bonificacion familiar -->
-    <a href="{% url 'registrar_bonificacion_familiar' %}" class="text-decoration-none">
+    <a href="{% url 'register_large_family_bonus_report' %}" class="text-decoration-none">
 <!--        Agregar Nueva Bonificación Familiar-->
         Add a New Large Family Bonus Report
     </a>
@@ -58,7 +58,9 @@
                         {{bonificacion.bonificacion_familiar}} $
                     </td>
                     <td>
-                        <a href="{{bonificacion.id}}/ver-bonificacion" class="text-decoration-none">View Details</a>
+                        <a href="{{bonificacion.id}}/view-large-family-bonus-report" class="text-decoration-none">
+                            View Details
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

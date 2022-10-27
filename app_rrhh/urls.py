@@ -30,9 +30,12 @@ urlpatterns = [
     path('<str:id_sancion>/delete-sanction/', views.delete_sanction, name='delete_sanction'),
     path('<str:id_sancion>/view-sanction/', views.view_sanction, name='view_sanction'),
 
-    path('lista-bonificaciones', views.lista_bonificaciones_familiares, name='lista_bonificaciones_familiares'),
-    path('registrar-bonificacion', views.registrar_bonificacion_familiar, name='registrar_bonificacion_familiar'),
-    path('<str:id_bonificacion>/ver-bonificacion/', views.ver_bonificacion, name='ver_bonificacion'),
+    path('large-family-bonus-reports-list', views.large_family_bonus_reports_list,
+         name='large_family_bonus_reports_list'),
+    path('register-large-family-bonus-report', views.register_large_family_bonus_report,
+         name='register_large_family_bonus_report'),
+    path('<str:id_bonificacion>/view-large-family-bonus-report/', views.view_large_family_bonus_report,
+         name='view_large_family_bonus_report'),
 
     path('list-of-permissions', views.list_of_permissions, name='list_of_permissions'),
     path('register-permission', views.register_permission, name='register_permission'),
