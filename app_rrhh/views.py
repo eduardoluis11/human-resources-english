@@ -1247,7 +1247,8 @@ def view_final_pay_form(request, id_liquidacion):
 """ Vista para registrar la Liquidación de Salarios.
 """
 @login_required
-def registrar_liquidacion_salario(request):
+# registrar_liquidacion_salario
+def register_payroll_statement(request):
 
     formulario = FormularioLiquidacionDeSalario
 
@@ -1293,7 +1294,7 @@ def registrar_liquidacion_salario(request):
         messages.success(request, "A new payroll statement has been successfully registered.")
 
         # Esto redirige al usuario a la lista asistencias de ese día
-        return redirect('lista_liquidacion_salarios')
+        return redirect('payroll_statement_list')
 
     # Esto renderiza la página para registrar la liquidacion del salario
     else:
@@ -1304,7 +1305,8 @@ def registrar_liquidacion_salario(request):
 """ Vista para ver Lista de Planillas de Liquidación del Salarios.
 """
 @login_required
-def lista_liquidacion_salarios(request):
+# lista_liquidacion_salarios
+def payroll_statement_list(request):
 
     return render(request, "liquidacion-salarios/lista-liquidacion-salarios.html", {
         "liquidacion_de_salarios": LiquidacionDeSalario.objects.all()
@@ -1313,7 +1315,8 @@ def lista_liquidacion_salarios(request):
 """ Vista para ver Lista de Planillas de Liquidación de Salarios.
 """
 @login_required
-def ver_liquidacion_salario(request, id_liquidacion):
+# ver_liquidacion_salario
+def view_payroll_statement(request, id_liquidacion):
 
     # Esto agarra el descuento que quiero ver
     liquidacion_seleccionada = LiquidacionDeSalario.objects.filter(id=id_liquidacion)

@@ -19,7 +19,7 @@
     {% endfor %}
 
     <!-- Enlace para agregar un nueva Liquidación de Salarios -->
-    <a href="{% url 'registrar_liquidacion_salario' %}" class="text-decoration-none">
+    <a href="{% url 'register_payroll_statement' %}" class="text-decoration-none">
 <!--        Agregar Nueva Planilla de Liquidación-->
         Add a New Payroll Statement
     </a>
@@ -61,7 +61,7 @@
                         {{liquidacion.salario_total_a_liquidar}} $
                     </td>
                     <td>
-                        <a href="{{liquidacion.id}}/ver-liquidacion-salario" class="text-decoration-none">
+                        <a href="{{liquidacion.id}}/view-payroll-statement" class="text-decoration-none">
 <!--                            Ver detalles en vista para imprimir-->
                             View Details in Print Preview
                         </a>

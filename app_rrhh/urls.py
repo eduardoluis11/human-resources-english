@@ -78,9 +78,9 @@ urlpatterns = [
     path('register-final-pay', views.register_final_pay, name='register_final_pay'),
     path('<str:id_liquidacion>/view-final-pay-form', views.view_final_pay_form, name='view_final_pay_form'),
 
-    path('lista-liquidacion-salarios', views.lista_liquidacion_salarios, name='lista_liquidacion_salarios'),
-    path('registrar-liquidacion-salario', views.registrar_liquidacion_salario, name='registrar_liquidacion_salario'),
-    path('<str:id_liquidacion>/ver-liquidacion-salario', views.ver_liquidacion_salario, name='ver_liquidacion_salario'),
+    path('payroll-statement-list', views.payroll_statement_list, name='payroll_statement_list'),
+    path('register-payroll-statement', views.register_payroll_statement, name='register_payroll_statement'),
+    path('<str:id_liquidacion>/view-payroll-statement', views.view_payroll_statement, name='view_payroll_statement'),
 
     path('dossier-list', views.dossier_list, name='dossier_list'),
     path('register-dossier', views.register_dossier, name='register_dossier'),
