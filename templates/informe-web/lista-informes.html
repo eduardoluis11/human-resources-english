@@ -18,7 +18,7 @@
 
 
     <!-- Enlace para agregar un nuevo informe web -->
-    <a href="{% url 'registrar_informe_web' %}" class="text-decoration-none">
+    <a href="{% url 'register_web_report' %}" class="text-decoration-none">
 <!--        Agregar Nuevo Informe Web-->
         Add a New Web Report
     </a>
@@ -44,7 +44,7 @@
                         {{informe.anno}}
                     </td>
                     <td>
-                        <a href="{{informe.id}}/ver-informe" class="text-decoration-none">
+                        <a href="{{informe.id}}/view-web-report" class="text-decoration-none">
 <!--                            Ver detalles en vista para imprimir-->
                             View details in print preview
                         </a>

@@ -93,9 +93,9 @@ urlpatterns = [
     path('register-contract', views.register_contract, name='register_contract'),
     path('<str:id_contrato>/view-contract', views.view_contract, name='view_contract'),
 
-    path('lista-informes-web', views.lista_informes, name='lista_informes'),
-    path('registrar-informe-web', views.registrar_informe_web, name='registrar_informe_web'),
-    path('<str:id_informe>/ver-informe', views.ver_informe, name='ver_informe'),
+    path('web-report-list', views.web_report_list, name='web_report_list'),
+    path('register-web-report', views.register_web_report, name='register_web_report'),
+    path('<str:id_informe>/view-web-report', views.view_web_report, name='view_web_report'),
 
     path('department-labor-form-list', views.department_labor_form_list, name='department_labor_form_list'),
     path('register-department-of-labor-forms', views.register_department_of_labor_forms,

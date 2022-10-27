@@ -1518,7 +1518,8 @@ def view_contract(request, id_contrato):
 La evaluacion de desempeño debe ir dentro de un "request.FILES".
 """
 @login_required
-def registrar_informe_web(request):
+# registrar_informe_web
+def register_web_report(request):
 
     formulario = FormularioInformeWeb
 
@@ -1560,7 +1561,7 @@ def registrar_informe_web(request):
         messages.success(request, "A new web report has been successfully registered.")
     
         # Esto redirige al usuario a la lista de contratos
-        return redirect('lista_informes')
+        return redirect('web_report_list')
 
     # Esto renderiza la página para registrar los contratos
     else:
@@ -1571,7 +1572,8 @@ def registrar_informe_web(request):
 """ Vista de Lista de Informes
 """
 @login_required
-def lista_informes(request):
+# lista_informes
+def web_report_list(request):
 
     return render(request, "informe-web/lista-informes.html", {
         "informes": InformeWeb.objects.all()
@@ -1580,7 +1582,8 @@ def lista_informes(request):
 """ Vista para Ver un Informe Web en Detalle.
 """
 @login_required
-def ver_informe(request, id_informe):
+# ver_informe
+def view_web_report(request, id_informe):
 
     # Esto agarra el descuento que quiero ver
     informe_seleccionado = InformeWeb.objects.filter(id=id_informe)
