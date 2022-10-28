@@ -47,7 +47,7 @@
 <!--        Salario total a liquidar-->
         <h3>Total Wage to Pay</h3>
         <br>
-        <p><b>${{datos.salario_total_a_liquidar}}</b></p>
+        <p><b>{{datos.salario_total_a_liquidar}} $</b></p>
 
         <br>
         <br>

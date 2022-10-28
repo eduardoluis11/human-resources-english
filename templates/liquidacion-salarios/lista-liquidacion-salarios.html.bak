@@ -58,7 +58,7 @@
                         {{liquidacion.cedula}}
                     </td>
                     <td>
-                        ${{liquidacion.salario_total_a_liquidar}}
+                        $ {{liquidacion.salario_total_a_liquidar}}
                     </td>
                     <td>
                         <a href="{{liquidacion.id}}/view-payroll-statement" class="text-decoration-none">
