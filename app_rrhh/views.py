@@ -74,7 +74,8 @@ The rest of the code (the create_user, the IntegrityError, and the login) were t
 https://cdn.cs50.net/web/2020/spring/projects/4/network.zip , which comes from this link: 
 https://cs50.harvard.edu/web/2020/projects/4/network/
 """
-def registrar(request):
+# registrar
+def sign_up(request):
 
     # This detects if the user clicked on "Register" (if they submitted the Sign Up form)
     if request.method == "POST":
@@ -147,7 +148,8 @@ def log_in_view(request):
 
 The "logout()" function will close the session (source: https://docs.djangoproject.com/en/dev/topics/auth/default/ ).
 """
-def cerrar_sesion(request):
+# cerrar_sesion
+def log_out_view(request):
     logout(request)
 
     # This redirects the user to the home page.

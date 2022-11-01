@@ -34,7 +34,7 @@
     https://docs.djangoproject.com/en/4.1/howto/csrf/ .)
     -->
     <div>
-        <form action="{% url 'registrar' %}" method="post">
+        <form action="{% url 'sign_up' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Username"
@@ -62,7 +62,7 @@
     <br>
 
     <p>
-        If you already have an account, <a href="{% url 'iniciar_sesion' %}">log in here.</a>
+        If you already have an account, <a href="{% url 'log_in_view' %}">log in here.</a>
     </p>
 
 {% endblock %}

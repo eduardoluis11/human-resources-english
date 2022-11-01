@@ -21,9 +21,9 @@ asistencia).
 """
 urlpatterns = [
     path('', views.index, name='index'),
-    path('registrar', views.registrar, name='registrar'),
+    path('sign-up', views.sign_up, name='sign_up'),
     path('login', views.log_in_view, name='log_in_view'),
-    path('cerrar-sesion', views.cerrar_sesion, name='cerrar_sesion'),
+    path('log-out', views.log_out_view, name='log_out_view'),
 
     path('sanctions-list', views.sanctions_list, name='sanctions_list'),
     path('register-sanction', views.register_sanction, name='register_sanction'),

@@ -115,7 +115,7 @@
                 <span class="nav-link">Welcome, {{user.username}}</span> <!-- Imprime el nombre de usuario -->
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'cerrar_sesion' %}">Log Out</a> <!-- Cierras sesión -->
+                <a class="nav-link" href="{% url 'log_out_view' %}">Log Out</a> <!-- Cierras sesión -->
               </li>
 
             {% else %}  <!-- Si el usuario no ha iniciado sesión -->
@@ -123,7 +123,7 @@
                   <a class="nav-link" href="{% url 'log_in_view' %}">Log In</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'registrar' %}">Sign Up</a>
+                  <a class="nav-link" href="{% url 'sign_up' %}">Sign Up</a>
                 </li>
             {% endif %}
           </ul>
