@@ -334,7 +334,7 @@ def register_large_family_bonus_report(request):
             "formulario": formulario,
         })
 
-""" Vista para ver en detalle la bonificación familiar de un trabajador
+""" View to see in detail the large family bonus statement of an employee
 """
 @login_required
 # ver_bonificacion
@@ -348,7 +348,7 @@ def view_large_family_bonus_report(request, id_bonificacion):
         "bonificacion_actual": bonificacion_actual
     })
 
-""" Vista para ver todos los permisos de todo el personal.
+""" View that displays all permissions to leave for the entire staff.
 """
 @login_required
 # lista_permisos
@@ -358,9 +358,9 @@ def list_of_permissions(request):
         "permisos": Permiso.objects.all()
     })
 
-""" Vista para registrar permisos.
+""" View for registering permissions to leave.
 
-Recuerda que para las imagenes, debo usar "request.FILE", NO "request.POST".
+Remember that for the images, I have to use "request.FILE", NOT "request.POST".
 """
 @login_required
 # registrar_permiso
@@ -419,7 +419,7 @@ def register_permission(request):
             "formulario": formulario
         })
 
-""" Vista para ver permiso de manera detallada
+""" View for displaying a permission to leave in a detailed way.
 """
 @login_required
 # ver_permiso
@@ -433,7 +433,7 @@ def view_permission(request, id_permiso):
         "permiso_seleccionado": permiso_seleccionado
     })
 
-""" Vista de Perfiles de Cargos.
+""" View that displays the list of job profiles 
 """
 @login_required
 # lista_perfiles_cargos
@@ -443,7 +443,7 @@ def job_profile_list(request):
         "perfiles": PerfilDeCargo.objects.all()
     })
 
-""" Vista para registrar un nuevo Perfil de Cargo
+""" View for registering a new job profile
 """
 @login_required
 # registrar_perfil_cargo
@@ -486,7 +486,7 @@ def register_job_profile(request):
             "formulario": formulario
         })
 
-""" Vista para ver detalladamente un Perfil de Cargo
+""" View for displaying a job profile in a detailed way
 """
 @login_required
 # ver_cargo
@@ -500,7 +500,7 @@ def view_job_profile(request, id_cargo):
         "cargo_seleccionado": cargo_seleccionado
     })
 
-""" Vista de Lista de Justificaciones de Permisos
+""" View that displays the list of proofs of leaves of absence
 """
 @login_required
 # lista_justificaciones
@@ -510,11 +510,11 @@ def list_of_proofs_of_leaves(request):
         "justificaciones": JustificacionDePermiso.objects.all()
     })
 
-""" Vista para Registrar una Justificación de Permiso.
+""" View for registering a proof of leave of absence.
 
-Voy a aceptar PDFs o imágenes para los justificantes. Creo que debo usar el campo FileField. Para usarlo, debe ser 
-similar al ImageField de los formularios de Django (tengo que usar “request.FILES” en el view, y “enctype” en el 
-<form> en HTML).
+I will accept PDFs or images for the proofs of leave. I think I should use the FileField. To use it, it must be
+similar to the ImageField of the Django forms (I have to use "request.FILES" in the view, and "enctype" in the
+<form> in HTML).
 """
 @login_required
 # registrar_justificacion_permiso
@@ -566,7 +566,7 @@ def register_proof_of_leave(request):
             "formulario": formulario
         })
 
-""" Vista para Ver de manera detallada una Justificacion de un Permiso
+""" View for displaying a proof of leave of absence in a detailed way
 """
 @login_required
 # ver_justificacion
@@ -580,7 +580,7 @@ def view_proof_of_leave(request, id_justificacion):
         "justificacion_seleccionada": justificacion_seleccionada
     })
 
-""" Vista de Lista de Descuentos
+""" Discount list view
 """
 @login_required
 # lista_descuentos
@@ -590,7 +590,7 @@ def discount_list(request):
         "descuentos": Descuentos.objects.all()
     })
 
-""" Vista para registrar Descuentos
+""" View for registering a discount
 """
 @login_required
 # registrar_descuentos
@@ -643,7 +643,7 @@ def register_discounts(request):
             "formulario": formulario
         })
 
-""" Vista para ver los Descuentos 
+""" View for displaying a discount in a detailed way
 """
 @login_required
 # ver_descuentos
@@ -1145,7 +1145,7 @@ def register_attendance_entry(request, id_dia):
 
 """ Vista con la lista de Asistencias para ese día.
 
-Como quiero solo las asistencias registradas para un día en específico, no puedo mostrar toooodas las asistencias
+Como quiero solo las asistencias registradas para un día en específico, no puedo mostrar todas las asistencias
 guardadas en la base de datos. Entonces, tendré que poner un filtro que me muestre las asistencias que sean solo 
 de un día en específico (que en mi caso, es del segundo parámetro que pasaré en esta vista.)
 """
@@ -1614,20 +1614,20 @@ def department_labor_form_list(request):
         "planillas_sueldos": PlanillaSueldosMinisterioDeTrabajo.objects.all(),
     })
 
-""" Vista para registrar las 3 planillas del Ministerio de Trabajo.
+""" View to register the 3 forms for the Department of Labor.
 
-NOTA: lo ideal hubiese sido que creara 3 páginas y 3 vistas por separado para cada planilla. Y se que se ve feo tener
-un formulario gigantesco en una sola página. Sin embargo, debido a falta de tiempo, no me queda de otra que meter
-todos los formularios de las 3 planillas dentro de una sola página y dentro de una sola vista.
+NOTE: The ideal would have been to create 3 separate pages and 3 separate views for each sheet. And I know it looks bad to have
+a giant form on one page. However, due to lack of time, I have no choice but to put
+all the forms of the 3 sheets within one page and within one view.
 
-RECUERDA que tengo que calcula el 50% de los ingresos extras, y el total del salario recibido con los ingresos extras
-sumados aquí en esta vista.
+REMEMBER that I have to calculate the 50% of the extra income, and the total salary received with the added extra income
+added here in this view.
 
-Dado que hay datos que se repiten (como el número patronal), NO voy a agarrar varias veces ese mismo dato. 
-Lo agarraré una sola vez, y lo meteré en las 3 tablas.
+Since there are data that are repeated (such as the employer number), I will NOT take that same data several times.
+I will take it only once, and I will put it in the 3 tables.
 
-Lo del numero patronal: para evitar confusiones, le pondré otro nombre de variable al numero patronal de cada tabla, y 
-le cambiare el nombre en los formularios.
+The number of the employer: To avoid confusion, I will put another name of variable to the employer number of each table, and
+I will change the name in the forms.
 """
 @login_required
 # registrar_planillas_ministerio_trabajo
