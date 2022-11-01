@@ -657,7 +657,7 @@ def view_discount_statement(request, id_descuento):
         "descuento_seleccionado": descuento_seleccionado
     })
 
-""" Vista de lista de Ingresos extras del personal.
+""" View for displaying the list of Supplemental Income statements of the staff
 """
 @login_required
 # lista_ingresos_extras
@@ -667,7 +667,7 @@ def supplemental_income_statements_list(request):
         "ingresos_extras": IngresoExtra.objects.all()
     })
 
-""" Vista para registrar Ingresos Extras
+""" View for registering a Supplemental Income statement
 """
 @login_required
 # registrar_ingresos_extras
@@ -714,7 +714,7 @@ def register_supplemental_income_statement(request):
             "formulario": formulario
         })
 
-""" Vista para ver los Ingresos Extras de manera detallada.
+""" View for displaying a Supplemental Income statement in a detailed way.
 """
 @login_required
 # ver_ingreso_extra
@@ -728,7 +728,7 @@ def view_supplemental_income_statement(request, id_ingreso):
         "ingreso_seleccionado": ingreso_seleccionado
     })
 
-""" Vista de lista de Ingresos extras del personal.
+""" View for displaying the list of Supplemental Income statements of all the staff.
 """
 @login_required
 # lista_vacaciones
@@ -738,13 +738,14 @@ def vacation_report_list(request):
         "vacaciones": Vacacion.objects.all()
     })
 
-""" Vista para Registrar Vacaciones.
+""" View for registering vacations.
 
-Lo que puedo hacer es crear un campo llamado “días restantes de vacaciones”, el cual se calculará, y el cual el 
-usuario NO puede editar. Simplemente se me será directamente en la base de datos. 
+I can create a field called "remaining vacation days", which will be calculated, and which the user can NOT edit. It 
+will simply be given to me directly in the database. 
 
-Los días de vacaciones que le quedarán al empleado después de tomar sus vacaciones lo calcularé restando el total
-de días de vacaciones que tenía inicialmente y el número de días de vacaciones que tomó.
+The vacation days that will remain to the employee after taking 
+his vacations I will calculate by subtracting the total of vacation days he had initially and the number of vacation 
+days he took.
 """
 @login_required
 # registrar_vacaciones
@@ -804,7 +805,7 @@ def register_vacation_report(request):
             "formulario": formulario
         })
 
-""" Vista para Ver Vacaciones seleccionadas.
+""" View for displaying a vacation report in a detailed way.
 """
 @login_required
 # ver_vacacion
@@ -818,7 +819,7 @@ def view_vacation_report(request, id_vacacion):
         "vacacion_seleccionada": vacacion_seleccionada
     })
 
-""" Vista de lista de Currículums.
+""" View that displays the list of résumés.
 """
 @login_required
 # lista_curriculums
@@ -828,9 +829,9 @@ def list_of_resumes(request):
         "curriculums": Curriculum.objects.all()
     })
 
-""" Vista para Registrar un Curriculum.
+""" View for registering a résumé. 
 
-Recuerda usar "request.FILES" para el campo que agarra el PDF.
+Remember to use "request.FILES" for the field that stores the PDF.
 """
 @login_required
 # registrar_curriculum
@@ -888,7 +889,7 @@ def register_a_resume(request):
             "formulario": formulario
         })
 
-""" Vista para Ver un Currículum. 
+""" View for displaying a résumé in a detailed way.
 """
 @login_required
 # ver_curriculum
@@ -902,7 +903,7 @@ def view_resume(request, id_curriculum):
         "curriculum_seleccionado": curriculum_seleccionado
     })
 
-""" Vista para ver Lista de Aguinaldos.
+""" View for displaying the list of Christmas bonus statements.
 """
 @login_required
 # lista_aguinaldos
@@ -912,14 +913,14 @@ def list_of_christmas_bonus(request):
         "aguinaldos": Aguinaldo.objects.all()
     })
 
-""" Vista para calcular y registrar los Aguinaldos en la base de datos.
+""" View for calculating and registering the Christmas Bonus statements into the database.
 
-Puedo hacer el cálculo directamente en el servidor para ahorrarme tiempo. NO mostraré la cantidad de aguinaldos que le 
-corresponde al usuario sino hasta que llegue a la lista de aguinaldos, o a la vista detallada de un aguinaldo.
+I can do the calculation directly on the server to save time. I will not show the amount of bonuses that corresponds to the user 
+but until it reaches the list of bonuses, or the detailed view of a bonus.
 
-Para calcular el aguinaldo total, tengo que sumar todos los salarios de todos los meses, y debo dividirlo entre 12.
+To calculate the total bonus, I have to sum up all the salaries of all the months, and I must divide it by 12.
 
-Dado a que voy a generar una planilla, prefiero meter los 12 meses de salario.
+Since I am going to generate a form, I prefer to enter the 12 months of salary.
 """
 @login_required
 # registrar_aguinaldos
@@ -986,7 +987,7 @@ def register_christmas_bonus(request):
             "formulario": formulario
         })
 
-""" Vista para ver Planilla de Aguinaldos.
+""" View for displaying a Christmas Bonus statement in a detailed way.
 """
 @login_required
 # ver_aguinaldo
@@ -1000,7 +1001,7 @@ def view_christmas_bonus(request, id_aguinaldo):
         "aguinaldo_seleccionado": aguinaldo_seleccionado
     })
 
-""" Esto me dejará Registrar las Fechas para las Asistencias.
+""" This will let me register the dates for the attendances.
 """
 @login_required
 # registrar_dia_asistencia
@@ -1032,7 +1033,7 @@ def register_attendance_date(request):
         "formulario": formulario
     })
 
-""" Lista de fechas en las que se tomó asistencia.
+""" List of dates in which the attendances were registered.
 """
 @login_required
 # lista_dias_asistencia
@@ -1143,11 +1144,11 @@ def register_attendance_entry(request, id_dia):
             "formulario": formulario
         })
 
-""" Vista con la lista de Asistencias para ese día.
+""" View with the list of attendances for that date.
 
-Como quiero solo las asistencias registradas para un día en específico, no puedo mostrar todas las asistencias
-guardadas en la base de datos. Entonces, tendré que poner un filtro que me muestre las asistencias que sean solo 
-de un día en específico (que en mi caso, es del segundo parámetro que pasaré en esta vista.)
+I want to only show the attendance that is registered for a specific day, I can't show all the attendance that is saved in the 
+database. So, I will have to put a filter that only shows the attendance for a specific day (which in my case is the second 
+parameter I will pass in this view.)
 """
 @login_required
 # lista_asistencias
@@ -1157,9 +1158,9 @@ def attendance_list(request, id_dia):
         "dia": id_dia
     })
 
-""" Vista para Registrar la Liquidacion del Personal.
+""" View to register a final pay form.
 
-Recuerda usar "request.FILES" para la firma del encargado.
+Remember to use "request.FILES" for the manager's signature.
 """
 @login_required
 # registrar_liquidacion_personal
@@ -1229,7 +1230,7 @@ def register_final_pay(request):
             "formulario": formulario
         })
 
-""" Vista para ver Lista de Planillas de Liquidación del Personal.
+""" View for displaying the list of final pay statement forms.
 """
 @login_required
 # lista_liquidacion_personal
@@ -1239,7 +1240,7 @@ def final_pay_forms_list(request):
         "liquidacion_de_todo_el_personal": LiquidacionDelPersonal.objects.all()
     })
 
-""" Vista para ver una planilla de Liquidacion de Personal en detalle.
+""" View for displaying a final pay form in a detailed way.
 """
 @login_required
 # ver_liquidacion_personal
@@ -1252,7 +1253,7 @@ def view_final_pay_form(request, id_liquidacion):
         "liquidacion_seleccionada": liquidacion_seleccionada
     })
 
-""" Vista para registrar la Liquidación de Salarios.
+""" View for registering a payroll statement.
 """
 @login_required
 # registrar_liquidacion_salario
@@ -1310,7 +1311,7 @@ def register_payroll_statement(request):
             "formulario": formulario
         })
 
-""" Vista para ver Lista de Planillas de Liquidación del Salarios.
+""" View for displaying the list of payroll forms.
 """
 @login_required
 # lista_liquidacion_salarios
@@ -1320,7 +1321,7 @@ def payroll_statement_list(request):
         "liquidacion_de_salarios": LiquidacionDeSalario.objects.all()
     })
 
-""" Vista para ver Lista de Planillas de Liquidación de Salarios.
+""" View for displaying a payroll statement form in a detailed way.
 """
 @login_required
 # ver_liquidacion_salario
@@ -1333,7 +1334,7 @@ def view_payroll_statement(request, id_liquidacion):
         "liquidacion_seleccionada": liquidacion_seleccionada
     })
 
-""" Vista para Registrar un Legajo.
+""" View for registering a Dossier.
 """
 @login_required
 # registrar_legajo
@@ -1406,7 +1407,7 @@ def register_dossier(request):
             "formulario_otros_datos": formulario_otros_datos
         })
 
-""" Vista para ver Lista de Legajos.
+""" View for displaying the list of dossiers.
 """
 @login_required
 # lista_legajos
@@ -1416,7 +1417,7 @@ def dossier_list(request):
         "legajos": Legajo.objects.all()
     })
 
-""" Vista para Ver un Legajo en Detalle.
+""" View for displaying an employee's dossier in a detailed view.
 """
 @login_required
 # ver_legajo
@@ -1429,9 +1430,9 @@ def view_dossier(request, id_legajo):
         "legajo_seleccionado": legajo_seleccionado
     })
 
-""" Vista para Registrar un Contrato.
+""" View for registering a contract.
 
-Son 17 campos.
+It has 17 fields.
 """
 @login_required
 # registrar_contrato
@@ -1493,7 +1494,7 @@ def register_contract(request):
             "formulario_datos_contrato": formulario_datos_contrato
         })
 
-""" Vista para ver Lista de Contratos.
+""" View for displaying the list of contracts saved in the database.
 """
 @login_required
 # lista_contratos
@@ -1503,7 +1504,7 @@ def contract_list(request):
         "contratos": Contrato.objects.all()
     })
 
-""" Vista para Ver un Contrato en Detalle
+""" View for displaying a contract in a detailed way.
 """
 @login_required
 # ver_contrato
@@ -1516,9 +1517,9 @@ def view_contract(request, id_contrato):
         "contrato_seleccionado": contrato_seleccionado
     })
 
-""" Vista para Registrar un Informe Web.
+""" View for registering a Web Report.
 
-La evaluacion de desempeño debe ir dentro de un "request.FILES".
+The Performance appraisal must be within a "request.FILES".
 """
 @login_required
 # registrar_informe_web
@@ -1572,7 +1573,7 @@ def register_web_report(request):
             "formulario": formulario,
         })
 
-""" Vista de Lista de Informes
+""" View for displaying the list of web reports saved in the database
 """
 @login_required
 # lista_informes
@@ -1582,7 +1583,7 @@ def web_report_list(request):
         "informes": InformeWeb.objects.all()
     })
 
-""" Vista para Ver un Informe Web en Detalle.
+""" View for displaying a Web Report in a detailed way.
 """
 @login_required
 # ver_informe
@@ -1595,13 +1596,13 @@ def view_web_report(request, id_informe):
         "informe_seleccionado": informe_seleccionado
     })
 
-""" Vista de Lista de Planillas del Ministerio de Trabajo.
+""" View that displays the list of the Department of Labor's forms.
 
-Puedo crear una sola lista, y pondré en la tabla 3 casillas: “Ver planilla empleados”, “Ver planilla resumen”, y 
-“Ver planilla sueldos”. Cada una de esas casillas tendría un enlace a una página distinta (a la vista detallada de 
-cada una de esas planillas en formato para imprimir.) 
+I can create one list, and I will put in the table 3 boxes: "View employee form", "View summary form", and "View salary form". 
+Each of those boxes would have a link to a different page (a link to the detailed view page of each of those forms in print 
+format.)
 
-El primer campo de la planilla será “fecha”. 
+The first field of the statements form will be "date".
 """
 @login_required
 # lista_ministerio_trabajo
@@ -1969,7 +1970,7 @@ def register_department_of_labor_forms(request):
             "formulario_empleados": formulario_empleados
         })
 
-""" Vista para ver Planilla de Empleados del Ministerio de Trabajo
+""" View for displaying a Department of Labor's Employees Form
 """
 @login_required
 # ver_planilla_empleado_ministerio
@@ -1982,7 +1983,7 @@ def view_employees_form_department_of_labor(request, id_planilla):
         "planilla_seleccionada": planilla_seleccionada
     })
 
-""" Vista para ver Planilla de Resumen del Ministerio de Trabajo
+""" View for displaying a Department of Labor's Summary Form
 """
 @login_required
 # ver_planilla_resumen_ministerio
@@ -1995,7 +1996,7 @@ def view_summary_form_department_of_labor(request, id_planilla):
         "planilla_seleccionada": planilla_seleccionada
     })
 
-""" Vista para ver Planilla de Sueldo del Ministerio de Trabajo.
+""" View for displaying a Department of Labor's Salary Form
 """
 @login_required
 # ver_planilla_sueldo_ministerio
@@ -2008,7 +2009,7 @@ def view_salary_form_department_of_labor(request, id_planilla):
         "planilla_seleccionada": planilla_seleccionada
     })
 
-""" Vista para Registrar una Planilla del IPS
+""" View for registering a Social Security form
 """
 @login_required
 # registrar_ips
@@ -2062,7 +2063,7 @@ def register_social_security_form(request):
             "formulario": formulario,
         })
 
-""" Vista para mostrar Lista de Planillas del IPS
+""" View for displaying the list of Social Security forms saved in the database
 """
 @login_required
 # lista_ips
@@ -2072,7 +2073,7 @@ def social_security_forms_list(request):
         "planillas": PlanillaIPS.objects.all(),
     })
 
-""" Vista para Ver Detalladamente las Planillas del IPS
+""" View for displaying a Social Security form in a detailed way
 """
 @login_required
 # ver_planilla_ips
