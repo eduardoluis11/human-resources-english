@@ -22,7 +22,7 @@ asistencia).
 urlpatterns = [
     path('', views.index, name='index'),
     path('registrar', views.registrar, name='registrar'),
-    path('iniciar-sesion', views.iniciar_sesion, name='iniciar_sesion'),
+    path('login', views.log_in_view, name='log_in_view'),
     path('cerrar-sesion', views.cerrar_sesion, name='cerrar_sesion'),
 
     path('sanctions-list', views.sanctions_list, name='sanctions_list'),

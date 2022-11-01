@@ -119,7 +119,8 @@ The "login" function will allow the user to login.
 
 The "is not None" check will see if there is a record with that username and password for that user.
 """
-def iniciar_sesion(request):
+# iniciar_sesion
+def log_in_view(request):
 
     # If the user clicks the "Log In" submit button, this will be activated.
     if request.method == "POST":

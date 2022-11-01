@@ -27,7 +27,7 @@
     <!-- Formulario para iniciar sesión.
     -->
     <div>
-        <form action="{% url 'iniciar_sesion' %}" method="post">
+        <form action="{% url 'log_in_view' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <input class="form-control" autofocus type="text" name="nombre_usuario" placeholder="Username"
